@@ -1,3 +1,25 @@
 # Kapusta-team4-frontend
 
-Repository for frontend for team projest: team 4
+Repository for frontend for team projeсt: team 4
+
+Три точки перелома: desktop: >1280px tablet: >=768px mobile:<768
+
+Правила именования:
+
+1. Функции обработчики именуем по правилу: handlerClick, handlerChange,
+   handlerAddClass и т.д.
+2. Каждый компонент имеет свою папку. Папку называем по имени компонента с
+   большой буквы. В этой папке храним файл с логикой \Name\.js и файл со стилями
+   \Name\.module.css
+
+3. По идее будет у нас 4 view/pages:
+
+- стартовая при незалогиненом пользователе,
+- страница с указанием доходов и расходов
+- страница с отчетами и графиками
+- страница "Not Found"
+
+5. Сделала общий контейнер под все точки перелома. Прописала класс в Арр.css.
+   Там проставлены: ширина экрана, и padding для view.
+
+6. Файл со стилями в js-файле подключаем как "import s from './Name.module.scss"
