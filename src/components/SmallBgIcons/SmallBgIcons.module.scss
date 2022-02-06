@@ -1,0 +1,33 @@
+@import '../../styles/shared.scss';
+
+.bottom_icons {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    width: 183px;
+    height: 142px;
+    top: 826px;
+    left: 103px;
+    fill: $logo-picture-color;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 658px;
+    left: 230px;
+  }
+}
+
+.mobile_bottom_icons {
+  display: block;
+  position: absolute;
+  width: 83px;
+  height: 89px;
+  top: 767px;
+  left: 35px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}

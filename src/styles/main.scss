@@ -1,0 +1,95 @@
+@import './shared.scss';
+
+body {
+  font-family: $primary-font-style;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  line-height: 1.167;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: auto;
+  color: inherit;
+}
+
+input,
+button,
+textarea,
+select,
+a {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  padding-top: 30px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
+
+@media screen and (min-width: 320px) {
+  .wrapper {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    width: 768px;
+  }
+  .container {
+    padding-top: 40px;
+    padding-left: 51px;
+    padding-right: 52px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    width: 1280px;
+  }
+  .container {
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}
