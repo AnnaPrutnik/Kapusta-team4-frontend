@@ -1,12 +1,11 @@
-import Home from './components/Home/Home';
-import LoginForm from './components/LoginForm/LoginForm';
+// import LoginForm from './components/LoginForm/LoginForm';
+import HomeView from './views/HomeView/HomeView';
 
 function App() {
   return (
     <div className="App">
       <div className="wrapper">
-        <Home />
-        <LoginForm />
+        <HomeView/>
         <section className="container"></section>
       </div>
     </div>
