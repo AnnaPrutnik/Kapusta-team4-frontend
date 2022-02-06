@@ -1,5 +1,5 @@
 
-
+import Home from "./components/Home/Home";
 import LoginForm from './components/LoginForm/LoginForm'
 
 
@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <section className="container">
-
-
+          <Home/>
+       <LoginForm />
         <h1>Hello Team!</h1>
 
         <p>
@@ -20,9 +20,10 @@ function App() {
           illum, sed ducimus, debitis iusto quo eveniet!
 
         </p> 
-        <LoginForm />
+ 
 
       </section>
+
     </div>
   );
 }
