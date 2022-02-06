@@ -1,14 +1,13 @@
-
-import Home from "./components/Home/Home";
-import LoginForm from './components/LoginForm/LoginForm'
-
+import Home from './components/Home/Home';
+import LoginForm from './components/LoginForm/LoginForm';
+import ReportView from './views/ReportView/ReportView';
 
 function App() {
   return (
     <div className="App">
       <section className="container">
-          <Home/>
-       <LoginForm />
+        <Home />
+        <LoginForm />
         <h1>Hello Team!</h1>
 
         <p>
@@ -18,12 +17,10 @@ function App() {
           doloremque dolore expedita sunt, corrupti sed. Cum nesciunt animi
           possimus perspiciatis neque distinctio rem hic qui commodi laborum
           illum, sed ducimus, debitis iusto quo eveniet!
+        </p>
 
-        </p> 
- 
-
+        <ReportView />
       </section>
-
     </div>
   );
 }
