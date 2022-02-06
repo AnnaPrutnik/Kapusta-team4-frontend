@@ -1,5 +1,5 @@
-@import "./src/styles/colors";
-@import "./src/styles/variables";
+@import './src/styles/colors';
+@import './src/styles/variables';
 
 button {
   cursor: pointer;
@@ -8,10 +8,10 @@ button {
 .main_section {
   width: 100%;
   height: 100%;
-  margin: 20px auto;
+  // margin: 20px auto;
   border-radius: 30px;
-  background-color: white;
-  padding: 50px;
+  // background-color: white;
+  // padding: 50px;
 
   .btn_section {
     display: flex;
@@ -35,16 +35,16 @@ button {
 
     .expense_btn_active {
       //background-color: $bg-white-color;
-      background-color: #FEFEFE;
+      background-color: #fefefe;
       border-radius: 30px 30px 0 0;
-      color: #FF751D;
+      color: #ff751d;
       height: 100%;
       width: 138px;
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
 
     .expense_btn_disabled {
-      background-color: #FAFBFD;
+      background-color: #fafbfd;
       border-radius: 30px 30px 0 0;
       color: black;
       height: 100%;
@@ -52,17 +52,16 @@ button {
     }
 
     .income_btn_active {
-      background-color: #FEFEFE;
+      background-color: #fefefe;
       border-radius: 30px 30px 0 0;
-      color: #FF751D;
+      color: #ff751d;
       height: 100%;
       width: 138px;
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
     }
 
     .income_btn_disabled {
-      background-color: #FAFBFD;
+      background-color: #fafbfd;
       color: black;
       height: 100%;
       width: 138px;
@@ -76,8 +75,8 @@ button {
     border-radius: 0 30px 30px 30px;
     margin: 0 auto;
     position: relative;
-    padding: 35px;
-
+    padding: 33px 20px 61px 20px;
+    // padding: 35px;
     .top_info {
       display: flex;
       justify-content: space-between;
@@ -94,19 +93,18 @@ button {
           margin-right: 10px;
 
           * {
-            fill: #52555F;
+            fill: #52555f;
           }
         }
 
         span {
-          color: #52555F;
+          color: #52555f;
           font-family: $primary-font-style;
           font-style: normal;
           font-weight: 900;
           font-size: 12px;
           line-height: 14px;
           letter-spacing: 0.04em;
-
         }
       }
 
@@ -119,12 +117,12 @@ button {
           .dropdown_button {
             width: 155px;
             height: 100%;
-            background-color: #F5F6FB;
+            background-color: #f5f6fb;
             position: relative;
             display: flex;
             justify-content: space-around;
             cursor: default;
-            color: #52555F;
+            color: #52555f;
             font-weight: 400;
             align-items: center;
 
@@ -132,7 +130,7 @@ button {
               display: flex;
               align-items: center;
               justify-content: center;
-              color: #C7CCDC;
+              color: #c7ccdc;
               font-size: 12px;
             }
 
@@ -152,14 +150,14 @@ button {
               top: 100%;
               z-index: 2;
               background: #fff;
-              border: 2px solid #F5F6FB;
+              border: 2px solid #f5f6fb;
               box-sizing: border-box;
               box-shadow: 0px 3px 4px rgba(170, 178, 197, 0.4);
 
               div {
                 font-size: 12px;
                 font-weight: 400;
-                color: #C7CCDC;
+                color: #c7ccdc;
                 height: 44px;
                 display: flex;
                 width: 100%;
@@ -167,14 +165,12 @@ button {
                 align-items: center;
 
                 &:hover {
-                  background: #F5F6FB;
-                  color: #52555F;
+                  background: #f5f6fb;
+                  color: #52555f;
                 }
               }
             }
-
           }
-
         }
 
         .custom_arrow {
@@ -187,7 +183,7 @@ button {
           position: relative;
 
           input {
-            border: 1px solid #F5F6FB;
+            border: 1px solid #f5f6fb;
             height: 100%;
             width: 124px;
             padding: 2px 2px 2px 30px;
@@ -199,18 +195,17 @@ button {
             position: absolute;
             right: 20px;
             top: 12px;
-
           }
         }
 
         input {
-          border: 1px solid #F5F6FB;
+          border: 1px solid #f5f6fb;
           height: 100%;
           padding: 2px 2px 2px 25px;
           border-radius: 30px 0 0 0;
           border-right: 0;
           outline: none;
-          color: #52555F;
+          color: #52555f;
           font-style: normal;
           font-weight: bold;
           font-size: 12px;
@@ -218,7 +213,7 @@ button {
 
           &:last-child {
             border-radius: 0 30px 30px 0;
-            border: 1px solid #F5F6FB;
+            border: 1px solid #f5f6fb;
             border-left: 0;
           }
         }
@@ -230,7 +225,7 @@ button {
         }
 
         input::placeholder {
-          color: #C7CCDC;
+          color: #c7ccdc;
           font-family: $primary-font-style;
           font-style: normal;
           font-weight: normal;
@@ -245,7 +240,7 @@ button {
       .add_or_clear_btn {
         button {
           &:first-child {
-            background: #FF751D;
+            background: #ff751d;
             border: none;
             font-weight: bold;
             font-size: 12px;
@@ -266,10 +261,10 @@ button {
             line-height: 14px;
             padding: 12px 34px;
             letter-spacing: 0.02em;
-            color: #52555F;
+            color: #52555f;
             text-transform: uppercase;
-            background: #FFFFFF;
-            border: 2px solid #F5F6FB;
+            background: #ffffff;
+            border: 2px solid #f5f6fb;
             border-radius: 16px;
             width: 125px;
             height: 44px;
@@ -277,7 +272,6 @@ button {
           }
         }
       }
-
     }
 
     .info_table {
@@ -300,7 +294,7 @@ button {
 
           thead {
             tr {
-              background-color: #F5F6FB;
+              background-color: #f5f6fb;
               height: 40px;
 
               th {
@@ -321,18 +315,18 @@ button {
           }
 
           tbody {
-            background-color: #FFFFFF;
+            background-color: #ffffff;
 
             .added_content {
               td {
                 border-collapse: collapse;
-                border-bottom: 2px solid #F5F6FB;
+                border-bottom: 2px solid #f5f6fb;
                 font-style: normal;
                 font-weight: normal;
                 font-size: 12px;
                 line-height: 14px;
                 letter-spacing: 0.04em;
-                color: #52555F;
+                color: #52555f;
                 text-align: center;
 
                 span {
@@ -342,23 +336,18 @@ button {
                   display: flex;
                   align-items: center;
                   margin: 0 auto;
-                  background-color: #F5F6FB;
+                  background-color: #f5f6fb;
                   justify-content: center;
-
                 }
               }
             }
           }
-
         }
       }
-
 
       .summary_table {
         display: flex;
       }
     }
-
-
   }
 }
