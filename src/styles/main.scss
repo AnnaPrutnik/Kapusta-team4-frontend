@@ -1,0 +1,29 @@
+@import './shared.scss';
+
+body {
+  font-family: $primary-font-style;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 320px;
+  padding-top: 30px;
+  padding-left: 19px;
+  padding-right: 19px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding-top: 40px;
+    padding-left: 51px;
+    padding-right: 52px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding-left: 110px;
+    padding-right: 110px;
+  }
+}

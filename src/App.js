@@ -1,12 +1,16 @@
-import './App.css';
+
 
 import LoginForm from './components/LoginForm/LoginForm'
+
 
 function App() {
   return (
     <div className="App">
       <section className="container">
-        {/* <h1>Hello Team!</h1>
+
+
+        <h1>Hello Team!</h1>
+
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
           placeat laudantium illo! Deserunt adipisci quaerat nulla praesentium
@@ -14,8 +18,10 @@ function App() {
           doloremque dolore expedita sunt, corrupti sed. Cum nesciunt animi
           possimus perspiciatis neque distinctio rem hic qui commodi laborum
           illum, sed ducimus, debitis iusto quo eveniet!
-        </p> */}
+
+        </p> 
         <LoginForm />
+
       </section>
     </div>
   );
