@@ -12,12 +12,14 @@
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-inlinesvg": "^2.3.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "select-pure": "^2.1.2-alpha.0",
+    "uuidv4": "^6.2.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -28,12 +30,6 @@
     "prepare": "husky install",
     "predeploy": "npm run build",
     "deploy": "netlify deploy -p"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -48,7 +44,6 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^7.11.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
     "prettier": "^2.5.1"
