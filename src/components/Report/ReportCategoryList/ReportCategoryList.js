@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import { useSelector } from 'react-redux'
+import s from './ReportCategoryList.module.scss'
 
 const ReportCategoryList = ({ data }) => {
   const [typeTrans, setTypeTrans] = useState('outcome')
@@ -16,26 +17,18 @@ const ReportCategoryList = ({ data }) => {
   }
 
   return (
-    <div className="report_gallery_wrap">
-      <div className="report_gallery_wrap-btn">
-        <button
-          className="report_gallery_btn"
-          type="button"
-          onClick={() => handleClick()}
-        >
-          <MdKeyboardArrowLeft className="report_gallery_icon" />
+    <div className={s.wrap}>
+      <div className={s.wrapBtn}>
+        <button className={s.btn} type="button" onClick={() => handleClick()}>
+          <MdKeyboardArrowLeft className={s.icon} />
         </button>
         {typeTrans === 'income' ? (
-          <p className="report_gallery_title"> Расходы </p>
+          <p className={s.title}> Расходы </p>
         ) : (
-          <p className="report_gallery_title"> Доходы </p>
+          <p className={s.title}> Доходы </p>
         )}
-        <button
-          className="report_gallery_btn"
-          type="button"
-          onClick={() => handleClick()}
-        >
-          <MdKeyboardArrowRight className="report_gallery_icon" />
+        <button className={s.btn} type="button" onClick={() => handleClick()}>
+          <MdKeyboardArrowRight className={s.icon} />
         </button>
       </div>
       <div>

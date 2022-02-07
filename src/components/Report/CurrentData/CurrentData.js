@@ -1,35 +1,31 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import { transactionOperations } from 'redux/transaction';
-import months from './month.json';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import months from './month.json'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import s from './CurrentData.module.scss'
 
 const CurrentData = () => {
-  const handleRight = () => {};
+  const handleRight = () => {}
 
-  const handleLeft = () => {};
+  const handleLeft = () => {}
 
   return (
-    <div className="current-data_wrap">
-      <span className="current-data_label">Текущий период:</span>
-      <div className="current-data_wrap-btn">
-        <button className="current-data_btn" type="button" onClick={handleLeft}>
-          <MdKeyboardArrowLeft className="current-data_icon" />
+    <div className={s.wrap}>
+      <span className={s.label}>Текущий период:</span>
+      <div className={s.wrapBtn}>
+        <button className={s.btn} type="button" onClick={handleLeft}>
+          <MdKeyboardArrowLeft className={s.icon} />
         </button>
-        <p className="current-data_title">
+        <p className={s.title}>
           НОЯБРЬ 2021
           {/* {month}.{year} */}
         </p>
-        <button
-          className="current-data_btn"
-          type="button"
-          onClick={handleRight}
-        >
-          <MdKeyboardArrowRight className="current-data_icon" />
+        <button className={s.btn} type="button" onClick={handleRight}>
+          <MdKeyboardArrowRight className={s.icon} />
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CurrentData;
+export default CurrentData

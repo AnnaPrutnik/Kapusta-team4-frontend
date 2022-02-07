@@ -1,4 +1,6 @@
-.btn-home {
+@import '../../../styles/shared.scss';
+
+.btn {
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -8,16 +10,23 @@
   cursor: pointer;
 
   @media screen and (min-width: $breakpoint-tablet) {
-    margin-right: 84px;
+    // margin-right: 84px;
     margin-bottom: 0;
   }
 
-  @media screen and (min-width: 1280px) {
-    margin-right: 160px;
+  // @media screen and (min-width: $breakpoint-desktop) {
+  //   margin-right: 160px;
+  // }
+}
+
+.link {
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: flex;
+    justify-content: center;
   }
 }
 
-.btn-home_text {
+.text {
   display: none;
   @media screen and (min-width: $breakpoint-tablet) {
     display: inline-block;
@@ -27,7 +36,7 @@
   }
 }
 
-.btn-home_icon {
+.icon {
   width: 24px;
   height: 24px;
   color: $btn-orange-bg-color;
@@ -35,13 +44,3 @@
     margin-right: 15px;
   }
 }
-
-// .btn-home_link {
-//   display: flex;
-//   align-items: center;
-//   font-family: Roboto;
-//   font-size: 12px;
-//   line-height: 14px;
-//   letter-spacing: 0.04em;
-//    color: $text-color-secondary;
-// }

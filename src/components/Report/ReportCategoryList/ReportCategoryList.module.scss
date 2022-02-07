@@ -7,10 +7,9 @@
   align-items: center;
   text-align: center;
   background: transparent;
-  margin-bottom: 30px;
 
   @media screen and (min-width: $breakpoint-tablet) {
-    background-color: #fff;
+    background-color: $bg-white-color;
     padding: 20px 21px 30px 32px;
     border-radius: 30px;
     box-shadow: 0px 10px 60px 0px $box-shadow-color;
@@ -21,36 +20,30 @@
   }
 }
 
-.btn {
+.wrapBtn {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-  z-index: 20;
 }
 
-.btn_common {
+.title {
+  margin: 0 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.143;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: $text-inactive-tab;
+}
+
+.btn {
   padding: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
-.btn_left {
-  composes: btn_common;
-  margin-right: 15px;
-}
-
-.btn_right {
-  composes: btn_common;
-  margin-left: 15px;
-}
-
-.title {
-  margin: 0;
-  font-weight: 700;
-  line-height: 1.143;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: #000000;
+.icon {
+  width: 24px;
+  height: 24px;
+  color: $btn-orange-bg-color;
 }
