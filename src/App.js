@@ -1,21 +1,42 @@
-import Balance from './components/Balance/Balance';
+import { Routes, Route } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import PrivateRoute from './routes/PrivateRoute'
+import PublicRoute from './routes/PublicRoute'
+import Header from './components/Header/Header'
+
+const HomeView = lazy(() =>
+  import('./views/HomeView/HomeView.js'),
+) /* webpackChunkName: "Home View" */
+
+const FinanceView = lazy(() =>
+  import('./views/FinanceView/FinanceView.js'),
+) /* webpackChunkName: "Functional View" */
+
+const ReportView = lazy(() =>
+  import('./views/ReportView/ReportView.js'),
+) /* webpackChunkName: "Report View" */
 
 function App() {
   return (
     <div className="App">
-      <section className="container">
-        <h1>Hello Team!</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-          placeat laudantium illo! Deserunt adipisci quaerat nulla praesentium
-          ipsum eum exercitationem fuga libero possimus, laudantium illum
-          doloremque dolore expedita sunt, corrupti sed. Cum nesciunt animi
-          possimus perspiciatis neque distinctio rem hic qui commodi laborum
-          illum, sed ducimus, debitis iusto quo eveniet!
-        </p>
-      </section>
+      <div className="wrapper">
+        <Header />
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<PublicRoute component={HomeView} />} />
+            <Route
+              path="/income"
+              element={<PrivateRoute component={FinanceView} />}
+            />
+            <Route
+              path="/report"
+              element={<PrivateRoute component={ReportView} />}
+            />
+          </Routes>
+        </Suspense>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
