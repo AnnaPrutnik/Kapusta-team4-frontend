@@ -1,3 +1,5 @@
+@import '../../styles/shared.scss';
+
 .home_content {
   padding: 140px 88px 137px 49px;
 
@@ -10,7 +12,7 @@
   }
 }
 
-.home_title_mobile {
+.title_mobile {
   margin: 0;
   padding: 0 0 4px 0;
   width: 183px;
@@ -21,7 +23,7 @@
   }
 }
 
-.home_title {
+.title {
   display: none;
 
   @media screen and (min-width: 768px) {
