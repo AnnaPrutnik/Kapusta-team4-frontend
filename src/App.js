@@ -1,20 +1,15 @@
-
 import { Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import PrivateRoute from './routes/PrivateRoute'
 import PublicRoute from './routes/PublicRoute'
-import Home from './components/Home/Home'
-import Form from './components/Form/Form'
-import ExpenseAndIncome from '../src/components/ExpenseAndIncome/ExpenseAndIncome'
-import Home from './components/Home/Home'
-
+import Header from './components/Header/Header'
 
 const HomeView = lazy(() =>
   import('./views/HomeView/HomeView.js'),
 ) /* webpackChunkName: "Home View" */
 
-const FunctionalView = lazy(() =>
-  import('./views/FunctionalView/FunctionalView.js'),
+const FinanceView = lazy(() =>
+  import('./views/FinanceView/FinanceView.js'),
 ) /* webpackChunkName: "Functional View" */
 
 const ReportView = lazy(() =>
@@ -25,25 +20,13 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper">
-
-        <Home />
-        <Form />
-
-        <LoginForm />
-
-        <section className="container">
-          <ExpenseAndIncome />
-        </section>
-        <section className="container">
-          <ReportView />
-        </section>
-
+        <Header />
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<PublicRoute component={HomeView} />} />
             <Route
               path="/income"
-              element={<PrivateRoute component={FunctionalView} />}
+              element={<PrivateRoute component={FinanceView} />}
             />
             <Route
               path="/report"
@@ -51,10 +34,9 @@ function App() {
             />
           </Routes>
         </Suspense>
-
       </div>
     </div>
   )
 }
 
-export default App;
+export default App

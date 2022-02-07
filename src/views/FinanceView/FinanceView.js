@@ -1,9 +1,9 @@
 import ExpenseAndIncome from '../../components/ExpenseAndIncome/ExpenseAndIncome'
-import GreyBg from '../../components/GreyBg/GreyBg'
-import WhiteBg from '../../components/WhiteBg/WhiteBg'
-import FunctionalBg from '../../components/FunctionalBg/FuntionalBg'
+import { GreyBg } from '../../components/Background/'
+import { WhiteBg } from '../../components/Background/'
+import { FunctionalBg } from '../../components/Background/'
 
-const FunctionalView = () => {
+const FinanceView = () => {
   return (
     <section>
       <GreyBg>
@@ -12,10 +12,10 @@ const FunctionalView = () => {
         </section>
       </GreyBg>
       <WhiteBg>
-        <FunctionalBg/>
+        <FunctionalBg />
       </WhiteBg>
     </section>
   )
 }
 
-export default FunctionalView;
+export default FinanceView

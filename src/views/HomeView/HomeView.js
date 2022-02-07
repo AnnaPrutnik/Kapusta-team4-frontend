@@ -1,9 +1,9 @@
-import HomeContent from '../../components/HomeContent/HomeContent';
-import GreyBg from '../../components/GreyBg/GreyBg';
-import WhiteBg from '../../components/WhiteBg/WhiteBg';
-import IconsBg from '../../components/IconsBg/IconsBg';
-import SmallBgIcons from '../../components/SmallBgIcons/SmallBgIcons';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import HomeContent from '../../components/HomeContent/HomeContent'
+import { GreyBg } from '../../components/Background/'
+import { WhiteBg } from '../../components/Background/'
+import { IconsBg } from '../../components/Background/'
+import { SmallBgIcons } from '../../components/Background/'
+import Form from '../../components/Form/Form'
 
 const HomeView = () => {
   return (
@@ -16,9 +16,9 @@ const HomeView = () => {
       <WhiteBg>
         <SmallBgIcons />
       </WhiteBg>
-      <LoginForm />
+      <Form />
     </section>
-  );
+  )
 }
 
-export default HomeView;
+export default HomeView
