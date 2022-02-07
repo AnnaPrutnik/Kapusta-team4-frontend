@@ -1,3 +1,5 @@
+import Balance from './components/Balance/Balance';
+
 function App() {
   return (
     <div className="App">

@@ -1,0 +1,19 @@
+@import '../../../styles/shared.scss';
+
+.CalendarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.Date {
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: $btn-grey-text-color;
+
+  margin-left: 10px;
+}
