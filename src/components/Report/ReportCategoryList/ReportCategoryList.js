@@ -1,37 +1,39 @@
-import React, { useState } from 'react';
-import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import { useSelector } from 'react-redux'
+
+import s from './ReportCategoryList.module.scss'
 
 const ReportCategoryList = ({ data }) => {
-  const [typeTrans, setTypeTrans] = useState('outcome');
+  const [typeTrans, setTypeTrans] = useState('outcome')
 
   const handleClick = () => {
     if (typeTrans === 'income') {
-      setTypeTrans('outcome');
+      setTypeTrans('outcome')
     }
     if (typeTrans === 'outcome') {
-      setTypeTrans('income');
+      setTypeTrans('income')
     }
-  };
+  }
 
   return (
-    <div className="report_gallery_wrap">
-      <div className="report_gallery_wrap-btn">
+    <div className={s.wrap}>
+      <div className={s.btn}>
         <button
-          className="report_gallery_btn-left"
+          className={s.btn_left}
           type="button"
           onClick={() => handleClick()}
         >
           <MdKeyboardArrowLeft size={20} style={{ color: '#FF751D' }} />
         </button>
         {typeTrans === 'income' ? (
-          <p className="report_gallery_title"> Расходы </p>
+          <p className={s.title}> Расходы </p>
         ) : (
-          <p className="report_gallery_title"> Доходы </p>
+          <p className={s.title}> Доходы </p>
         )}
         <button
-          className="report_gallery_btn-right"
+          className={s.btn_right}
           type="button"
           onClick={() => handleClick()}
         >
@@ -51,7 +53,7 @@ const ReportCategoryList = ({ data }) => {
         )} */}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ReportCategoryList;
+export default ReportCategoryList
