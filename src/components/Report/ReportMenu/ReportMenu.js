@@ -1,5 +1,4 @@
 import React from 'react';
-// import s from './ReportMenu.module.css';
 
 const ReportMenu = () => {
   const totalIncome = 1000000;

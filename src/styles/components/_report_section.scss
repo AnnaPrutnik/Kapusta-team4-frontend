@@ -3,17 +3,11 @@
   margin-right: auto;
   text-align: center;
   font-size: 14px;
-  font-weight: 400;
   color: $text-color-secondary;
   padding-top: 15px;
   padding-bottom: 50px;
 
-  @media screen and (min-width: 768px) {
-    padding-top: 40px;
-    padding-bottom: 126px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    padding-bottom: 79px;
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-bottom: 76px;
   }
 }

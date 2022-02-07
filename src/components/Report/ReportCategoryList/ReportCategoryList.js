@@ -19,11 +19,11 @@ const ReportCategoryList = ({ data }) => {
     <div className="report_gallery_wrap">
       <div className="report_gallery_wrap-btn">
         <button
-          className="report_gallery_btn-left"
+          className="report_gallery_btn"
           type="button"
           onClick={() => handleClick()}
         >
-          <MdKeyboardArrowLeft size={20} style={{ color: '#FF751D' }} />
+          <MdKeyboardArrowLeft className="report_gallery_icon" />
         </button>
         {typeTrans === 'income' ? (
           <p className="report_gallery_title"> Расходы </p>
@@ -31,11 +31,11 @@ const ReportCategoryList = ({ data }) => {
           <p className="report_gallery_title"> Доходы </p>
         )}
         <button
-          className="report_gallery_btn-right"
+          className="report_gallery_btn"
           type="button"
           onClick={() => handleClick()}
         >
-          <MdKeyboardArrowRight size={20} style={{ color: '#FF751D' }} />
+          <MdKeyboardArrowRight className="report_gallery_icon" />
         </button>
       </div>
       <div>

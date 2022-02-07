@@ -6,7 +6,7 @@
   height: 85px;
   font-weight: 700;
   line-height: 1.143;
-  background-color: #ffffff;
+  background-color: $bg-white-color;
   box-shadow: 5px 10px 20px 0px $btn-grey-box-shadow-color;
   border-radius: 20px;
 
@@ -26,7 +26,7 @@
 
 .report_menu_outcome,
 .report_menu_income {
-  width: calc(50% - 0.5px);
+  flex-basis: calc(50% - 0.5px);
   display: flex;
   flex-direction: column;
   padding-top: 20px;
