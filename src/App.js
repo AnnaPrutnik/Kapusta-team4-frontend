@@ -1,7 +1,12 @@
+
 import { Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import PrivateRoute from './routes/PrivateRoute'
 import PublicRoute from './routes/PublicRoute'
+import Home from './components/Home/Home'
+import Form from './components/Form/Form'
+import ExpenseAndIncome from '../src/components/ExpenseAndIncome/ExpenseAndIncome'
+import Home from './components/Home/Home'
 
 
 const HomeView = lazy(() =>
@@ -20,6 +25,19 @@ function App() {
   return (
     <div className="App">
       <div className="wrapper">
+
+        <Home />
+        <Form />
+
+        <LoginForm />
+
+        <section className="container">
+          <ExpenseAndIncome />
+        </section>
+        <section className="container">
+          <ReportView />
+        </section>
+
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<PublicRoute component={HomeView} />} />
@@ -33,6 +51,7 @@ function App() {
             />
           </Routes>
         </Suspense>
+
       </div>
     </div>
   )
