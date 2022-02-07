@@ -1,3 +1,9 @@
+.current-data_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .current-data_wrap-btn {
   display: flex;
   align-items: center;
@@ -9,7 +15,9 @@
 }
 
 .current-data_label {
+  display: block;
   margin-bottom: 5px;
+  color: #52555f;
   font-size: 12px;
   line-height: 1.167;
 }

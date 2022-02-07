@@ -1,4 +1,4 @@
-import s from './BalanceForm.module.scss';
+import s from './BalanceForm.module.scss'
 
 const BalanceForm = () => {
   return (
@@ -9,7 +9,7 @@ const BalanceForm = () => {
         Подтвердить
       </button>
     </form>
-  );
-};
+  )
+}
 
-export default BalanceForm;
+export default BalanceForm
