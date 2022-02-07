@@ -3,8 +3,6 @@ import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 
-import s from './ReportCategoryList.module.scss'
-
 const ReportCategoryList = ({ data }) => {
   const [typeTrans, setTypeTrans] = useState('outcome')
 
@@ -18,26 +16,26 @@ const ReportCategoryList = ({ data }) => {
   }
 
   return (
-    <div className={s.wrap}>
-      <div className={s.btn}>
+    <div className="report_gallery_wrap">
+      <div className="report_gallery_wrap-btn">
         <button
-          className={s.btn_left}
+          className="report_gallery_btn"
           type="button"
           onClick={() => handleClick()}
         >
-          <MdKeyboardArrowLeft size={20} style={{ color: '#FF751D' }} />
+          <MdKeyboardArrowLeft className="report_gallery_icon" />
         </button>
         {typeTrans === 'income' ? (
-          <p className={s.title}> Расходы </p>
+          <p className="report_gallery_title"> Расходы </p>
         ) : (
-          <p className={s.title}> Доходы </p>
+          <p className="report_gallery_title"> Доходы </p>
         )}
         <button
-          className={s.btn_right}
+          className="report_gallery_btn"
           type="button"
           onClick={() => handleClick()}
         >
-          <MdKeyboardArrowRight size={20} style={{ color: '#FF751D' }} />
+          <MdKeyboardArrowRight className="report_gallery_icon" />
         </button>
       </div>
       <div>

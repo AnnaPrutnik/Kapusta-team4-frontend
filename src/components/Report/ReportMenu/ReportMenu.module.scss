@@ -18,8 +18,8 @@
 }
 
 .common {
-  width: calc(50% - 0.5px);
   display: flex;
+  flex-basis: calc(50% - 0.5px);
   flex-direction: column;
   padding-top: 20px;
   padding-bottom: 25px;
