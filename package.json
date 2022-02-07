@@ -21,6 +21,7 @@
     "redux-persist": "^6.0.0",
     "select-pure": "^2.1.2-alpha.0",
     "uuidv4": "^6.2.12",
+    "victory": "^36.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
