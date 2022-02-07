@@ -1,12 +1,34 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {
+  GoogleAuthProvider,
+  signInWithPopup
+} from "firebase/auth";
 import authOperation from '../../../redux/auth/auth-operation';
+import { auth } from '../../../services/firebaseApi';
 import s from '../style.module.scss';
 
 const LoginForm = ({ onClickRegister }) => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleByGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        onChange(true);
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        onChange(false);
+      });
+  };
   
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -31,9 +53,19 @@ const LoginForm = ({ onClickRegister }) => {
       <p className={s.text_align}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a href="http://localhost:3000/auth/google" className={s.google}>
+      {/* <a
+        href="http://localhost:3000/auth/google"
+        className={s.google}
+        onClick={handleByGoogle}
+      >
         Google
-      </a>
+      </a> */}
+      <button
+        className={s.google}
+        onClick={handleByGoogle}
+      >
+        Google
+      </button>
       <p className={s.text}>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>

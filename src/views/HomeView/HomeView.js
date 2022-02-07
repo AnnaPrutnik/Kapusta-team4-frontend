@@ -4,6 +4,7 @@ import { WhiteBg } from '../../components/Background/'
 import { IconsBg } from '../../components/Background/'
 import { SmallBgIcons } from '../../components/Background/'
 import Form from '../../components/Form/Form'
+// import AppBar from '../../components/AppBar'
 
 const HomeView = () => {
   return (
@@ -16,6 +17,7 @@ const HomeView = () => {
       <WhiteBg>
         <SmallBgIcons />
       </WhiteBg>
+      {/* <AppBar /> */}
       <Form />
     </section>
   )
