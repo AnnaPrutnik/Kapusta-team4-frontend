@@ -20,7 +20,6 @@ const ReportCategoryItem = ({ data }) => {
               <svg className={s.icon}>
                 <use href={`${sprite}#${item.label}`} />
               </svg>
-              <div className={s.circle}></div>
             </div>
             <h3 className={s.category}>{item.category}</h3>
           </li>
