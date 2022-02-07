@@ -17,8 +17,11 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+ul,
+ol {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 p {
@@ -68,7 +71,8 @@ button {
 }
 
 .container {
-  padding-top: 30px;
+  // background-color: grey;
+  padding-top: 86px;
   padding-left: 19px;
   padding-right: 19px;
 }
@@ -84,7 +88,7 @@ button {
     width: 768px;
   }
   .container {
-    padding-top: 40px;
+    padding-top: 96px;
     padding-left: 51px;
     padding-right: 52px;
   }

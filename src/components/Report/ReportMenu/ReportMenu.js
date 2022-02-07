@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 const ReportMenu = () => {
-  const totalIncome = 1000000;
-  const totalOutcome = 1000000;
+  const totalIncome = 1000000
+  const totalOutcome = 1000000
   return (
     <div className="report_menu_wrap">
       <div className="report_menu_outcome">
@@ -14,7 +14,7 @@ const ReportMenu = () => {
         <span className="report_menu_value_income">+ {totalIncome} грн</span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ReportMenu;
+export default ReportMenu

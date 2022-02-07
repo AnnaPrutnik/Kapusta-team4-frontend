@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react'
+import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import { useSelector } from 'react-redux'
 
 const ReportCategoryList = ({ data }) => {
-  const [typeTrans, setTypeTrans] = useState('outcome');
+  const [typeTrans, setTypeTrans] = useState('outcome')
 
   const handleClick = () => {
     if (typeTrans === 'income') {
-      setTypeTrans('outcome');
+      setTypeTrans('outcome')
     }
     if (typeTrans === 'outcome') {
-      setTypeTrans('income');
+      setTypeTrans('income')
     }
-  };
+  }
 
   return (
     <div className="report_gallery_wrap">
@@ -51,7 +51,7 @@ const ReportCategoryList = ({ data }) => {
         )} */}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ReportCategoryList;
+export default ReportCategoryList
