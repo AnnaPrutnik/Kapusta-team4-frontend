@@ -8,7 +8,7 @@
     position: absolute;
     width: 1334px;
     height: 232px;
-    top: 84px;
+    top: 20px;
     left: 5px;
     z-index: -1;
     fill: $logo-picture-color;
@@ -17,7 +17,7 @@
   @media screen and (min-width: 1280px) {
     display: block;
     position: absolute;
-    top: 84px;
+    top: 20px;
     left: 10px;
   }
 }
@@ -27,7 +27,7 @@
   position: absolute;
   width: 88px;
   height: 89px;
-  top: 149px;
+  top: 100px;
   left: 254px;
 
   @media screen and (min-width: 768px) {

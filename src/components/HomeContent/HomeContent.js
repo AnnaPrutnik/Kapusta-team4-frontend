@@ -1,9 +1,14 @@
+import {IconsBg} from '../Background'
+import { SmallBgIcons } from '../Background'
 import s from './HomeContent.module.scss'
 import title from '../../images/Background/svg/title.svg'
 
 function HomeContent() {
   return (
-    <div className={s.home_content}>
+    <div className="bg">
+      <IconsBg />
+       <SmallBgIcons />
+    <div className={s.title_container}>
       <svg className={s.title}>
         <use href={`${title}#icon-title`}></use>
       </svg>
@@ -11,7 +16,8 @@ function HomeContent() {
         <use href={`${title}#icon-mobile-title`}></use>
       </svg>
       <p className={s.home_tag}>Smart Finance</p>
-    </div>
+      </div>
+      </div>
   )
 }
 

@@ -71,10 +71,22 @@ button {
 }
 
 .container {
-  // background-color: grey;
   padding-top: 86px;
   padding-left: 19px;
   padding-right: 19px;
+  padding-bottom: 40px;
+}
+
+.bg {
+  position: relative;
+  top: 56px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('../images/Background/grey_bg/bg-mobile-1x.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -2;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 320px) {
@@ -91,6 +103,12 @@ button {
     padding-top: 96px;
     padding-left: 51px;
     padding-right: 52px;
+    padding-bottom: 80px;
+  }
+
+  .bg {
+    max-width: 768px;
+    background-image: url('../images/Background/grey_bg/bg-tablet-1x.png');
   }
 }
 
@@ -101,5 +119,10 @@ button {
   .container {
     padding-left: 110px;
     padding-right: 110px;
+  }
+  .bg {
+    max-width: 1280px;
+    background-size: 1280px;
+    background-image: url('../images/Background/grey_bg/bg-desktop-1x.png');
   }
 }

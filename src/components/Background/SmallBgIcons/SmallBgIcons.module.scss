@@ -8,14 +8,14 @@
     position: absolute;
     width: 183px;
     height: 142px;
-    top: 242px;
+    bottom: 56px;
     left: 103px;
     z-index: 5;
     fill: $logo-picture-color;
   }
 
   @media screen and (min-width: 1280px) {
-    top: 73px;
+    bottom: 20px;
     left: 230px;
   }
 }
@@ -25,8 +25,9 @@
   position: absolute;
   width: 83px;
   height: 89px;
-  top: 490px;
+  bottom: 0px;
   left: 35px;
+  z-index: -1;
 
   @media screen and (min-width: 768px) {
     display: none;

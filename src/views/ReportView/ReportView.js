@@ -1,4 +1,4 @@
-import React from 'react'
+import { FunctionalBg } from '../../components/Background/'
 import IncomeOutcomeMenu from '../../components/Report/ReportMenu/ReportMenu'
 import ReportCategoryList from '../../components/Report/ReportCategoryList/ReportCategoryList'
 // import BalanceBar from '../../components/BalanceBar/BalanceBar'
@@ -50,12 +50,16 @@ const data = [
 
 const ReportView = () => {
   return (
-    <section className="container">
-      <BalanceBar />
-      <IncomeOutcomeMenu />
-      <ReportCategoryList />
-      <Chart data={data} />
-    </section>
+    <div className="bg">
+      <section className="container">
+        {/* новые компоненты добавлять внутрь этой секции */}
+        <BalanceBar />
+        <IncomeOutcomeMenu />
+        <ReportCategoryList />
+        <Chart data={data} />
+      </section>
+      <FunctionalBg />
+    </div>
   )
 }
 
