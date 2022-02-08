@@ -1,100 +1,63 @@
 import s from './Chart.module.scss'
+import { useMediaQuery } from 'react-responsive'
+import DesktopChart from './DesktopChart'
+import MobileChart from './MobileChart'
 
-import { VictoryChart, VictoryAxis, VictoryBar } from 'victory'
+const colors = {
+  main: '#FF751D',
+  secondary: '#FFDAC0',
+  stroke: '#F5F6FB',
+  font: '#52555f',
+}
+const tabletOptions = {
+  fontSize: '7px',
+  paddingChart: { top: 30, bottom: 25, left: 10, right: 10 },
+  heightChart: 250,
+  cornerRadiusChart: { topLeft: 10, topRight: 10 },
+}
 
-const paddingChart =
-  window.innerWidth >= 1280
-    ? { top: 20, bottom: 25, left: 80, right: 80 }
-    : { top: 20, bottom: 25, left: 0, right: 0 }
-
-const heightChart = window.innerWidth >= 1280 ? 180 : 250
-const fontChart = window.innerWidth >= 1280 ? '5px' : '7px'
-const orientationChart = window.innerWidth >= 768 ? false : true
+const desktopOptions = {
+  fontSize: '5px',
+  paddingChart: { top: 20, bottom: 25, left: 80, right: 80 },
+  heightChart: 180,
+  cornerRadiusChart: { topLeft: 7, topRight: 7 },
+}
 
 const labelsStyle = {
   fontFamily: 'Roboto',
   fontStyle: 'normal',
   fontWeight: 400,
-  fontSize: fontChart,
   lineHeight: 1.167,
   letterSpacing: '0.02em',
-  fill: '#52555f',
-  padding: 2,
+  fill: colors.font,
 }
-
-const gridsPoint = n => {
-  let quantity = null
-  if (n > 400) {
-    quantity = (Math.trunc(Math.trunc((n - 100) / 8) / 100) + 1) * 100
-  } else {
-    quantity = (Math.trunc(Math.trunc((n - 100) / 8) / 10) + 1) * 15
-  }
-
-  let gridArray = [0]
-  for (let i = 1; i < 8; i++) {
-    let newGrid = gridArray[i - 1] + quantity
-    gridArray.push(newGrid)
-  }
-  return gridArray
-}
-gridsPoint(50)
 
 function Chart({ data }) {
-  const MaxQuantity = Math.max.apply(
-    null,
-    data.map(cat => cat.quantity),
-  )
+  const isDesktop = useMediaQuery({ minWidth: 1280 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.99 })
+  const isMobile = useMediaQuery({ maxWidth: 767.99 })
 
-  const gridsArray = gridsPoint(MaxQuantity)
-  console.log(window.innerWidth)
   return (
     <div className={s.chart}>
-      <VictoryChart
-        horizontal={orientationChart}
-        height={heightChart}
-        domainPadding={{ x: [71, 30] }}
-        padding={paddingChart}
-      >
-        {data.map(category => (
-          <VictoryAxis
-            dependentAxis
-            key={category.name}
-            tickValues={[...gridsArray]}
-            style={{
-              tickLabels: {
-                display: 'none',
-              },
-              axis: { stroke: 'transparent' },
-              grid: {
-                stroke: '#F5F6FB',
-                strokeWidth: 0.5,
-              },
-            }}
-          />
-        ))}
-        <VictoryAxis
-          style={{
-            tickLabels: labelsStyle,
-            axis: { stroke: '#F5F6FB' },
-          }}
-        />
-        <VictoryBar
+      {isDesktop && (
+        <DesktopChart
           data={data}
-          x="name"
-          y="quantity"
-          barRatio={0.66}
-          labels={({ datum }) => `${datum.quantity} грн`}
-          alignment="middle"
-          style={{
-            labels: labelsStyle,
-            data: {
-              fill: ({ index }) =>
-                (index + 1) % 3 === 1 ? '#FF751D' : '#FFDAC0',
-            },
-          }}
-          cornerRadius={{ topLeft: 4, topRight: 4 }}
+          options={desktopOptions}
+          labelsStyle={labelsStyle}
+          colors={colors}
         />
-      </VictoryChart>
+      )}
+      {isTablet && (
+        <DesktopChart
+          data={data}
+          options={tabletOptions}
+          labelsStyle={labelsStyle}
+          colors={colors}
+        />
+      )}
+      {isMobile && (
+        <MobileChart data={data} labelsStyle={labelsStyle} colors={colors} />
+      )}
     </div>
   )
 }
