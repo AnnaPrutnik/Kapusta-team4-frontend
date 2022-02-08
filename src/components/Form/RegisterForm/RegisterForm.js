@@ -1,44 +1,42 @@
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 
-import s from '../style.module.scss';
-import authOperation from '../../../redux/auth/auth-operation';
+import s from '../Form.module.scss'
+import authOperation from '../../../redux/auth/auth-operation'
 
 const RegisterForm = ({ onClickComeBack }) => {
-  const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch()
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
-        return setName(value);
+        return setName(value)
       case 'email':
-        return setEmail(value);
+        return setEmail(value)
       case 'password':
-        return setPassword(value);
+        return setPassword(value)
       default:
-        return;
-    };
-  };
+        return
+    }
+  }
 
   const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(authOperation.register({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
-  };
+    e.preventDefault()
+    dispatch(authOperation.register({ name, email, password }))
+    setName('')
+    setEmail('')
+    setPassword('')
+  }
 
   return (
     <div className={s.register}>
       <p className={s.text_align}>Для регистрации заполните поля:</p>
       <form onSubmit={handleSubmit} action="" autoComplete="on">
         <label className={s.label} htmlFor="">
-          <p className={s.sign}>
-            Имя:
-          </p>
+          <p className={s.sign}>Имя:</p>
           <input
             onChange={handleChange}
             type="text"
@@ -53,9 +51,7 @@ const RegisterForm = ({ onClickComeBack }) => {
         </label>
 
         <label className={s.label} htmlFor="">
-          <p className={s.sign}>
-            Электронная почта:
-          </p>
+          <p className={s.sign}>Электронная почта:</p>
           <input
             onChange={handleChange}
             type="email"
@@ -69,11 +65,8 @@ const RegisterForm = ({ onClickComeBack }) => {
           />
         </label>
 
-
         <label className={s.label} htmlFor="">
-          <p className={s.sign}>
-            Пароль:
-          </p>
+          <p className={s.sign}>Пароль:</p>
           <input
             onChange={handleChange}
             type="password"
@@ -97,7 +90,7 @@ const RegisterForm = ({ onClickComeBack }) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default RegisterForm;
+export default RegisterForm

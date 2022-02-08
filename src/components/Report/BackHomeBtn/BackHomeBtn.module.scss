@@ -10,13 +10,13 @@
   cursor: pointer;
 
   @media screen and (min-width: $breakpoint-tablet) {
-    // margin-right: 84px;
+    margin-right: 84px;
     margin-bottom: 0;
   }
 
-  // @media screen and (min-width: $breakpoint-desktop) {
-  //   margin-right: 160px;
-  // }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-right: 160px;
+  }
 }
 
 .link {

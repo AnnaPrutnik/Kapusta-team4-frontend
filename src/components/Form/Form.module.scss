@@ -10,6 +10,7 @@
   width: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   margin-left: auto;
   margin-right: auto;
@@ -20,7 +21,30 @@
   border-radius: 30px;
 
   color: $btn-grey-black-text-color;
+
+  @media screen and (min-width: 768px) {
+    z-index: 4;
+    top: 297px;
+    width: 436px;
+    padding: 50px 85px 53px 86px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin: 0;
+    top: 173px;
+    width: 436px;
+    min-height: 535px;
+    left: 75%;
+  }
 }
+
+// .font {
+//   @media screen and (min-width: 768px) {
+//     font-size: 12px;
+//     line-height: 14px;
+//     margin-left: 0;
+//   }
+// }
 
 .text {
   margin-bottom: 24px;
@@ -29,6 +53,14 @@
   line-height: 1.2;
   letter-spacing: inherit;
   color: $text-color-secondary;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    text-align: left;
+  }
 }
 
 .text_align {
@@ -37,6 +69,11 @@
   width: 222px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    composes: text;
+    width: 100%;
+  }
 }
 
 .google {
@@ -61,6 +98,7 @@
   text-align: center;
   letter-spacing: 0.02em;
 }
+
 .google::before {
   content: '';
   display: inline-block;
@@ -79,6 +117,10 @@
   flex-direction: column;
   margin-bottom: 30px;
   margin-left: 11px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 0;
+  }
 }
 
 .last_label {
@@ -93,6 +135,13 @@
   font-weight: 600;
   font-size: 10px;
   line-height: 12px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .input {
@@ -106,6 +155,10 @@
 .wrap {
   display: flex;
   justify-content: space-between;
+}
+
+.wrap_reg {
+  margin-top: auto;
 }
 
 .button {
@@ -127,55 +180,4 @@
   color: $btn-orange-text-color;
   filter: drop-shadow(1px 3px 5px $btn-orange-box-shadow);
   transition: 0.5s linear;
-}
-
-/* Adaptive */
-@media screen and (min-width: 768px) {
-  .register {
-    z-index: 4;
-    top: 297px;
-    width: 436px;
-    padding: 50px 85px 53px 86px;
-  }
-
-  // .fontText {
-  //   margin: 5px 0 0 225px;
-  //   font-size: 16px;
-  //   line-height: 19px;
-  // }
-
-  .font {
-    font-size: 12px;
-    line-height: 14px;
-    margin-left: 0;
-  }
-
-  .text {
-    composes: font;
-    margin-bottom: 20px;
-    text-align: left;
-  }
-
-  .text_align {
-    composes: text;
-    width: 100%;
-  }
-
-  .label {
-    margin-left: 0;
-  }
-
-  .sign {
-    composes: font;
-    margin-bottom: 10px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .register {
-    margin: 0;
-    top: 173px;
-    width: 436px;
-    min-height: 535px;
-    left: 75%;
-  }
 }

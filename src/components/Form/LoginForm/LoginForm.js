@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import authOperation from '../../../redux/auth/auth-operation'
-import s from '../style.module.scss'
+import s from '../Form.module.scss'
 
 const LoginForm = ({ onClickRegister }) => {
   const dispatch = useDispatch()
