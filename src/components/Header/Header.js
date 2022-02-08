@@ -1,11 +1,19 @@
-import s from './Header.module.scss'
+import { useSelector } from 'react-redux';
+import Navigation from './Navigation';
+import UserMenu from './UserMenu';
+import authSelectors from '../../redux/auth/auth-selectors';
+import s from './Header.module.scss';
 
-function Header() {
+
+const Header = () => {
+  const isLoggesIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <header className={s.header}>
-      <h2>Header</h2>
+      <Navigation />
+      { isLoggesIn && <UserMenu /> }
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

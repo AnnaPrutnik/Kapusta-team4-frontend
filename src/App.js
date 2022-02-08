@@ -4,6 +4,7 @@ import PrivateRoute from './routes/PrivateRoute'
 import PublicRoute from './routes/PublicRoute'
 import Header from './components/Header/Header'
 
+
 const HomeView = lazy(() =>
   import('./views/HomeView/HomeView.js'),
 ) /* webpackChunkName: "Home View" */
