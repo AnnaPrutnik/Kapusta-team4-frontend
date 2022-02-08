@@ -48,6 +48,74 @@ const data = [
   },
 ]
 
+const data2 = [
+  {
+    name: 'Панини',
+    quantity: 1800,
+  },
+  {
+    name: 'Кофе',
+    quantity: 1700,
+  },
+  {
+    name: 'Спагетти',
+    quantity: 1500,
+  },
+]
+
+const data5 = [
+  {
+    name: 'Кофе',
+    quantity: 1700,
+  },
+  {
+    name: 'Спагетти',
+    quantity: 1500,
+  },
+  {
+    name: 'Шоколад',
+    quantity: 800,
+  },
+  {
+    name: 'Маслины',
+    quantity: 500,
+  },
+  {
+    name: 'Зелень',
+    quantity: 300,
+  },
+]
+
+const data7 = [
+  {
+    name: 'Рыба',
+    quantity: 2100,
+  },
+  {
+    name: 'Панини',
+    quantity: 1800,
+  },
+  {
+    name: 'Кофе',
+    quantity: 1700,
+  },
+  {
+    name: 'Спагетти',
+    quantity: 1500,
+  },
+  {
+    name: 'Шоколад',
+    quantity: 800,
+  },
+  {
+    name: 'Маслины',
+    quantity: 500,
+  },
+  {
+    name: 'Зелень',
+    quantity: 300,
+  },
+]
 const ReportView = () => {
   return (
     <section className="container">
