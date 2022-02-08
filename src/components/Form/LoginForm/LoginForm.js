@@ -1,46 +1,43 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import authOperation from '../../../redux/auth/auth-operation';
-import s from '../style.module.scss';
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import authOperation from '../../../redux/auth/auth-operation'
+import s from '../style.module.scss'
 
 const LoginForm = ({ onClickRegister }) => {
-  const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'email':
-        return setEmail(value);
+        return setEmail(value)
       case 'password':
-        return setPassword(value);
+        return setPassword(value)
       default:
-        return;
-    };
-  };
+        return
+    }
+  }
 
   const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(authOperation.logIn({ email, password }));
-    setEmail('');
-    setPassword('');
-  };
+    e.preventDefault()
+    dispatch(authOperation.logIn({ email, password }))
+    setEmail('')
+    setPassword('')
+  }
 
   return (
     <div className={s.register}>
       <p className={s.text_align}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a href="http://localhost:3000/auth/google" className={s.google}>
+      <a href="http://localhost:5000/auth/google" className={s.google}>
         Google
       </a>
       <p className={s.text}>
         Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
-      <form
-        action=""
-        onSubmit={handleSubmit}
-      >
+      <form action="" onSubmit={handleSubmit}>
         <label className={s.label}>
           <p className={s.sign}>Электронная почта:</p>
           <input
@@ -80,7 +77,7 @@ const LoginForm = ({ onClickRegister }) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

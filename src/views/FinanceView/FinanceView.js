@@ -1,4 +1,9 @@
+
 import Budget from '../../components/Budget/Budget'
+
+
+import Balance from '../../components/Balance/Balance'
+
 import { GreyBg } from '../../components/Background/'
 import { WhiteBg } from '../../components/Background/'
 import { FunctionalBg } from '../../components/Background/'
@@ -8,6 +13,11 @@ const FinanceView = () => {
     <section>
       <GreyBg>
         <section className="container">
+
+
+
+          <Balance />
+
           <Budget />
         </section>
       </GreyBg>
