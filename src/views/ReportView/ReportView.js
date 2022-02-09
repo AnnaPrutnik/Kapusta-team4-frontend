@@ -1,7 +1,7 @@
 import { FunctionalBg } from '../../components/Background/'
 import IncomeOutcomeMenu from '../../components/Report/ReportMenu/ReportMenu'
 import ReportCategoryList from '../../components/Report/ReportCategoryList/ReportCategoryList'
-// import BalanceBar from '../../components/BalanceBar/BalanceBar'
+
 import BalanceBar from '../../components/Report/BalanceBar/BalanceBar'
 import Chart from '../../components/Chart/Chart'
 

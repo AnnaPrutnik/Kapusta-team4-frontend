@@ -18,7 +18,6 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  // width: 100%;
   @media screen and (min-width: $breakpoint-tablet) {
     flex-direction: row-reverse;
     justify-content: flex-end;
