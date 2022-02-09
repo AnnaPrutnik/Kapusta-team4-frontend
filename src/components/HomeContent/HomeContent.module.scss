@@ -1,5 +1,31 @@
 @import '../../styles/shared.scss';
 
+.bg_main {
+  margin-top: 56px;
+  background-image: url('../../images/Background/svg/home_mobile_top.svg'),
+    url('../../images/Background/grey_bg/bg-mobile-1x.png');
+  background-position: top 100px right 0, top 0 center;
+  background-repeat: no-repeat;
+  background-size: 49px 83px, contain;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    background-size: 768px 232px, contain;
+    background-position: top 20px left 10px, top 0 center;
+    background-image: url('../../images/Background/svg/tablet_group.svg'),
+      url('../../images/Background/grey_bg/bg-tablet-1x.png');
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    background-size: 1280px 232px, contain;
+    background-position: top 20px left 10px, top 0 center;
+    background-image: url('../../images/Background/svg/main_group.svg'),
+      url('../../images/Background/grey_bg/bg-desktop-1x.png');
+  }
+}
+
 .title_container {
   margin-top: 84px;
   margin-bottom: 650px;

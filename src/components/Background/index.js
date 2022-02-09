@@ -1,6 +1,3 @@
-import FunctionalBg from './FunctionalBg/FuntionalBg'
-import IconsBg from './IconsBg/IconsBg'
-import SmallBgIcons from './SmallBgIcons/SmallBgIcons'
+import BgIcons from "./BgIcons/BgIcons"
 
-
-export { FunctionalBg, IconsBg, SmallBgIcons }
+export { BgIcons }
