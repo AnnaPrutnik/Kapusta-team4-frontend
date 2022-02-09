@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import {
   persistStore,
   persistReducer,
@@ -8,9 +8,11 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import authReducer from '../redux/auth/auth-slice';
+} from 'redux-persist'
+
+import storage from 'redux-persist/lib/storage'
+
+import authReducer from '../redux/auth/auth-slice'
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -18,23 +20,23 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-];
+]
 
 const authPersistConfig = {
-  key: 'token',
+  key: 'auth',
   storage,
-  whitelist: ['token', 'refreshToken'],
-};
+  whitelist: ['token'],
+}
 
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    // transactions: будут транзакции....
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
-});
+})
 
-const persistor = persistStore(store);
+const persistor = persistStore(store)
 
-export { store, persistor };
-
+export { store, persistor }

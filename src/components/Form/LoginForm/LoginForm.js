@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import authOperation from '../../../redux/auth/auth-operation'
+import { logIn } from '../../../redux/auth/auth-operation'
 import s from '../Form.module.scss'
 
 const LoginForm = ({ onClickRegister }) => {
@@ -21,7 +21,7 @@ const LoginForm = ({ onClickRegister }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(authOperation.logIn({ email, password }))
+    dispatch(logIn({ email, password }))
     setEmail('')
     setPassword('')
   }
