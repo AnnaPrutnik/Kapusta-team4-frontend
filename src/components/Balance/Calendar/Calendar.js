@@ -1,5 +1,5 @@
-// import { ReactComponent as CalendarIcon } from './calendar.svg'
-import { Calendar as CalendarIcon } from '../../../images/expense_income/svg/svg.js'
+import { ReactComponent as CalendarIcon } from './calendar.svg'
+// import { Calendar as CalendarIcon } from '../../../images/expense_income/svg/svg.js'
 import s from './Calendar.module.scss'
 
 const Calendar = () => {
