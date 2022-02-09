@@ -8,9 +8,7 @@
   @media screen and (min-width: $breakpoint-tablet) {
     flex-direction: row;
     align-items: center;
-    // margin-left: 0 auto;
-    justify-content: space-between;
-    // justify-content: center;
+    justify-content: space-evenly;
     margin-bottom: 30px;
   }
 }
@@ -18,44 +16,22 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  // width: 100%;
+
   @media screen and (min-width: $breakpoint-tablet) {
     flex-direction: row-reverse;
-    justify-content: flex-end;
-    // margin-left: 0 auto;
     align-items: flex-end;
-    // justify-content: end;
   }
 }
 
 .form {
+  display: flex;
+  justify-content: center;
   margin-bottom: 30px;
   @media screen and (min-width: $breakpoint-tablet) {
     margin-bottom: 0;
+    margin-right: 80px;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-right: 180px;
   }
 }
-
-//Удалить после fix
-// .bar {
-//   display: flex;
-//   flex-direction: column;
-//   background-color: transparent;
-
-//   @media screen and (min-width: $breakpoint-tablet) {
-//     flex-direction: row;
-//     align-items: center;
-//     // justify-content: space-between;
-//     // justify-content: center;
-//     margin-bottom: 30px;
-//   }
-// }
-
-// .wrap {
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   @media screen and (min-width: $breakpoint-tablet) {
-//     flex-direction: row-reverse;
-//     justify-content: space-between;
-//   }
-// }
