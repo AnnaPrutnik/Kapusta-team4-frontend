@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import operations from '../../redux/auth/auth-operation';
 import authSelectors from '../../redux/auth/auth-selectors';
 import logout from '../../images/Header/logout.svg';
+import UserLogOut from '../UserLogOut/UserLogOut';
 import s from './Header.module.scss';
 
 const UserMenu = () => {
@@ -16,9 +17,10 @@ const UserMenu = () => {
     <div className={s.user_container}>
       <div className={s.avatar}>{avatar}</div>
       <p className={s.name}>{userName}</p>
-      <Link onClick={onLogOut} className={s.logout} to="/">
+      <UserLogOut/>
+      {/* <Link onClick={onLogOut} className={s.logout} to="/">
         Выйти
-      </Link>
+      </Link> */}
       <Link onClick={onLogOut} className={s.logout_mobile} to="/">
         <svg className={s.logout_icon}>
           <use href={`${logout}#icon-logout`}></use>

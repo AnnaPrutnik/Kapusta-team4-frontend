@@ -6,12 +6,12 @@ import s from './Header.module.scss';
 
 
 const Header = () => {
-  const isLoggesIn = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
     <header className={s.header}>
       <Navigation />
-      { isLoggesIn && <UserMenu /> }
+      { isLoggedIn && <UserMenu /> }
     </header>
   );
 }
