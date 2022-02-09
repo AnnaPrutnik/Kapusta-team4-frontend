@@ -1,30 +1,17 @@
-
 import Budget from '../../components/Budget/Budget'
-
-
 import Balance from '../../components/Balance/Balance'
-
-import { GreyBg } from '../../components/Background/'
-import { WhiteBg } from '../../components/Background/'
 import { FunctionalBg } from '../../components/Background/'
 
 const FinanceView = () => {
   return (
-    <section>
-      <GreyBg>
-        <section className="container">
-
-
-
+    <div className="bg"> 
+      <section className="container">
+        {/* новые компоненты добавлять внутрь этой секции */}
           <Balance />
-
           <Budget />
         </section>
-      </GreyBg>
-      <WhiteBg>
-        <FunctionalBg />
-      </WhiteBg>
-    </section>
+        <FunctionalBg /> 
+    </div>
   )
 }
 

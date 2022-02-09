@@ -1,15 +1,19 @@
-// @import '../../styles/shared.scss';
 @import '../../styles/shared.scss';
 
-.home_content {
-  padding: 140px 88px 137px 49px;
+.title_container {
+  margin-top: 84px;
+  margin-bottom: 650px;
+  margin-left: 50px;
 
   @media screen and (min-width: 768px) {
-    padding: 142px 290px 335px 141px;
+    margin-bottom: 778px;
+    margin-left: 166px;
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 366px 679px 78px 224px;
+    margin-top: 320px;
+    margin-bottom: 348px;
+    margin-left: 235px;
   }
 }
 
