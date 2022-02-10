@@ -3,10 +3,10 @@ import Form from '../../components/Form/Form'
 
 const HomeView = () => {
   return (
-    <section className="home_section">
+    <div>
       <HomeContent />
       <Form />
-    </section>
+    </div>
   )
 }
 
