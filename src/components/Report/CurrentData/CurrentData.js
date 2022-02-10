@@ -29,7 +29,7 @@ const CurrentData = () => {
     12: 'декабрь',
   }
 
-  const handleRight = () => {
+  const handleIncrement = () => {
     if (month <= 11) {
       setMonth(prev => (prev += 1))
     } else {
@@ -38,7 +38,7 @@ const CurrentData = () => {
     }
   }
 
-  const handleLeft = () => {
+  const handleDecrement = () => {
     if (month <= 1) {
       setMonth(12)
       setYear(prev => (prev -= 1))
@@ -51,14 +51,22 @@ const CurrentData = () => {
     <div className={s.wrap}>
       <span className={s.label}>Текущий период:</span>
       <div className={s.wrapBtn}>
-        <button className={s.btn} type="button" onClick={() => handleLeft()}>
+        <button
+          className={s.btn}
+          type="button"
+          onClick={() => handleDecrement()}
+        >
           <MdKeyboardArrowLeft className={s.icon} />
         </button>
         <p className={s.title}>
           {/* НОЯБРЬ 2021 */}
           {months[month]} {year}
         </p>
-        <button className={s.btn} type="button" onClick={() => handleRight()}>
+        <button
+          className={s.btn}
+          type="button"
+          onClick={() => handleIncrement()}
+        >
           <MdKeyboardArrowRight className={s.icon} />
         </button>
       </div>
