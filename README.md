@@ -23,3 +23,11 @@ Repository for frontend for team projeсt: team 4
    Там проставлены: ширина экрана, и padding для view.
 
 6. Файл со стилями в js-файле подключаем как "import s from './Name.module.scss"
+
+7. Чтобы поднять сервер локально:
+
+- клонируем репозиторий: https://github.com/AnnaPrutnik/Kapusta-team4-backend
+- на доске трелло добавлена карточка в колонке Материал, где указаны все
+  переменные из файла .env
+- бек запускается на порту 5000
+- фронт на порту 3000

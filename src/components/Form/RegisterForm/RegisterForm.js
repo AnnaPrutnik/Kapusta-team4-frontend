@@ -2,13 +2,16 @@ import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 
 import s from '../Form.module.scss'
-import authOperation from '../../../redux/auth/auth-operation'
+import { register } from '../../../redux/auth/auth-operation'
+
+//ToDo сделать нотификашку, что после регистрации успешной, юзер может залогиниться
 
 const RegisterForm = ({ onClickComeBack }) => {
-  const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const dispatch = useDispatch()
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -25,10 +28,11 @@ const RegisterForm = ({ onClickComeBack }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(authOperation.register({ name, email, password }))
+    dispatch(register({ name, email, password }))
     setName('')
     setEmail('')
     setPassword('')
+    onClickComeBack()
   }
 
   return (

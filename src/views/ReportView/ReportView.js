@@ -1,7 +1,7 @@
-import { FunctionalBg } from '../../components/Background/'
+import { PageBg } from '../../components/Background'
 import IncomeOutcomeMenu from '../../components/Report/ReportMenu/ReportMenu'
 import ReportCategoryList from '../../components/Report/ReportCategoryList/ReportCategoryList'
-// import BalanceBar from '../../components/BalanceBar/BalanceBar'
+
 import BalanceBar from '../../components/Report/BalanceBar/BalanceBar'
 import Chart from '../../components/Chart/Chart'
 
@@ -118,7 +118,7 @@ const data7 = [
 ]
 const ReportView = () => {
   return (
-    <div className="bg">
+    <div className='bg'>
       <section className="container">
         {/* новые компоненты добавлять внутрь этой секции */}
         <BalanceBar />
@@ -126,7 +126,6 @@ const ReportView = () => {
         <ReportCategoryList />
         <Chart data={data} />
       </section>
-      <FunctionalBg />
     </div>
   )
 }

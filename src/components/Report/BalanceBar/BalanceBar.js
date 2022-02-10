@@ -1,8 +1,8 @@
 import React from 'react'
 import BackHomeBtn from '../BackHomeBtn/BackHomeBtn'
 import CurrentData from '../CurrentData/CurrentData'
-import BalanceForm from '../../Balance/BalanceForm/BalanceForm'
 import s from './BalanceBar.module.scss'
+import BalanceInfo from '../../Balance/BalanceInfo/BalanceInfo'
 
 const BalanceBar = () => {
   return (
@@ -10,8 +10,9 @@ const BalanceBar = () => {
       <BackHomeBtn />
       <div className={s.wrap}>
         <CurrentData />
-        <div>
-          <BalanceForm />
+
+        <div className={s.form}>
+          <BalanceInfo />
         </div>
       </div>
     </div>
