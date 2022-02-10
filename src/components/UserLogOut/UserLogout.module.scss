@@ -1,13 +1,18 @@
 @import '../../styles/colors';
 
 .btn_logout {
-  background: transparent;
-  border: none;
-  padding: 0;
-  font-size: 12px;
-  color: $btn-grey-text-color;
-  cursor: pointer;
-  border-bottom: 1px solid $btn-grey-text-color;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 12px;
+    color: $btn-grey-text-color;
+    cursor: pointer;
+    border-bottom: 1px solid $btn-grey-text-color;
+  }
 }
 
 .btn_logout:hover {
@@ -15,4 +20,28 @@
   color: $btn-orange-bg-color;
   border-bottom: 1px solid $btn-orange-bg-color;
   transition: 0.5s linear;
+}
+
+.mobile_logout {
+  display: block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  color: $btn-grey-text-color;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile_logout:hover {
+  fill: $btn-orange-bg-color;
+  transition: 0.5s linear;
+}
+
+.logout_icon {
+  width: 16px;
+  height: 16px;
 }

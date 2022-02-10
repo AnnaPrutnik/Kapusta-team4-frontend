@@ -15,7 +15,6 @@ import BalanceNotifications from '../BalanceNotification/BalanceNotification'
 // }
 
 const BalanceForm = () => {
-
   const [value, setValue] = useState('')
 
   const handleInputChange = e => {
@@ -29,17 +28,6 @@ const BalanceForm = () => {
     // onSubmit()
     console.log('submit')
   }
-//конфликт 1 часть начало!!! 
-  //tut budet logika - было на дев 
-  // let balance = 5 //чтобы модалка появилась, поставить 0
-  // const result = () => {
-   //  if (balance > 0) {
-    //   return false
-   // //  }
-    // return true
- //  }
-  //конфликт 1 часть конец!!! 
-
 
   return (
     <form className={s.form} onSubmit={handleSubmit}>
@@ -54,12 +42,8 @@ const BalanceForm = () => {
         onChange={handleInputChange}
       ></input>
       <span className={s.span}>UAH</span>
-
-        //конфликт 2 часть начало!!! 
-     // <input className={s.input} placeholder="00.00 UAH"></input>
-      //{result() && <BalanceNotifications />}
-        //конфликт 2 часть конец!!! 
-
+      <input className={s.input} placeholder="00.00 UAH"></input>
+      {!value && <BalanceNotifications />}
       <button className={s.btn} type="submit">
         Подтвердить
       </button>
