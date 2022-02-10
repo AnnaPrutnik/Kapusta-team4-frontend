@@ -1,16 +1,17 @@
 import Budget from '../../components/Budget/Budget'
 import Balance from '../../components/Balance/Balance'
-import { FunctionalBg } from '../../components/Background/'
+import Summary from '../../components/Summary/Summary'
+
 
 const FinanceView = () => {
   return (
-    <div className="bg"> 
+    <div className='bg'>
       <section className="container">
         {/* новые компоненты добавлять внутрь этой секции */}
-          <Balance />
-          <Budget />
-        </section>
-        <FunctionalBg /> 
+        <Balance />
+        <Budget />
+        <Summary />
+      </section>
     </div>
   )
 }

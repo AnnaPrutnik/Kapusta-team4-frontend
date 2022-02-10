@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export const getIncomeCategory = async () => {
   const { data } = await axios.get('/category/incomes')
-  return data.categories
+  return data.data
 }
 
 export const getExpenseCategory = async () => {
-  const { data } = await axios.get('/category/outcomes')
-  return data.categories
+  const { data } = await axios.get('/category/expenses')
+  return data.data
 }

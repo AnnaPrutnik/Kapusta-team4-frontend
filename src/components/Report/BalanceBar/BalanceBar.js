@@ -1,8 +1,10 @@
 import React from 'react'
+import MediaQuery from 'react-responsive'
 import BackHomeBtn from '../BackHomeBtn/BackHomeBtn'
 import CurrentData from '../CurrentData/CurrentData'
-import s from './BalanceBar.module.scss'
+import BalanceForm from '../../Balance/BalanceForm/BalanceForm'
 import BalanceInfo from '../../Balance/BalanceInfo/BalanceInfo'
+import s from './BalanceBar.module.scss'
 
 const BalanceBar = () => {
   return (
@@ -10,9 +12,13 @@ const BalanceBar = () => {
       <BackHomeBtn />
       <div className={s.wrap}>
         <CurrentData />
-
         <div className={s.form}>
-          <BalanceInfo />
+          <MediaQuery maxWidth={1279.98}>
+            <BalanceInfo />
+          </MediaQuery>
+          <MediaQuery minWidth={1280}>
+            <BalanceForm />
+          </MediaQuery>
         </div>
       </div>
     </div>

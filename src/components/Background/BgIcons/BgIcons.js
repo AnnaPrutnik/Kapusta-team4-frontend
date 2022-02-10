@@ -1,7 +1,7 @@
-import s from './SmallBgIcons.module.scss'
+import s from './BgIcons.module.scss'
 import background from '../../../images/Background/svg/background.svg'
 
-const SmallBgIcons = () => {
+const BgIcons = () => {
   return (
     <>
       <svg className={s.bottom_icons}>
@@ -14,4 +14,4 @@ const SmallBgIcons = () => {
   )
 }
 
-export default SmallBgIcons
+export default BgIcons
