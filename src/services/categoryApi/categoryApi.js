@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const getIncomeCategory = async () => {
   const { data } = await axios.get('/category/incomes')

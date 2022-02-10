@@ -79,7 +79,12 @@ button {
 }
 
 .bg {
-  margin-top: 56px;
+
+  position: relative;
+  top: 56px;
+  margin-left: auto;
+  margin-right: auto;
+
   background-image: url('../images/Background/grey_bg/bg-mobile-1x.png');
   background-repeat: no-repeat;
   background-size: contain;
