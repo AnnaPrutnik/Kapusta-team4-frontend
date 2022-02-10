@@ -12,6 +12,7 @@ const BalanceBar = () => {
       <BackHomeBtn />
       <div className={s.wrap}>
         <CurrentData />
+
         <div className={s.form}>
           <MediaQuery maxWidth={1279.98}>
             <BalanceInfo />

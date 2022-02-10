@@ -31,7 +31,7 @@ const LoginForm = ({ onClickRegister }) => {
       <p className={s.text_align}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a href="http://localhost:5000/auth/google" className={s.google}>
+      <a href="http://localhost:5000/api/auth/google" className={s.google}>
         Google
       </a>
       <p className={s.text}>

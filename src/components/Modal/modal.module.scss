@@ -1,0 +1,69 @@
+@import '../../styles//colors';
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg-modal-color;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modalContainer {
+  width: 380px;
+  height: 194px;
+  // padding: 50px;
+  background: $bg-white-color;
+  box-shadow: $modal-box-shadow;
+  border-radius: 30px;
+}
+
+.closeBtn {
+  display: block;
+  cursor: pointer;
+  text-align: right;
+  margin: 20px 20px 18px 0;
+}
+
+.closeBtn:hover {
+  color: $btn-orange-bg-color;
+  font-weight: bolder;
+  transition: 0.5s linear;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.btn {
+  background-color: transparent;
+  border-radius: 16px;
+  border: 2px solid $bg-grey-color;
+  width: 125px;
+  height: 44px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: $btn-grey-text-color;
+}
+.btn:hover {
+  background-color: $btn-orange-bg-color;
+  color: $bg-white-color;
+  transition: 0.5s linear;
+}
+.btn:not(:last-child) {
+  margin-right: 15px;
+}

@@ -7,6 +7,7 @@ import s from './Header.module.scss'
 const Header = () => {
   const isLoggesIn = useSelector(getIsLoggedIn)
 
+
   return (
     <header className={s.header}>
       <Navigation />
