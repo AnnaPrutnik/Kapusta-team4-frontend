@@ -2,14 +2,14 @@ import s from './Summary.module.scss'
 import SummaryListItem from './SummaryListItem/SummaryListItem'
 
 const Summary = () => {
-  //   const list = [
-  //     { id: 1, month: 'february', value: 10000.0 },
-  //     { id: 2, month: 'february', value: 10000.0 },
-  //     { id: 3, month: 'february', value: 10000.0 },
-  //     { id: 4, month: 'february', value: 10000.0 },
-  //     { id: 5, month: 'february', value: 10000.0 },
-  //     { id: 6, month: 'february', value: 10000.0 },
-  //   ]
+  // const list = [
+  //   { id: 1, month: 'february', value: 10000.0 },
+  //   { id: 2, month: 'february', value: 10000.0 },
+  //   { id: 3, month: 'february', value: 10000.0 },
+  //   { id: 4, month: 'february', value: 10000.0 },
+  //   { id: 5, month: 'february', value: 10000.0 },
+  //   { id: 6, month: 'february', value: 10000.0 },
+  // ]
 
   const list = []
   return (
