@@ -68,6 +68,7 @@ button {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .container {
@@ -78,14 +79,15 @@ button {
 }
 
 .bg {
+
   position: relative;
   top: 56px;
   margin-left: auto;
   margin-right: auto;
+
   background-image: url('../images/Background/grey_bg/bg-mobile-1x.png');
   background-repeat: no-repeat;
   background-size: contain;
-  z-index: -2;
   overflow: hidden;
 }
 
@@ -107,8 +109,10 @@ button {
   }
 
   .bg {
-    max-width: 768px;
-    background-image: url('../images/Background/grey_bg/bg-tablet-1x.png');
+    background-size: 183px 142px, contain;
+    background-position: bottom 32px right 88px, top 0 center;
+    background-image: url('../images/Background/svg/main_two.svg'),
+      url('../images/Background/grey_bg/bg-tablet-1x.png');
   }
 }
 
@@ -122,7 +126,9 @@ button {
   }
   .bg {
     max-width: 1280px;
-    background-size: 1280px;
-    background-image: url('../images/Background/grey_bg/bg-desktop-1x.png');
+    background-size: 1280px 232px, contain;
+    background-position: bottom -20px left 10px, top 0 center;
+    background-image: url('../images/Background/svg/main_group.svg'),
+      url('../images/Background/grey_bg/bg-desktop-1x.png');
   }
 }

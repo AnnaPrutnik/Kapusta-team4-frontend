@@ -1,12 +1,19 @@
+import { useSelector } from 'react-redux'
+import { getIsLoggedIn } from '../../redux/auth/'
 import HomeContent from '../../components/HomeContent/HomeContent'
 import Form from '../../components/Form/Form'
 
 const HomeView = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn)
   return (
-    <section className="home_section">
-      <HomeContent />
-      <Form />
-    </section>
+    <>
+      {!isLoggedIn && (
+        <div>
+          <HomeContent />
+          <Form />
+        </div>
+      )}
+    </>
   )
 }
 

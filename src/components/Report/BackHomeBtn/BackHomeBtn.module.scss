@@ -1,28 +1,18 @@
 @import '../../../styles/shared.scss';
 
-.btn {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-
-  @media screen and (min-width: $breakpoint-tablet) {
-    margin-right: 84px;
-    margin-bottom: 0;
-  }
-
-  @media screen and (min-width: $breakpoint-desktop) {
-    margin-right: 160px;
-  }
-}
-
 .link {
+  margin-bottom: 10px;
+  background-color: transparent;
+  cursor: pointer;
   @media screen and (min-width: $breakpoint-tablet) {
     display: flex;
+    align-items: center;
     justify-content: center;
+    margin-bottom: 0;
+    margin-right: 47px;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-right: 158px;
   }
 }
 
