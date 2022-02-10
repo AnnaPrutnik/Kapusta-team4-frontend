@@ -5,6 +5,8 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
+  isFirstLogin: true,
+  balance: null,
 }
 
 const authSlice = createSlice({
@@ -33,6 +35,8 @@ const authSlice = createSlice({
       state.user = { name: payload.name, email: payload.email }
       state.token = payload.token
       state.isLoggedIn = true
+      state.balance = payload.balance
+      state.isFirstLogin = payload.isFirstLogin
     },
     [logIn.rejected](state, { payload }) {
       state.error = payload
@@ -45,6 +49,7 @@ const authSlice = createSlice({
       state.user = { name: null, email: null }
       state.token = null
       state.isLoggedIn = false
+      state.balance = null
     },
     [logOut.rejected](state, { payload }) {
       state.error = payload

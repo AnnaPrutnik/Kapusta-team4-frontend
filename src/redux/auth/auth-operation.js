@@ -4,6 +4,7 @@ import {
   loginUser,
   logoutUser,
 } from '../../services/authApi/authApi'
+import { getBalance } from '../../services/userApi/userApi'
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -22,6 +23,7 @@ export const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await loginUser(credentials)
+      console.log(data)
       return data
     } catch (error) {
       return rejectWithValue(error.message)
