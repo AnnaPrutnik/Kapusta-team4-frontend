@@ -10,7 +10,6 @@ const BalanceBar = () => {
       <BackHomeBtn />
       <div className={s.wrap}>
         <CurrentData />
-
         <div className={s.form}>
           <BalanceInfo />
         </div>
