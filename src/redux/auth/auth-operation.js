@@ -38,7 +38,6 @@ export const logOut = createAsyncThunk(
   },
 )
 
-
 export const getCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
@@ -53,7 +52,9 @@ export const getCurrentUser = createAsyncThunk(
       return data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
-
+    }
+  },
+)
 
 export const balanceSet = createAsyncThunk(
   '/user/balance',
@@ -63,7 +64,6 @@ export const balanceSet = createAsyncThunk(
       return data
     } catch (error) {
       return rejectWithValue(error.message)
-
     }
   },
 )

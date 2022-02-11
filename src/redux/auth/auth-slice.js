@@ -9,7 +9,6 @@ import {
   getCurrentUser,
 } from './auth-operation'
 
-
 const initialState = {
   user: { name: null, email: null },
   token: null,
@@ -72,6 +71,8 @@ const authSlice = createSlice({
     [getCurrentUser.fulfilled](state, { payload }) {
       state.user = { name: payload.name, email: payload.email }
       state.isLoggedIn = true
+      // state.balance = payload.balance
+      // state.isFirstLogin = false
     },
     [getCurrentUser.rejected](state, { payload }) {
       state.error = payload
@@ -84,7 +85,6 @@ const authSlice = createSlice({
     [balanceSet.rejected](state, { payload }) {
       state.error = payload
     },
-   
   },
 })
 
