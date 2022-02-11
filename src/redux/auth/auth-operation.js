@@ -4,7 +4,7 @@ import {
   loginUser,
   logoutUser,
 } from '../../services/authApi/authApi'
-import { getBalance, setBalance } from '../../services/userApi/userApi'
+import { setBalance } from '../../services/userApi/userApi'
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -67,18 +67,6 @@ export const balanceSet = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await setBalance(credentials)
-      return data
-    } catch (error) {
-      return rejectWithValue(error.message)
-    }
-  },
-)
-
-export const balanceGet = createAsyncThunk(
-  '/user/balance',
-  async (_, { rejectWithValue }) => {
-    try {
-      const { data } = await getBalance()
       return data
     } catch (error) {
       return rejectWithValue(error.message)

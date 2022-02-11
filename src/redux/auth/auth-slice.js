@@ -67,12 +67,6 @@ const authSlice = createSlice({
     [balanceSet.rejected](state, { payload }) {
       state.error = payload
     },
-    [balanceGet.fulfilled](state, { payload }) {
-      state.balance = payload
-    },
-    [balanceGet.rejected](state, { payload }) {
-      state.error = payload
-    },
     // [getCurrentUser.pending](state, _) {
     //   state.isRefreshing = true
     //   state.error = null
