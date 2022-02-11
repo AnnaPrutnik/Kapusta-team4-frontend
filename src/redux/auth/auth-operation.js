@@ -1,10 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import {
-  signUpUser,
-  loginUser,
-  logoutUser,
-} from '../../services/authApi/authApi'
-import { getBalance } from '../../services/userApi/userApi'
+import { signUpUser, loginUser, logoutUser, currentUser } from '../../services/'
+import { setHeaders } from '../../services/'
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -23,7 +19,6 @@ export const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await loginUser(credentials)
-      console.log(data)
       return data
     } catch (error) {
       return rejectWithValue(error.message)
@@ -42,22 +37,20 @@ export const logOut = createAsyncThunk(
   },
 )
 
-// На бекенде нет реализованого такого энд-поинта
-
-// export const getCurrentUser = createAsyncThunk(
-//   'auth/refresh',
-//   async (_, thunkAPI) => {
-//     const state = thunkAPI.getState()
-//     const persistedToken = state.auth.token
-//     if (persistedToken === null) {
-//       return thunkAPI.rejectWithValue()
-//     }
-//     token.set(persistedToken)
-//     try {
-//       const { data } = await axios.get('/users/current')
-//       return data
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message)
-//     }
-//   },
-// )
+export const getCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState()
+    const persistedToken = state.auth.token
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue()
+    }
+    setHeaders(persistedToken)
+    try {
+      const { data } = await currentUser()
+      return data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
+  },
+)
