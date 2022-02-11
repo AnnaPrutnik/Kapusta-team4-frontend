@@ -1,0 +1,64 @@
+@import '../../styles/shared.scss';
+
+.container {
+  position: relative;
+  font-size: 12px;
+  margin-bottom: 550px;
+  margin-left: 50px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    margin-bottom: 778px;
+    margin-left: 66px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
+}
+
+.titleWrap {
+  position: relative;
+  top: 0px;
+  left: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.link {
+  text-decoration: underline;
+  display: inline-block;
+  margin-left: 5px;
+  color: $active-product-category-img;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.icon {
+  position: relative;
+  top: 20px;
+  left: 80px;
+  width: 150px;
+
+  @media screen and (min-width: 768px) {
+    left: 300px;
+    width: 200px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    left: 500px;
+    width: 300px;
+  }
+}
