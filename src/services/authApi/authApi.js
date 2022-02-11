@@ -13,6 +13,11 @@ export const loginUser = async credentials => {
 }
 
 export const logoutUser = async () => {
-  await axios.get('/users/logout')
+  await axios.get('/auth/logout')
   unsetHeaders()
+}
+
+export const currentUser = async () => {
+  const { data } = await axios.get('/auth/refresh')
+  return data
 }

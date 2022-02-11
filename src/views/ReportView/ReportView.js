@@ -1,8 +1,9 @@
-
+import { useSelector } from 'react-redux'
 import ReportMenu from '../../components/Report/ReportMenu/ReportMenu'
 import ReportCategoryList from '../../components/Report/ReportCategoryList/ReportCategoryList'
 import BalanceBar from '../../components/Report/BalanceBar/BalanceBar'
 import Chart from '../../components/Chart/Chart'
+import { getIsLoggedIn } from '../../redux/auth'
 
 const data = [
   {
@@ -116,16 +117,20 @@ const data7 = [
   },
 ]
 const ReportView = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn)
   return (
-    <div className='bg'>
-      <section className="container">
-        {/* новые компоненты добавлять внутрь этой секции */}
-        <BalanceBar />
-        <ReportMenu />
-        <ReportCategoryList />
-        <Chart data={data} />
-      </section>
-    </div>
+    <>
+      {isLoggedIn && (
+        <div className="bg">
+          <section className="container">
+            <BalanceBar />
+            <ReportMenu />
+            <ReportCategoryList />
+            <Chart data={data} />
+          </section>
+        </div>
+      )}
+    </>
   )
 }
 
