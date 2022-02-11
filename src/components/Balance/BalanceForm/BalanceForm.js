@@ -1,32 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { balanceSet, balanceGet } from '../../../redux/auth/auth-operation'
 import s from './BalanceForm.module.scss'
 import BalanceNotifications from '../BalanceNotification/BalanceNotification'
 
-// const BalanceForm = () => {
-//   return (
-//     <form className={s.form}>
-//       <label className={s.label}>Баланс:</label>
-//       <input className={s.input} placeholder="00.00 UAH"></input>
-//       <button className={s.btn} type="submit">
-//         Подтвердить
-//       </button>
-//     </form>
-//   )
-// }
-
 const BalanceForm = () => {
+  const dispatch = useDispatch()
+
   const [value, setValue] = useState('')
+
+  useEffect(() => {
+    dispatch(balanceGet()).then(r => setValue(r.payload))
+  }, [])
 
   const handleInputChange = e => {
     const value = e.currentTarget.value
     setValue(value)
-    console.log(value)
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    // onSubmit()
-    console.log('submit')
+    dispatch(balanceSet({ value }))
   }
 
   return (
@@ -42,7 +36,7 @@ const BalanceForm = () => {
         onChange={handleInputChange}
       ></input>
       <span className={s.span}>UAH</span>
-      <input className={s.input} placeholder="00.00 UAH"></input>
+
       {!value && <BalanceNotifications />}
       <button className={s.btn} type="submit">
         Подтвердить
