@@ -15,7 +15,9 @@ const BalanceForm = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setUserBalance(balance)
+    if (balance > 0) {
+      setUserBalance(balance)
+    }
   }, [balance])
 
   const handleInputChange = e => {
@@ -36,6 +38,7 @@ const BalanceForm = () => {
       </label>
 
       <input
+        type="text"
         className={s.input}
         placeholder="00.00"
         name="balance"

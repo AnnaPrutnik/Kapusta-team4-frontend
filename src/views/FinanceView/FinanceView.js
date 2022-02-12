@@ -11,7 +11,6 @@ const FinanceView = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('render')
     dispatch(getBalance())
   }, [])
 
@@ -20,7 +19,6 @@ const FinanceView = () => {
       {isLoggedIn && (
         <div className="bg">
           <section className="container">
-            {/* новые компоненты добавлять внутрь этой секции */}
             <Balance />
             <Budget />
             <Summary />
