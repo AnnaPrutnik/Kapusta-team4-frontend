@@ -10,7 +10,7 @@ function PrivateRoute({ component: Component }) {
 export default PrivateRoute
 
 // УДАЛИТЬ ПОСЛЕ ДОБАВЛЕНИЯ БЭКА
-
+//
 // const PrivateRoute = ({ component: Component }) => {
 //   return  <Component />
 // }

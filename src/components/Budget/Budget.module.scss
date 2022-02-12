@@ -50,7 +50,8 @@ button {
   }
 
   .main_content {
-    background-color: $bg-white-color;
+    //background-color: $bg-white-color;
+    background-color: cornflowerblue;
     border-radius: 0 30px 30px 30px;
     margin: 0 auto;
     position: relative;
@@ -67,6 +68,16 @@ button {
         display: flex;
         flex-direction: row;
         align-items: center;
+
+        div {
+
+          input {
+            background-color: transparent;
+            width: 74px;
+          }
+        }
+
+
 
         svg {
           margin-right: 10px;
@@ -223,6 +234,9 @@ button {
       }
 
       .info_btn {
+        height: 100%;
+        display: flex;
+
         button {
           &:first-child {
             background: #ff751d;
