@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { signUpUser, loginUser, logoutUser, currentUser } from '../../services/'
 import { setHeaders } from '../../services/'
-import { setBalance } from '../../services/userApi/userApi'
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -52,18 +51,6 @@ export const getCurrentUser = createAsyncThunk(
       return data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
-    }
-  },
-)
-
-export const balanceSet = createAsyncThunk(
-  '/user/balance',
-  async (credentials, { rejectWithValue }) => {
-    try {
-      const { data } = await setBalance(credentials)
-      return data
-    } catch (error) {
-      return rejectWithValue(error.message)
     }
   },
 )

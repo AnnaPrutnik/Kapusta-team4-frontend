@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { loginByGoogle, changeIsFirstLogin } from './auth-action'
 
 import {
   register,
@@ -14,13 +15,19 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isFirstLogin: true,
-  balance: null,
 }
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducer: {},
   extraReducers: {
+    [loginByGoogle](state, { payload }) {
+      state.token = payload
+    },
+    [changeIsFirstLogin](state, _) {
+      state.isFirstLogin = false
+    },
     [register.pending](state, _) {
       state.error = null
       state.token = null
@@ -43,7 +50,6 @@ const authSlice = createSlice({
       state.user = { name: payload.name, email: payload.email }
       state.token = payload.token
       state.isLoggedIn = true
-      state.balance = payload.balance
       state.isFirstLogin = payload.isFirstLogin
     },
     [logIn.rejected](state, { payload }) {
@@ -57,7 +63,6 @@ const authSlice = createSlice({
       state.user = { name: null, email: null }
       state.token = null
       state.isLoggedIn = false
-      state.balance = null
     },
     [logOut.rejected](state, { payload }) {
       state.error = payload
@@ -71,19 +76,11 @@ const authSlice = createSlice({
     [getCurrentUser.fulfilled](state, { payload }) {
       state.user = { name: payload.name, email: payload.email }
       state.isLoggedIn = true
-      // state.balance = payload.balance
-      // state.isFirstLogin = false
+      state.isFirstLogin = payload.isFirstLogin
     },
     [getCurrentUser.rejected](state, { payload }) {
       state.error = payload
       state.isLoggedIn = false
-    },
-
-    [balanceSet.fulfilled](state, { payload }) {
-      state.balance = payload
-    },
-    [balanceSet.rejected](state, { payload }) {
-      state.error = payload
     },
   },
 })
