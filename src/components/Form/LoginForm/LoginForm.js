@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { toast } from 'react-toastify';
-import { logIn } from '../../../redux/auth/auth-operation'
+import { toast } from 'react-toastify'
+import { logIn, loginGoogle } from '../../../redux/auth/auth-operation'
 import s from '../Form.module.scss'
 
 const LoginForm = ({ onClickRegister }) => {
@@ -25,7 +25,7 @@ const LoginForm = ({ onClickRegister }) => {
     dispatch(logIn({ email, password }))
     setEmail('')
     setPassword('')
-    toast("Поздравляем! Вы успешно вошли в свою учетную запись!")
+    toast('Поздравляем! Вы успешно вошли в свою учетную запись!')
   }
 
   return (
@@ -33,6 +33,9 @@ const LoginForm = ({ onClickRegister }) => {
       <p className={s.text_align}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
+      {/* <button className={s.google} onClick={handleClickGoogle}>
+        Google
+      </button> */}
       <a href="http://localhost:5000/api/auth/google" className={s.google}>
         Google
       </a>
