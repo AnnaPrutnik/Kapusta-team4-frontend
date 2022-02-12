@@ -1,46 +1,45 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getIsFirstLogin } from '../../../redux/auth'
-import {
-  getUserBalance,
-  setBalance,
-  updateBalance,
-} from '../../../redux/balance'
+import { getIsFirstLogin, changeIsFirstLogin } from '../../../redux/auth'
+
+import { getUserBalance, setBalance } from '../../../redux/balance'
 
 import s from './BalanceForm.module.scss'
 import BalanceNotifications from '../BalanceNotification/BalanceNotification'
 
 const BalanceForm = () => {
-  const [userBalance, setUserBalance] = useState(null)
+  const [userBalance, setUserBalance] = useState('')
   const balance = useSelector(getUserBalance)
   const isFirstTime = useSelector(getIsFirstLogin)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setBalance(balance)
-  }, [userBalance])
+    setUserBalance(balance)
+  }, [balance])
 
   const handleInputChange = e => {
-    console.log('click')
     const value = e.currentTarget.value
     setUserBalance(value)
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(userBalance)
-    dispatch(updateBalance(300))
+    dispatch(setBalance(userBalance))
+    dispatch(changeIsFirstLogin())
   }
 
   return (
     <form className={s.form} onSubmit={handleSubmit}>
-      <label className={s.label}>Баланс:</label>
+      <label className={s.label} htmlFor="balance">
+        Баланс:
+      </label>
 
       <input
         className={s.input}
         placeholder="00.00"
         name="balance"
+        id="balance"
         value={userBalance}
         onChange={handleInputChange}
       ></input>

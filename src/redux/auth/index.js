@@ -6,4 +6,4 @@ export {
   getIsRefreshing,
 } from './auth-selectors'
 export { register, logIn, logOut } from './auth-operation'
-export { loginByGoogle } from './auth-action'
+export { loginByGoogle, changeIsFirstLogin } from './auth-action'

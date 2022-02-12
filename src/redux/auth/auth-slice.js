@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { loginByGoogle } from './auth-action'
+import { loginByGoogle, changeIsFirstLogin } from './auth-action'
 
 import {
   register,
@@ -24,6 +24,9 @@ const authSlice = createSlice({
   extraReducers: {
     [loginByGoogle](state, { payload }) {
       state.token = payload
+    },
+    [changeIsFirstLogin](state, _) {
+      state.isFirstLogin = false
     },
     [register.pending](state, _) {
       state.error = null
