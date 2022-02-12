@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify';
 import { logIn } from '../../../redux/auth/auth-operation'
 import s from '../Form.module.scss'
 
@@ -24,6 +25,7 @@ const LoginForm = ({ onClickRegister }) => {
     dispatch(logIn({ email, password }))
     setEmail('')
     setPassword('')
+    toast("Поздравляем! Вы успешно вошли в свою учетную запись!")
   }
 
   return (
