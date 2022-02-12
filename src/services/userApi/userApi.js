@@ -9,7 +9,6 @@ export const getUserBalance = async () => {
 
 export const setUserBalance = async value => {
   setToken()
-  console.log(value)
   const response = await axios.patch('/user/balance', { value })
   return response.data
 }
