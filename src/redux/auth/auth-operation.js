@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { toast } from 'react-toastify';
 import { signUpUser, loginUser, logoutUser, currentUser } from '../../services/'
 import { setHeaders } from '../../services/'
 import { setBalance } from '../../services/userApi/userApi'
@@ -20,8 +21,10 @@ export const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await loginUser(credentials)
+      toast.success("Поздравляем! Вы успешно вошли в свою учетную запись!")
       return data
     } catch (error) {
+      toast.error("Ошибка! Проверьте правильность вводимых данных или зарегистрируйтесь для входа в личный кабинет!")
       return rejectWithValue(error.message)
     }
   },
