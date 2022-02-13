@@ -33,10 +33,10 @@ const LoginForm = ({ onClickRegister }) => {
       <p className={s.text_align}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      {/* <button className={s.google} onClick={handleClickGoogle}>
-        Google
-      </button> */}
-      <a href="http://localhost:5000/api/auth/google" className={s.google}>
+      <a
+        href="https://goit-fs35-team4-kapusta.herokuapp.com/api/auth/google"
+        className={s.google}
+      >
         Google
       </a>
       <p className={s.text}>
