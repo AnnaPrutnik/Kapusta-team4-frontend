@@ -1,36 +1,12 @@
 import React from 'react';
-import s from './Budget.module.scss';
-import { Delete } from '../../images/Budget/svg/svg';
+import s from '../Budget.module.scss';
+import { Delete } from '../../../images/Budget/svg/svg';
 
-
-const BudgetInfoTable = ({ expenseArr, incomeArr, incButton, epxButton, currentDate, mobileWidth }) => {
-
-  const mergeArrays =
-    mobileWidth
-      ? expenseArr.concat(incomeArr)
-      : (epxButton && expenseArr) || (incButton && incomeArr);
-
+const InfoTableMobile = () => {
   return (
     <div className={s.info_table}>
       <div className={s.titles_and_results}>
-        {mobileWidth ? (
-          ''
-        ) : (
           <table>
-            {mobileWidth ? (
-              ''
-            ) : (
-              <thead>
-              <tr>
-                <th>Дата</th>
-                <th>Описание</th>
-                <th>Категория</th>
-                <th>Сумма</th>
-                <th style={{ color: 'transparent' }}>Удалить</th>
-              </tr>
-              </thead>
-            )}
-
             {mergeArrays.length > 0 ? (
               <tbody>
               {mergeArrays.map((item, index) => (
@@ -52,9 +28,7 @@ const BudgetInfoTable = ({ expenseArr, incomeArr, incButton, epxButton, currentD
               ''
             )}
           </table>
-        )}
 
-        {mobileWidth ? (
           <div className={s.info_table_mobile}>
             {mergeArrays.map((item, index) => (
               <div key={index} className={s.info_items}>
@@ -72,21 +46,10 @@ const BudgetInfoTable = ({ expenseArr, incomeArr, incButton, epxButton, currentD
               </div>
             ))}
           </div>
-        ) : (
-          ''
-        )}
-        {/*{mass1.length === 0 ? (*/}
-        {/*  <div className={s.content_without_added_category}>*/}
-        {/*        <span>*/}
-        {/*          Тут будут отображаться добавленные вами категории...*/}
-        {/*        </span>*/}
-        {/*  </div>*/}
-        {/*) : (*/}
-        {/*  ''*/}
-        {/*)}*/}
       </div>
+
     </div>
   );
 };
 
-export default BudgetInfoTable;
+export default InfoTableMobile;
