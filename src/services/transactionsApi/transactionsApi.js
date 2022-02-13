@@ -23,6 +23,6 @@ export const deleteTransaction = async id => {
 
 export const getTransactionsForOneDay = async date => {
   setToken()
-  const response = await axios.get(`/transactions/`, date)
+  const response = await axios.get(`/transactions/`, { date })
   return response.data
 }
