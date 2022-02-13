@@ -134,3 +134,18 @@ button {
       url('../images/Background/grey_bg/bg-desktop-1x.png');
   }
 }
+
+::-webkit-scrollbar {
+  /* 1 - скроллбар */
+  width: 4px;
+  height: 4px;
+
+  background-color: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  /* 5 - ползунок */
+  border-radius: 3px;
+  height: 43px;
+  background-color: var(--placeholder-text-color);
+}
