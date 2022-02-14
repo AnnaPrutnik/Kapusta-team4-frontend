@@ -10,19 +10,72 @@ const RegisterForm = ({ onClickComeBack }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [nameDirty, setNameDirty] = useState(false)
+  const [emailDirty, setEmailDirty] = useState(false)
+  const [passwordDirty, setPasswordDirty] = useState(false)
+  const [nameError, setNameError] = useState('это обязательное поле')
+  const [emailError, setEmailError] = useState('это обязательное поле')
+  const [passwordError, setPasswordError] = useState('это обязательное поле')
+  const [errorSymbol, setErrorSymbol] = useState('*')
 
   const dispatch = useDispatch()
 
-  const handleChange = ({ target: { name, value } }) => {
+  const blurHandler = ({ target: { name } }) => {
     switch (name) {
       case 'name':
-        return setName(value)
+        setNameDirty(true)
+        break
       case 'email':
-        return setEmail(value)
+        setEmailDirty(true)
+        break
       case 'password':
-        return setPassword(value)
+        setPasswordDirty(true)
+        break
       default:
         return
+    }
+  }
+
+  const handleName = ({ target: { value } }) => {
+    setName(value);
+    const re = /^[A-Za-zА-Яа-яЁё' '\-()0-9]{3,30}$/;
+    if (!re.test(String(value).toLowerCase())) {
+      setNameError('Некорректное имя');
+      setErrorSymbol('*');
+      if (!value) {
+        setNameError('это обязательное поле');
+        setErrorSymbol('*');
+      }
+    } else {
+      setNameError('');
+    }
+  }
+
+  const handleChangeEmail = ({ target: { value } }) => {
+    setEmail(value)
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(value).toLowerCase())) {
+      setEmailError('Некорректный емейл');
+      setErrorSymbol('*');
+      if (!value) {
+        setEmailError('это обязательное поле');
+        setErrorSymbol('*');
+      }
+    } else {
+      setEmailError('');
+    }
+  }
+
+  const handleChangePassword = ({ target: {value} }) => {
+    setPassword(value)
+    if (value.length < 6) {
+      setPasswordError('Пароль должен быть не меньше 6 символов');
+      if (!value) {
+        setPasswordError('это обязательное поле');
+      }
+    } else {
+      setPasswordError('');
     }
   }
 
@@ -40,9 +93,16 @@ const RegisterForm = ({ onClickComeBack }) => {
       <p className={s.text_align}>Для регистрации заполните поля:</p>
       <form onSubmit={handleSubmit} action="" autoComplete="on">
         <label className={s.label} htmlFor="">
-          <p className={s.sign}>Имя:</p>
+          <p className={s.sign}>
+            {nameDirty && nameError && (
+              <span style={{ color: 'red', fontSize: 10, paddingTop: 4 }}>
+                {errorSymbol}{' '}
+              </span>
+            )}
+            Имя:</p>
           <input
-            onChange={handleChange}
+            onBlur={blurHandler}
+            onChange={handleName}
             type="text"
             name="name"
             value={name}
@@ -52,12 +112,31 @@ const RegisterForm = ({ onClickComeBack }) => {
             title="Имя может состоять только от трёх до 30 букв, апострофа, тире и пробелов. Например Adrian, Jac Mercer, d'Artagnan, Александр Репета и т.п."
             required
           />
+          {nameDirty && nameError && (
+            <div
+              style={{
+                color: 'red',
+                fontSize: 10,
+                paddingTop: 4,
+                textAlign: 'left',
+              }}
+            >
+              {nameError}{' '}
+            </div>
+          )}
         </label>
 
         <label className={s.label} htmlFor="">
-          <p className={s.sign}>Электронная почта:</p>
+          <p className={s.sign}>
+            {emailDirty && emailError && (
+              <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+                {errorSymbol}{' '}
+              </span>
+            )}
+            Электронная почта:</p>
           <input
-            onChange={handleChange}
+            onBlur={blurHandler}
+            onChange={handleChangeEmail}
             type="email"
             name="email"
             value={email}
@@ -67,12 +146,24 @@ const RegisterForm = ({ onClickComeBack }) => {
             title="Email может, сoстоять из букв цифр и обязательного символа '@'"
             required
           />
+          {emailDirty && emailError && (
+            <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+              {emailError}{' '}
+            </div>
+          )}
         </label>
 
         <label className={s.label} htmlFor="">
-          <p className={s.sign}>Пароль:</p>
+          <p className={s.sign}>
+            {passwordDirty && passwordError && (
+                <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+                  {errorSymbol}{' '}
+                </span>
+            )}
+            Пароль:</p>
           <input
-            onChange={handleChange}
+            onBlur={blurHandler}
+            onChange={handleChangePassword}
             type="password"
             name="password"
             value={password}
@@ -82,6 +173,11 @@ const RegisterForm = ({ onClickComeBack }) => {
             title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
             required
           />
+          {passwordDirty && passwordError && (
+            <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+              {passwordError}{' '}
+            </div>
+          )}
         </label>
 
         <div className={s.wrap}>
