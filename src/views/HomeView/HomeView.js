@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { getIsLoggedIn } from '../../redux/auth/'
 import HomeContent from '../../components/HomeContent/HomeContent'

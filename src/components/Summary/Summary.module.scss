@@ -7,6 +7,16 @@
   background-color: $btn-grey-bg-color;
   border-radius: 20px;
   border-bottom-left-radius: 0;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 40px;
+    margin-left: 51px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-top: 0;
+    margin-left: 0px;
+  }
 }
 
 .title {

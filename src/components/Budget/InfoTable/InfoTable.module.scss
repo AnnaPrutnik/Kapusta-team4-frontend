@@ -1,0 +1,108 @@
+@import '../../../styles/shared.scss';
+
+.table {
+  display: block;
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 760px;
+  }
+}
+
+.head {
+  display: block;
+}
+
+.header {
+  display: inline-flex;
+  width: 100%;
+  background-color: $bg-grey-color;
+  border-radius: 20px 20px 0 0;
+  letter-spacing: 0.02em;
+  padding: 14px 84px 14px 21px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding: 11px 136px 11px 20px;
+  }
+}
+
+.head_date {
+  margin-right: 69px;
+}
+
+.body {
+  display: block;
+  height: 306px;
+  overflow-y: scroll;
+
+  scrollbar-color: $btn-orange-bg-color $bg-grey-color;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: $bg-grey-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $btn-orange-bg-color;
+    height: 130px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    height: 344px;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 26px 0 21px;
+  color: $text-color-secondary;
+  border: 2px solid $btn-grey-bg-color;
+  border-top: none;
+}
+.date {
+  margin-right: 37px;
+}
+
+.description {
+  width: 168px;
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 184px;
+    margin-right: 20px;
+  }
+}
+
+.category {
+  width: 104px;
+  text-align: center;
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 172px;
+    margin-right: 20px;
+  }
+}
+
+.head_description {
+  composes: description;
+  text-align: left;
+}
+
+.amount {
+  width: 104px;
+  text-align: end;
+}
+
+.expense {
+  composes: amount;
+  color: $expenses-text-color;
+}
+
+.income {
+  composes: amount;
+  color: $profits-text-color;
+}
+
+.delete {
+  display: block;
+  margin-left: auto;
+}

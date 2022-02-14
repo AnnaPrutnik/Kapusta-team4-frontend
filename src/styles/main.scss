@@ -19,13 +19,12 @@ h4,
 h5,
 h6,
 ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-p {
-  margin: 0px;
+ol,
+p,
+input,
+button {
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -36,8 +35,6 @@ img {
 
 ul,
 ol {
-  margin: 0px;
-  padding: 0px;
   list-style: none;
 }
 
@@ -63,18 +60,16 @@ input {
 button {
   cursor: pointer;
   border: none;
-  padding: 0;
 }
 
 .wrapper {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
 }
 
 .container {
-  padding-top: 15px;
+  padding-top: 86px;
   padding-left: 19px;
   padding-right: 19px;
   padding-bottom: 40px;
@@ -82,14 +77,13 @@ button {
 
 .bg {
   position: relative;
-  top: 56px;
+  top: 0;
   margin-left: auto;
   margin-right: auto;
 
   background-image: url('../images/Background/grey_bg/bg-mobile-1x.png');
   background-repeat: no-repeat;
   background-size: contain;
-  overflow: hidden;
 }
 
 @media screen and (min-width: 320px) {
@@ -103,7 +97,7 @@ button {
     width: 768px;
   }
   .container {
-    padding-top: 40px;
+    padding-top: 96px;
     padding-left: 51px;
     padding-right: 52px;
     padding-bottom: 126px;

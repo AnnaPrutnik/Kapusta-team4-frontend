@@ -18,11 +18,9 @@ const FinanceView = () => {
     <>
       {isLoggedIn && (
         <div className="bg">
-          <section className="container">
-            <Balance />
+          <div className="container">
             <Budget />
-            <Summary />
-          </section>
+          </div>
         </div>
       )}
     </>

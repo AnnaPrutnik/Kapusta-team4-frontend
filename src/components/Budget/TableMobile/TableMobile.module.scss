@@ -1,0 +1,45 @@
+@import '../../../styles/shared.scss';
+
+.table {
+  color: $text-color-secondary;
+  width: 100%;
+}
+
+.row {
+  position: relative;
+  display: flex;
+
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid $btn-grey-bg-color;
+}
+.info {
+  display: block;
+  margin-right: auto;
+}
+
+.description {
+  font-weight: 700;
+  padding: 4px 0 3px 0;
+  margin-bottom: 3px;
+}
+
+.wrap {
+  font-size: 8px;
+  line-height: 1.125;
+}
+
+.date {
+  margin-right: 20px;
+}
+
+.delete {
+  margin-left: 20px;
+}
+
+.expense {
+  color: $expenses-text-color;
+}
+.income {
+  color: $profits-text-color;
+}
