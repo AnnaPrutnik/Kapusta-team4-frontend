@@ -8,7 +8,6 @@ const Balance = () => {
     <section className={s.balanceContainer}>
       <ReportBtn />
       <BalanceForm />
-      <Calendar />
     </section>
   )
 }
