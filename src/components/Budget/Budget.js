@@ -97,7 +97,7 @@ const Budget = () => {
               ) : (
                 <TableMobile transactions={convertTransaction} />
               )}
-              {isDesktop && <Summary />}
+              {isDesktop && <Summary isExpense={isExpense} />}
             </div>
           </div>
           {isTablet && <Summary />}
