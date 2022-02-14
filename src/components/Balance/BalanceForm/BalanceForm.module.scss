@@ -82,7 +82,8 @@
   }
 }
 
-.btn:hover {
+.btn:hover,
+.btn:focus {
   color: $btn-orange-text-color;
   background-color: $btn-orange-bg-color;
   border-color: $btn-orange-bg-color;

@@ -11,14 +11,9 @@ const Summary = ({ isExpense }) => {
   const [expenses, setExpenses] = useState({})
   const [incomes, setIncomes] = useState({})
 
-  console.log(isExpense)
   useEffect(() => {
-    getExpensesForLastSixMonth().then(res => {
-      console.log('ex-', res.data), setExpenses(res.data)
-    }),
-      getIncomesForLastSixMonth().then(res => {
-        console.log('in+', res.data), setIncomes(res.data)
-      })
+    getExpensesForLastSixMonth().then(res => setExpenses(res.data)),
+      getIncomesForLastSixMonth().then(res => setIncomes(res.data))
   }, [])
 
   return (
