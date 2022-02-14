@@ -106,3 +106,15 @@
   display: block;
   margin-left: auto;
 }
+
+.btn {
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border-radius: 50%;
+
+  &:hover,
+  &:focus {
+    background-color: $btn-grey-bg-color;
+  }
+}

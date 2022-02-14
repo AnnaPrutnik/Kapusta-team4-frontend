@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
+import { toast } from 'react-toastify'
 import AddTransaction from './AddTransaction/AddTransaction'
 import Balance from '../Balance/Balance'
 import InfoTable from './InfoTable/InfoTable'
@@ -8,7 +10,8 @@ import Calendar from './Calendar/Calendar'
 import Buttons from './Buttons/Buttons'
 import MobileForm from './MobileForm/MobileForm'
 import Summary from '../Summary/Summary'
-import { getTransactionsForOneDay } from '../../services'
+import { getTransactionsForOneDay, deleteTransaction } from '../../services'
+import { updateBalance } from '../../redux/balance'
 import s from './Budget.module.scss'
 
 const Budget = () => {
@@ -19,6 +22,7 @@ const Budget = () => {
   const notMobile = useMediaQuery({ minWidth: 768 })
   const isDesktop = useMediaQuery({ minWidth: 1280 })
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.99 })
+  const dispatch = useDispatch()
 
   useEffect(() => {
     getTransactionsForOneDay(date).then(res => {
@@ -34,8 +38,26 @@ const Budget = () => {
     setDate(value)
   }
 
-  const handleChangeTransactions = transaction => {
+  const handleAddTransactions = transaction => {
     setTransactions(prev => [...prev, transaction])
+  }
+
+  const handleDeleteTransaction = async id => {
+    const { data } = await deleteTransaction(id)
+    console.log(data)
+    if (!data) {
+      toast.error('К сожалению, транзакция не была удалена!', {
+        position: toast.POSITION.TOP_LEFT,
+      })
+      return
+    }
+    await setTransactions(prev =>
+      prev.filter(transaction => transaction._id !== id),
+    )
+    dispatch(updateBalance(data.newBalance))
+    toast.success('Транзакция удалена!', {
+      position: toast.POSITION.TOP_LEFT,
+    })
   }
 
   const handleChangeIsExpense = value => {
@@ -62,7 +84,7 @@ const Budget = () => {
         <MobileForm
           onClick={handleShowForm}
           date={date}
-          changeTransactions={handleChangeTransactions}
+          changeTransactions={handleAddTransactions}
           isExpense={isExpense}
         />
       ) : (
@@ -81,7 +103,7 @@ const Budget = () => {
               {notMobile && (
                 <AddTransaction
                   date={date}
-                  changeTransactions={handleChangeTransactions}
+                  changeTransactions={handleAddTransactions}
                   isExpense={isExpense}
                   onCloseForm={handleShowForm}
                 />
@@ -93,9 +115,13 @@ const Budget = () => {
                   transactions={convertTransaction.filter(
                     item => item.isExpense === isExpense,
                   )}
+                  deleteTransaction={handleDeleteTransaction}
                 />
               ) : (
-                <TableMobile transactions={convertTransaction} />
+                <TableMobile
+                  transactions={convertTransaction}
+                  deleteTransaction={handleDeleteTransaction}
+                />
               )}
               {isDesktop && <Summary isExpense={isExpense} />}
             </div>

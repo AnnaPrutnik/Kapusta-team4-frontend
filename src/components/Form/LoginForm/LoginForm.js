@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-
-
-import { toast } from 'react-toastify'
-import { logIn, loginGoogle } from '../../../redux/auth/auth-operation'
+import { logIn } from '../../../redux/auth/auth-operation'
 
 import s from '../Form.module.scss'
 
@@ -20,41 +17,41 @@ const LoginForm = ({ onClickRegister }) => {
   const blurHandler = ({ target: { name } }) => {
     switch (name) {
       case 'email':
-        setEmailDirty(true);
-        break;
+        setEmailDirty(true)
+        break
       case 'password':
-        setPasswordDirty(true);
-        break;
+        setPasswordDirty(true)
+        break
       default:
-        return;
+        return
     }
   }
 
   const handleChangeEmail = ({ target: { value } }) => {
     setEmail(value)
     const re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!re.test(String(value).toLowerCase())) {
-      setEmailError('Некорректный емейл');
-      setErrorSymbol('*');
+      setEmailError('Некорректный емейл')
+      setErrorSymbol('*')
       if (!value) {
-        setEmailError('это обязательное поле');
-        setErrorSymbol('*');
+        setEmailError('это обязательное поле')
+        setErrorSymbol('*')
       }
     } else {
-      setEmailError('');
+      setEmailError('')
     }
   }
 
-  const handleChangePassword = ({ target: {value} }) => {
+  const handleChangePassword = ({ target: { value } }) => {
     setPassword(value)
     if (value.length < 6) {
-      setPasswordError('Пароль должен быть не меньше 6 символов');
+      setPasswordError('Пароль должен быть не меньше 6 символов')
       if (!value) {
-        setPasswordError('это обязательное поле');
+        setPasswordError('это обязательное поле')
       }
     } else {
-      setPasswordError('');
+      setPasswordError('')
     }
   }
 
@@ -63,9 +60,6 @@ const LoginForm = ({ onClickRegister }) => {
     dispatch(logIn({ email, password }))
     setEmail('')
     setPassword('')
-
-    toast('Поздравляем! Вы успешно вошли в свою учетную запись!')
-
   }
 
   return (
@@ -86,10 +80,10 @@ const LoginForm = ({ onClickRegister }) => {
         <label className={s.label}>
           <p className={s.sign}>
             {emailDirty && emailError && (
-                <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
-                  {errorSymbol}{' '}
-                </span>
-              )}
+              <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+                {errorSymbol}{' '}
+              </span>
+            )}
             Электронная почта:
           </p>
           <input
@@ -105,18 +99,18 @@ const LoginForm = ({ onClickRegister }) => {
             required
           />
           {emailDirty && emailError && (
-              <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
-                {emailError}{' '}
-              </div>
-            )}
+            <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+              {emailError}{' '}
+            </div>
+          )}
         </label>
 
         <label className={s.last_label}>
           <p className={s.sign}>
             {passwordDirty && passwordError && (
-                <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
-                  {errorSymbol}{' '}
-                </span>
+              <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+                {errorSymbol}{' '}
+              </span>
             )}
             Пароль:
           </p>
