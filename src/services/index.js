@@ -22,7 +22,7 @@ export {
   getTransactionsForOneDay,
 } from './transactionsApi/transactionsApi'
 
-export { getBalance, setBalance } from './userApi/userApi'
+export { getUserBalance, setUserBalance } from './userApi/userApi'
 
 export {
   getExpensesForLastSixMonth,

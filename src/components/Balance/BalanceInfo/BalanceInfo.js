@@ -1,6 +1,6 @@
 import s from './BalanceInfo.module.scss'
 import { useSelector } from 'react-redux'
-import { getUserBalance } from '../../../redux/auth/auth-selectors'
+import { getUserBalance } from '../../../redux/balance'
 
 const BalanceInfo = () => {
   const value = useSelector(getUserBalance)

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/AnnaPrutnik_uwqo8f.jpg",
+    "name": "Anna Prutnik",
+    "role": "Team Lead",
+    "mail": "prutnik.anna@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/anna-prutnik/",
+    "github": "https://github.com/AnnaPrutnik"
+  },
+  {
+    "id": "2",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/DritriyShevchuk_xgdpz2.jpg",
+    "name": "Dmitrij Shevchuk",
+    "role": "Scrum Master | Backend",
+    "mail": "dmitrij.shevchuk@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/dmitrij-shevchuk/",
+    "github": "https://github.com/AmbassadorOfHappiness"
+  },
+  {
+    "id": "3",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/DmitryDramaretsky_biwusu.jpg",
+    "name": "Dmitry Dramaretsky",
+    "role": "Backend",
+    "mail": "dmitrydr.dev@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/dmitry-dramaretsky/",
+    "github": "https://github.com/DmitryDr-dev"
+  },
+  {
+    "id": "4",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/MariaSlobozhan_l9mazp.jpg",
+    "name": "Mariia Slobozhan",
+    "role": "Frontend",
+    "mail": "slobozhan.mi@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/mariia-slobozhan/",
+    "github": "https://github.com/mariia-slobozhan"
+  },
+  {
+    "id": "5",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/AlexeyDibikov_amcktw.jpg",
+    "name": "Aleksey Dibikov",
+    "role": "Frontend",
+    "mail": "dibikovaleksey@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/aleksey-dibikov-377a6921a/",
+    "github": "https://github.com/Aleksey-Dibikov"
+  },
+  {
+    "id": "6",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/SvetlanaArkhinos_gtknjq.jpg",
+    "name": "Svitlana Arkhinos",
+    "role": "Frontend",
+    "mail": "svitlana.arkhinos@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/svitlana-arkhinos-4b8614a6/",
+    "github": "https://github.com/svarkhinos"
+  },
+  {
+    "id": "7",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/AlinaKasyanova_unyoby.jpg",
+    "name": "Alina Kasyanova",
+    "role": "Frontend",
+    "mail": "avkasynova@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/alinakas/",
+    "github": "https://github.com/AlinaKas"
+  },
+  {
+    "id": "8",
+    "img": "https://res.cloudinary.com/daxdjiq5p/image/upload/v1644703663/Team/AndreyGalkin_nvqwvj.jpg",
+    "name": "Andrey Galkin",
+    "role": "Frontend",
+    "mail": "agalkin488@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/andrew-galkin-205b76211/",
+    "github": "https://github.com/andrushi69/"
+  }
+]
