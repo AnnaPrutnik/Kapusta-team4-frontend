@@ -2,8 +2,11 @@ import React from 'react'
 import s from './InfoTable.module.scss'
 import sprite from '../../../images/Budget/Sprite.svg'
 
-const InfoTable = ({ transactions }) => {
-  console.log(transactions)
+const InfoTable = ({ transactions, deleteTransaction }) => {
+  const handleClickDelete = e => {
+    const id = e.currentTarget.dataset.id
+    deleteTransaction(id)
+  }
 
   return (
     <table className={s.table}>
@@ -28,11 +31,15 @@ const InfoTable = ({ transactions }) => {
               <td className={s.income}>{item.transactionAmount} грн.</td>
             )}
             <td className={s.delete}>
-              <span>
+              <button
+                className={s.btn}
+                onClick={handleClickDelete}
+                data-id={item._id}
+              >
                 <svg width="18" height="18">
                   <use href={`${sprite}#Delete`}></use>
                 </svg>
-              </span>
+              </button>
             </td>
           </tr>
         ))}

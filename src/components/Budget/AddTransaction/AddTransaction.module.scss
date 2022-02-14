@@ -116,6 +116,7 @@
   margin: 30px auto 83px auto;
   position: relative;
   border-radius: 22px;
+
   @media screen and (min-width: $breakpoint-tablet) {
     margin: 0;
     width: 125px;
@@ -132,6 +133,12 @@
   background-color: transparent;
   &::placeholder {
     color: $text-color-placeholders;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
 

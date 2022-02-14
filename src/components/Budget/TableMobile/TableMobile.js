@@ -2,20 +2,11 @@ import React from 'react'
 import s from './TableMobile.module.scss'
 import sprite from '../../../images/Budget/Sprite.svg'
 
-const TableMobile = ({ transactions }) => {
-  // const convertTransaction = transactions.map(item => {
-  //   const fullDate = new Date(item.transactionDate)
-  //   const date =
-  //     fullDate.getDate().toString().length === 1
-  //       ? `0${fullDate.getDate()}`
-  //       : fullDate.getDate()
-  //   const month =
-  //     fullDate.getMonth().toString().length === 1
-  //       ? `0${fullDate.getMonth()}`
-  //       : fullDate.getMonth()
-  //   const convertDate = `${date}.${month}.${fullDate.getFullYear()}`
-  //   return { ...item, convertDate }
-  // })
+const TableMobile = ({ transactions, deleteTransaction }) => {
+  const handleClickDelete = e => {
+    const id = e.currentTarget.dataset.id
+    deleteTransaction(id)
+  }
 
   return (
     <table className={s.table}>
@@ -43,9 +34,11 @@ const TableMobile = ({ transactions }) => {
               </td>
 
               <td className={s.delete}>
-                <svg width="18" height="18">
-                  <use href={`${sprite}#Delete`}></use>
-                </svg>
+                <button className={s.btn} onClick={handleClickDelete}>
+                  <svg width="18" height="18">
+                    <use href={`${sprite}#Delete`}></use>
+                  </svg>
+                </button>
               </td>
             </tr>
           ))}

@@ -1,10 +1,10 @@
 @import '../../styles/shared.scss';
 
 .bg_main {
-  margin-top: 56px;
+  margin-top: 0;
   background-image: url('../../images/Background/svg/home_mobile_top.svg'),
     url('../../images/Background/grey_bg/bg-mobile-1x.png');
-  background-position: top 100px right 0, top 0 center;
+  background-position: top 160px right 0, top 0 center;
   background-repeat: no-repeat;
   background-size: 49px 83px, contain;
   overflow: hidden;
@@ -12,7 +12,7 @@
   @media screen and (min-width: 768px) {
     max-width: 768px;
     background-size: 768px 232px, contain;
-    background-position: top 20px left 10px, top 0 center;
+    background-position: top 84px left 10px, top 0 center;
     background-image: url('../../images/Background/svg/tablet_group.svg'),
       url('../../images/Background/grey_bg/bg-tablet-1x.png');
   }
@@ -20,18 +20,19 @@
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
     background-size: 1280px 232px, contain;
-    background-position: top 20px left 10px, top 0 center;
+    background-position: top 86px left 10px, top 0 center;
     background-image: url('../../images/Background/svg/main_group.svg'),
       url('../../images/Background/grey_bg/bg-desktop-1x.png');
   }
 }
 
 .title_container {
-  margin-top: 84px;
+  margin-top: 142px;
   margin-bottom: 650px;
   margin-left: 50px;
 
   @media screen and (min-width: 768px) {
+    margin-top: 146px;
     margin-bottom: 778px;
     margin-left: 166px;
   }
