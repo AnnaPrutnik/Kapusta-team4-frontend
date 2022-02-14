@@ -1,25 +1,29 @@
 import React from 'react'
 import s from './ReportMenu.module.scss'
 
-const ReportMenu = () => {
-  const totalIncome = 1000000
-  const totalExpenses = 1000000
+const ReportMenu = ({ totalTrans }) => {
+  let incomes = 0
+  let expenses = 0
 
-  // после добавления редакса
-  // const month = useSelector()
-  // const year = useSelector()
-  // const totalIncome = useSelector()
-  // const totalExpenses = useSelector()
+  totalTrans?.map(transaction =>
+    transaction.isExpense
+      ? (expenses = transaction.total)
+      : (incomes = transaction.total),
+  )
 
   return (
     <div className={s.wrap}>
       <div className={s.outcome}>
         <p className={s.title}>Расходы:</p>
-        <span className={s.expenses}>- {totalExpenses} грн</span>
+        <span className={s.expenses}>
+          {expenses > 0 ? `- ${expenses}` : '0'} UAH
+        </span>
       </div>
       <div className={s.income}>
         <p className={s.title}>Доходы:</p>
-        <span className={s.profits}>+ {totalIncome} грн</span>
+        <span className={s.profits}>
+          {incomes > 0 ? `+ ${incomes}` : '0'} UAH
+        </span>
       </div>
     </div>
   )

@@ -1,19 +1,13 @@
 import React, { useState } from 'react'
 import ReportCategoryItem from '../ReportCategoryItem/ReportCategoryItem'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
-import { useSelector } from 'react-redux'
 import s from './ReportCategoryList.module.scss'
 
-const ReportCategoryList = ({ data }) => {
-  const [typeTrans, setTypeTrans] = useState('outcome')
+const ReportCategoryList = ({ incomes, expenses }) => {
+  const [typeTrans, setTypeTrans] = useState('expenses')
 
   const handleClick = () => {
-    if (typeTrans === 'income') {
-      setTypeTrans('outcome')
-    }
-    if (typeTrans === 'outcome') {
-      setTypeTrans('income')
-    }
+    typeTrans === 'incomes' ? setTypeTrans('expenses') : setTypeTrans('incomes')
   }
 
   return (
@@ -22,7 +16,7 @@ const ReportCategoryList = ({ data }) => {
         <button className={s.btn} type="button" onClick={() => handleClick()}>
           <MdKeyboardArrowLeft className={s.icon} />
         </button>
-        {typeTrans === 'income' ? (
+        {typeTrans === 'expenses' ? (
           <p className={s.title}> Расходы </p>
         ) : (
           <p className={s.title}> Доходы </p>
@@ -32,16 +26,15 @@ const ReportCategoryList = ({ data }) => {
         </button>
       </div>
       <div>
-        <ReportCategoryItem data={data} />
-        {/* {typeTrans === 'outcome' ? (
+        {typeTrans === 'expenses' ? (
           <>
-            <ReportCategoryItem data={outcome} />
+            <ReportCategoryItem data={expenses} />
           </>
         ) : (
           <>
-            <ReportCategoryItem data={income} />
+            <ReportCategoryItem data={incomes} />
           </>
-        )} */}
+        )}
       </div>
     </div>
   )

@@ -4,12 +4,17 @@ import CurrentData from '../CurrentData/CurrentData'
 import BalanceInfo from '../../Balance/BalanceInfo/BalanceInfo'
 import s from './BalanceBar.module.scss'
 
-const BalanceBar = () => {
+const BalanceBar = ({ month, setMonth, year, setYear }) => {
   return (
     <div className={s.bar}>
       <BackHomeBtn />
       <div className={s.wrap}>
-        <CurrentData />
+        <CurrentData
+          month={month}
+          setMonth={setMonth}
+          year={year}
+          setYear={setYear}
+        />
         <div className={s.form}>
           <BalanceInfo />
         </div>
