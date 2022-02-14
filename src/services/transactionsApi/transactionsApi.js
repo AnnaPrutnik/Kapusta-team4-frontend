@@ -8,9 +8,9 @@ import { setToken } from '../'
 // amount: string, но внутри значение которое можно привести к числу
 // isExpense: boolean + (true - затраты, false - доходы)
 
-export const addTransaction = async (data, isExpense) => {
+export const addTransaction = async data => {
   setToken()
-  const transaction = { ...data, isExpense }
+  const transaction = { ...data }
   const response = await axios.post('/transactions', transaction)
   return response.data
 }
@@ -23,6 +23,6 @@ export const deleteTransaction = async id => {
 
 export const getTransactionsForOneDay = async date => {
   setToken()
-  const response = await axios.get(`/transactions/`, { date })
+  const response = await axios.get(`/transactions/${date}`)
   return response.data
 }

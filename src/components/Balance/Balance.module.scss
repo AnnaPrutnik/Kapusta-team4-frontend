@@ -1,17 +1,17 @@
 @import '../../styles//shared.scss';
 
 .balanceContainer {
-  font-family: 'Roboto';
+  // font-family: 'Roboto';
 
-  font-size: 12px;
+  // font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.02em;
   color: $text-color-primary;
 
-  background-color: $btn-grey-bg-color;
-  border-bottom-left-radius: 42%;
-  padding-top: 30px;
-  padding-bottom: 42px;
+  // background-color: $btn-grey-bg-color;
+  // border-bottom-left-radius: 42%;
+  // padding-top: 30px;
+  // padding-bottom: 42px;
 
   @media screen and (min-width: $breakpoint-tablet) {
     display: flex;
@@ -19,7 +19,7 @@
     justify-content: space-between;
     align-items: center;
 
-    padding-top: 40px;
+    // padding-top: 40px;
     padding-bottom: 0;
     padding-left: 31px;
     // padding-right: 52px;
