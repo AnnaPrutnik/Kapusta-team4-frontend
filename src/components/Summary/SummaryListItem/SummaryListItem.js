@@ -1,6 +1,6 @@
 import s from '../Summary.module.scss'
 
-const SummaryListItem = ({ id, month, value }) => {
+const SummaryListItem = ({ month, value }) => {
   return (
     <>
       <li className={s.item}>
