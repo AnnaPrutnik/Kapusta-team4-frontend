@@ -8,9 +8,11 @@ const modalRoot = document.getElementById('modal-root')
 
 const TeamModal = ({ onClose }) => {
   useEffect(() => {
+    window.document.body.style.overflowY = 'hidden'
     window.addEventListener('keydown', handleKeyDown)
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
+      window.document.body.style.overflowY = 'visible'
     }
   })
 

@@ -1,22 +1,60 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
+
 import { toast } from 'react-toastify'
 import { logIn, loginGoogle } from '../../../redux/auth/auth-operation'
+
 import s from '../Form.module.scss'
 
 const LoginForm = ({ onClickRegister }) => {
   const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [emailDirty, setEmailDirty] = useState(false)
+  const [passwordDirty, setPasswordDirty] = useState(false)
+  const [emailError, setEmailError] = useState('это обязательное поле')
+  const [passwordError, setPasswordError] = useState('это обязательное поле')
+  const [errorSymbol, setErrorSymbol] = useState('*')
 
-  const handleChange = ({ target: { name, value } }) => {
+  const blurHandler = ({ target: { name } }) => {
     switch (name) {
       case 'email':
-        return setEmail(value)
+        setEmailDirty(true);
+        break;
       case 'password':
-        return setPassword(value)
+        setPasswordDirty(true);
+        break;
       default:
-        return
+        return;
+    }
+  }
+
+  const handleChangeEmail = ({ target: { value } }) => {
+    setEmail(value)
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(value).toLowerCase())) {
+      setEmailError('Некорректный емейл');
+      setErrorSymbol('*');
+      if (!value) {
+        setEmailError('это обязательное поле');
+        setErrorSymbol('*');
+      }
+    } else {
+      setEmailError('');
+    }
+  }
+
+  const handleChangePassword = ({ target: {value} }) => {
+    setPassword(value)
+    if (value.length < 6) {
+      setPasswordError('Пароль должен быть не меньше 6 символов');
+      if (!value) {
+        setPasswordError('это обязательное поле');
+      }
+    } else {
+      setPasswordError('');
     }
   }
 
@@ -25,7 +63,9 @@ const LoginForm = ({ onClickRegister }) => {
     dispatch(logIn({ email, password }))
     setEmail('')
     setPassword('')
+
     toast('Поздравляем! Вы успешно вошли в свою учетную запись!')
+
   }
 
   return (
@@ -44,33 +84,59 @@ const LoginForm = ({ onClickRegister }) => {
       </p>
       <form action="" onSubmit={handleSubmit}>
         <label className={s.label}>
-          <p className={s.sign}>Электронная почта:</p>
+          <p className={s.sign}>
+            {emailDirty && emailError && (
+                <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+                  {errorSymbol}{' '}
+                </span>
+              )}
+            Электронная почта:
+          </p>
           <input
+            onBlur={blurHandler}
             className={s.input}
             type="email"
             name="email"
             value={email}
-            onChange={handleChange}
+            onChange={handleChangeEmail}
             placeholder="your@email.com"
             pattern="[A-Za-zА-Яа-яЁёЄєЇї0-9._%+-]+@[A-Za-zА-Яа-яЁёЄєЇї0-9.-]+\.[A-Za-zА-Яа-яЁёЄєЇї]{2,4}$"
             title="Email может, сoстоять из букв цифр и обязательного символа '@'"
             required
           />
+          {emailDirty && emailError && (
+              <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+                {emailError}{' '}
+              </div>
+            )}
         </label>
 
         <label className={s.last_label}>
-          <p className={s.sign}>Пароль:</p>
+          <p className={s.sign}>
+            {passwordDirty && passwordError && (
+                <span style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+                  {errorSymbol}{' '}
+                </span>
+            )}
+            Пароль:
+          </p>
           <input
+            onBlur={blurHandler}
             className={s.input}
             type="password"
             name="password"
             value={password}
-            onChange={handleChange}
+            onChange={handleChangePassword}
             placeholder="Пароль"
             pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{6,}"
             title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
             required
           />
+          {passwordDirty && passwordError && (
+            <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
+              {passwordError}{' '}
+            </div>
+          )}
         </label>
         <div className={s.wrap}>
           <button type="submit" className={s.button}>

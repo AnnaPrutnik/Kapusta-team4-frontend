@@ -3,10 +3,11 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   text-align: center;
   background: transparent;
+  height: 187px;
 
   @media screen and (min-width: $breakpoint-tablet) {
     background-color: $bg-white-color;
@@ -24,6 +25,7 @@
 .wrapBtn {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .title {

@@ -3,16 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 // import months from './month.json'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import s from './CurrentData.module.scss'
+import * as statisticAPI from '../../../services/statisticApi/statisticApi'
 
-const CurrentData = () => {
-  const dispatch = useDispatch()
-
-  // const date = useSelector(state => state.transaction.date)
-  const currentMonth = new Date().getMonth() + 1
-  const currentYear = new Date().getFullYear()
-
-  const [month, setMonth] = useState(currentMonth)
-  const [year, setYear] = useState(currentYear)
+const CurrentData = ({ month, setMonth, year, setYear }) => {
+  const [currentMonth, setCurrentMonth] = useState(month)
+  const [currentYear, setCurrentYear] = useState(year)
 
   const months = {
     1: 'январь',
@@ -30,19 +25,25 @@ const CurrentData = () => {
   }
 
   const handleIncrement = () => {
-    if (month <= 11) {
+    if (currentMonth <= 11) {
       setMonth(prev => (prev += 1))
+      setCurrentMonth(prev => (prev += 1))
     } else {
       setMonth(1)
+      setCurrentMonth(1)
       setYear(prev => (prev += 1))
+      setCurrentYear(prev => (prev += 1))
     }
   }
 
   const handleDecrement = () => {
-    if (month <= 1) {
+    if (currentMonth <= 1) {
       setMonth(12)
+      setCurrentMonth(12)
       setYear(prev => (prev -= 1))
+      setCurrentYear(prev => (prev -= 1))
     } else {
+      setCurrentMonth(prev => (prev -= 1))
       setMonth(prev => (prev -= 1))
     }
   }
@@ -51,22 +52,13 @@ const CurrentData = () => {
     <div className={s.wrap}>
       <span className={s.label}>Текущий период:</span>
       <div className={s.wrapBtn}>
-        <button
-          className={s.btn}
-          type="button"
-          onClick={() => handleDecrement()}
-        >
+        <button className={s.btn} type="button" onClick={handleDecrement}>
           <MdKeyboardArrowLeft className={s.icon} />
         </button>
         <p className={s.title}>
-          {/* НОЯБРЬ 2021 */}
-          {months[month]} {year}
+          {months[currentMonth]} {currentYear}
         </p>
-        <button
-          className={s.btn}
-          type="button"
-          onClick={() => handleIncrement()}
-        >
+        <button className={s.btn} type="button" onClick={handleIncrement}>
           <MdKeyboardArrowRight className={s.icon} />
         </button>
       </div>

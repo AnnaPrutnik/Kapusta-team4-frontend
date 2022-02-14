@@ -37,20 +37,20 @@
 
   @media screen and (min-width: $breakpoint-tablet) {
     width: 125px;
-    padding-right: 57px;
+    padding-right: 48px;
   }
 }
 
 .span {
   position: absolute;
-  left: 178px;
+  left: 109px;
   top: 35px;
 
   font-weight: 700;
   color: $text-inactive-tab;
 
   @media screen and (min-width: $breakpoint-tablet) {
-    left: 134px;
+    left: 144px;
     top: 15px;
   }
 }
