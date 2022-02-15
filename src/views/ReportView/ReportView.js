@@ -171,7 +171,7 @@ const ReportView = () => {
               year={year}
               setYear={handleYear}
             />
-            <ReportMenu totalTrans={totalTrans} />
+            {totalTrans && <ReportMenu totalTrans={totalTrans} />}
             <ReportCategoryList incomes={incomes} expenses={expenses} />
             <Chart data={data} />
           </section>
