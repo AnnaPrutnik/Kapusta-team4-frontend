@@ -23,7 +23,9 @@ function ReportCategoryItem({ data: items, onClick }) {
         items &&
         items.map(item => (
           <li key={item.categoryId._id} className={s.item}>
-            <p className={s.sum}>{item.sum}</p>
+            <p className={s.sum}> {new Intl.NumberFormat('ru-RU', {
+                minimumFractionDigits: 2,
+              }).format(item.sum)}</p>
             <div
               className={s.thumb}
               onClick={handleClick}

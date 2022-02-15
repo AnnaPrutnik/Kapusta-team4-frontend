@@ -3,11 +3,10 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   text-align: center;
   background: transparent;
-  height: 187px;
+  min-height: 187px;
+  margin-bottom: 20px;
 
   @media screen and (min-width: $breakpoint-tablet) {
     background-color: $bg-white-color;

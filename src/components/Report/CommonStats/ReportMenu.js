@@ -23,12 +23,24 @@ function ReportMenu({ totalTrans }) {
       <div className={s.outcome}>
         <p className={s.title}>Расходы:</p>
         <span className={s.expenses}>
-          {expenses ? `- ${expenses}` : '0'} UAH
+          {expenses
+            ? `- ${new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: 'UAH',
+              }).format(expenses)}`
+            : `0,00 грн.`}
         </span>
       </div>
       <div className={s.income}>
         <p className={s.title}>Доходы:</p>
-        <span className={s.profits}>{incomes ? `+ ${incomes}` : '0'} UAH</span>
+        <span className={s.profits}>
+          {incomes
+            ? `+ ${new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: 'UAH',
+              }).format(incomes)}`
+            : `0,00 грн.`}
+        </span>
       </div>
     </div>
   )
