@@ -41,6 +41,10 @@ function Report() {
     setIsExpense(value)
   }
 
+  const handleChangeActiveCategory = id => {
+    setCurrentCategory(id)
+  }
+
   const incomesStats = async (month, year) => {
     return await getStatsIncomesForMonth(month, year)
   }
@@ -57,8 +61,11 @@ function Report() {
         categories={category}
         isExpense={isExpense}
         changeIsExpense={handleChangeIsExpense}
+        changeActiveCategory={handleChangeActiveCategory}
       />
-      {/* <Chart data={data} /> */}
+      {currentCategory && (
+        <Chart id={currentCategory} month={month} year={year} />
+      )}
     </>
   )
 }

@@ -21,16 +21,19 @@ function DesktopChart({ data, options, labelsStyle, colors }) {
       {data.map(category => (
         <VictoryAxis
           dependentAxis
-          key={category.name}
-          tickCount={8}
+          key={category.description}
+          // tickCount={8}
           style={{
             tickLabels: {
               display: 'none',
             },
             axis: { stroke: 'transparent' },
             grid: {
-              stroke: colors.stroke,
+              // stroke: colors.stroke,
+              stroke: 'black',
               strokeWidth: 0.5,
+              // gridColumn: 8,
+              // strokeCount: 8,
             },
           }}
         />
@@ -40,15 +43,16 @@ function DesktopChart({ data, options, labelsStyle, colors }) {
           tickLabels: labelFont,
           axis: { stroke: colors.stroke },
         }}
+        tickCount={8}
       />
       <VictoryBar
         data={data}
-        x="name"
-        y="quantity"
-        sortKey="quantity"
+        x="description"
+        y="total"
+        sortKey="total"
         sortOrder="descending"
         barRatio={ratio}
-        labels={({ datum }) => `${datum.quantity} грн`}
+        labels={({ datum }) => `${datum.total} грн`}
         alignment="middle"
         style={{
           labels: labelFont,

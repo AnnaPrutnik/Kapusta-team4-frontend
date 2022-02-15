@@ -25,10 +25,9 @@
 }
 
 .input {
-  width: 100%;
+  display: inline-flex;
   background-color: transparent;
   border: 2px solid $btn-grey-border-color;
-  padding: 13px 20px;
   outline: none;
   color: $btn-grey-black-text-color;
   &::placeholder {
@@ -36,20 +35,21 @@
   }
 
   @media screen and (min-width: $breakpoint-tablet) {
-    width: 174px;
     border: 2px solid $btn-grey-bg-color;
   }
 }
 
 .description {
   composes: input;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  width: 100%;
+  padding: 14px 20px 14px 20px;
   border-radius: 16px 16px 0 0;
   border-bottom: none;
 
   @media screen and (min-width: $breakpoint-tablet) {
+    width: 181px;
     border-radius: 16px 0 0 0;
+    border: 2px solid $btn-grey-bg-color;
     border-right: none;
     padding-top: 13px;
     padding-bottom: 13px;
@@ -64,6 +64,8 @@
 
 .select_container {
   composes: input;
+  width: 100%;
+  padding: 13px 20px;
   position: relative;
   display: block;
   border-radius: 0 0 16px 0;
@@ -71,6 +73,7 @@
 
   @media screen and (min-width: $breakpoint-tablet) {
     border-radius: 0;
+    width: 171px;
   }
 
   @media screen and (min-width: $breakpoint-desktop) {
@@ -109,28 +112,23 @@
   font-size: 12px;
   margin: 0;
 }
-
 .sum {
-  composes: input;
-  width: 183px;
+  display: flex;
   margin: 30px auto 83px auto;
-  position: relative;
-  border-radius: 22px;
-
   @media screen and (min-width: $breakpoint-tablet) {
     margin: 0;
-    width: 125px;
-    border-radius: 0 16px 16px 0;
-    border-left: none;
-  }
-  @media screen and (min-width: $breakpoint-desktop) {
-    width: 124px;
   }
 }
 
 .calc {
-  font-weight: bold;
+  composes: input;
+  width: 125px;
+  padding: 13px 15px;
+  text-align: end;
+  border-radius: 22px 0 0 22px;
+  font-weight: 700;
   background-color: transparent;
+
   &::placeholder {
     color: $text-color-placeholders;
   }
@@ -140,12 +138,32 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin: 0;
+    padding: 13px 10px;
+    width: 80px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  @media screen and (min-width: $breakpoint-desktop) {
+    width: 89px;
+  }
 }
 
 .icon {
-  position: absolute;
-  right: 20px;
-  top: 12px;
+  composes: input;
+  padding: 10px 20px;
+  border-radius: 0 22px 22px 0;
+  border-left: none;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding: 9px 12px 11px 0;
+    width: 35px;
+    border-radius: 0 16px 16px 0;
+    border-left: none;
+  }
 }
 
 .wrap {

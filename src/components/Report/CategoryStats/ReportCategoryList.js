@@ -1,9 +1,13 @@
-import { useState } from 'react'
 import ReportCategoryItem from './ReportCategoryItem'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import s from '../../../styles/component/ReportView/CategoryStats//ReportCategoryList.module.scss'
 
-function ReportCategoryList({ categories, isExpense, changeIsExpense }) {
+function ReportCategoryList({
+  categories,
+  isExpense,
+  changeIsExpense,
+  changeActiveCategory,
+}) {
   const handleClick = () => {
     isExpense ? changeIsExpense(false) : changeIsExpense(true)
   }
@@ -20,7 +24,7 @@ function ReportCategoryList({ categories, isExpense, changeIsExpense }) {
         </button>
       </div>
       <div>
-        <ReportCategoryItem data={categories} />
+        <ReportCategoryItem data={categories} onClick={changeActiveCategory} />
       </div>
     </div>
   )
