@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import TeamContent from './TeamContent'
-import s from './TeamModal.module.scss'
-import data from './data.json'
+import data from '../../lib/team.json'
+import s from '../../styles/component/TeamModal/TeamModal.module.scss'
 
 const modalRoot = document.getElementById('modal-root')
 
-const TeamModal = ({ onClose }) => {
+function TeamModal({ onClose }) {
   useEffect(() => {
     window.document.body.style.overflowY = 'hidden'
     window.addEventListener('keydown', handleKeyDown)

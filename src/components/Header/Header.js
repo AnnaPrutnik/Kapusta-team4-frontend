@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './Navigation'
 import UserMenu from './UserMenu'
 import { getIsLoggedIn } from '../../redux/auth/auth-selectors'
-import s from './Header.module.scss'
+import s from '../../styles/component/Header/Header.module.scss'
 
-const Header = () => {
-  const isLoggesIn = useSelector(getIsLoggedIn)
+function Header() {
+  const isLoggedIn = useSelector(getIsLoggedIn)
 
   return (
     <header className={s.header}>
@@ -23,7 +23,7 @@ const Header = () => {
         draggable
         pauseOnHover
       />
-      {isLoggesIn && <UserMenu />}
+      {isLoggedIn && <UserMenu />}
     </header>
   )
 }

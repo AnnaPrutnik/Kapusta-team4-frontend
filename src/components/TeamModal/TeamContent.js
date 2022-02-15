@@ -1,9 +1,9 @@
 import { VscGithub } from 'react-icons/vsc'
 import { FiMail } from 'react-icons/fi'
 import { FaLinkedin } from 'react-icons/fa'
-import s from './TeamModal.module.scss'
+import s from '../../styles/component/TeamModal/TeamModal.module.scss'
 
-const TeamContent = ({ member }) => {
+function TeamContent({ member }) {
   const { img, name, role, mail, linkedin, github } = member
   return (
     <li className={s.card}>

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getIsLoggedIn } from '../../redux/auth/'
-import s from './Header.module.scss'
 import logo from '../../images/Header/logo.svg'
+import s from '../../styles/component/Header/Header.module.scss'
 
 function Navigation() {
   const isLoggedIn = useSelector(getIsLoggedIn)
