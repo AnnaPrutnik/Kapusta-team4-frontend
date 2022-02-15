@@ -1,22 +1,23 @@
-import HomeContent from '../../components/HomeContent/HomeContent';
-import GreyBg from '../../components/GreyBg/GreyBg';
-import WhiteBg from '../../components/WhiteBg/WhiteBg';
-import IconsBg from '../../components/IconsBg/IconsBg';
-import SmallBgIcons from '../../components/SmallBgIcons/SmallBgIcons';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import { useSelector } from 'react-redux'
+import { getIsLoggedIn } from '../../redux/auth/'
+import HomeContent from '../../components/Home/HomeContent'
+import Auth from '../../components/Auth/Auth'
+import CreatedBy from '../../components/TeamModal/CreatedBy'
 
-export default function HomeView() {
+const HomeView = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn)
+
   return (
-    <section className="home_section">
-      <GreyBg>
-        <HomeContent />
-        <IconsBg />
-      </GreyBg>
-
-      <WhiteBg>
-        <SmallBgIcons />
-      </WhiteBg>
-      <LoginForm />
-    </section>
-  );
+    <>
+      {!isLoggedIn && (
+        <div>
+          <HomeContent />
+          <Auth />
+          <CreatedBy />
+        </div>
+      )}
+    </>
+  )
 }
+
+export default HomeView

@@ -1,7 +1,21 @@
-export default function ReportView() {
+import { useSelector } from 'react-redux'
+import { getIsLoggedIn } from '../../redux/auth'
+import Report from '../../components/Report/Report'
+
+const ReportView = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn)
+
   return (
-    <section className="report_section">
-      
-    </section>
-  );
+    <>
+      {isLoggedIn && (
+        <div className="bg">
+          <section className="container">
+            <Report />
+          </section>
+        </div>
+      )}
+    </>
+  )
 }
+
+export default ReportView
