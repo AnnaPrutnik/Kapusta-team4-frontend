@@ -11,22 +11,24 @@ function Summary({ isExpense }) {
   const [incomes, setIncomes] = useState({})
 
   useEffect(() => {
-    getExpensesForLastSixMonth().then(res => setExpenses(res.data)),
+    getExpensesForLastSixMonth().then(res => {
+      setExpenses(res.data)
+    }),
       getIncomesForLastSixMonth().then(res => setIncomes(res.data))
   }, [])
-
+  // totalAnount приходит с бека, TODO -  поменять на totalAmount
   return (
     <div className={s.container}>
       <p className={s.title}> Сводка</p>
       <ul>
         {isExpense
           ? expenses.length > 0 &&
-            expenses.map(({ totalAmount, month }) => (
-              <SummaryListItem month={month} value={totalAmount} key={month} />
+            expenses.map(({ totalAnount, month }) => (
+              <SummaryListItem month={month} value={totalAnount} key={month} />
             ))
           : incomes.length > 0 &&
-            incomes.map(({ totalAmount, month }) => (
-              <SummaryListItem month={month} value={totalAmount} key={month} />
+            incomes.map(({ totalAnount, month }) => (
+              <SummaryListItem month={month} value={totalAnount} key={month} />
             ))}
       </ul>
     </div>
