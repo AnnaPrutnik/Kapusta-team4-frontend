@@ -8,8 +8,7 @@ const BalanceInfo = () => {
   return (
     <div className={s.container}>
       <p className={s.title}>Баланс:</p>
-      <p className={s.value}>{value}</p>
-      <span className={s.span}>UAH</span>
+      <p className={s.value}>{`${value} UAH`}</p>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 @import '../../../styles/shared.scss';
 
 .container {
-  position: relative;
   letter-spacing: 00.02em;
 
   display: flex;
@@ -28,29 +27,16 @@
 .value {
   font-weight: 700;
 
-  text-align: end;
+  text-align: center;
   width: 183px;
-  padding: 13px 74px 13px 0px;
+
+  padding: 15px 0px;
 
   border: 2px solid $btn-grey-border-color;
   border-radius: 22px;
 
   @media screen and (min-width: $breakpoint-tablet) {
     width: 125px;
-    padding-right: 48px;
-  }
-}
-
-.span {
-  position: absolute;
-  left: 109px;
-  top: 35px;
-
-  font-weight: 700;
-  color: $text-inactive-tab;
-
-  @media screen and (min-width: $breakpoint-tablet) {
-    left: 144px;
-    top: 15px;
+    padding: 12px 0px;
   }
 }
