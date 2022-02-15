@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { register } from '../../redux/auth/auth-operation'
 import s from '../../styles/component/Auth/Auth.module.scss'
 
-function RegisterForm ({ onClickComeBack }) {
+function RegisterForm({ onClickComeBack }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [nameDirty, setNameDirty] = useState(false)
   const [emailDirty, setEmailDirty] = useState(false)
   const [passwordDirty, setPasswordDirty] = useState(false)
@@ -15,6 +16,11 @@ function RegisterForm ({ onClickComeBack }) {
   const [passwordError, setPasswordError] = useState('это обязательное поле')
   const [errorSymbol, setErrorSymbol] = useState('*')
   const [passwordShown, setPasswordShown] = useState(false)
+
+  useEffect(() => {
+    if (name === '') return
+    setAvatar(name.charAt(0))
+  }, [name])
 
   const dispatch = useDispatch()
 
@@ -79,7 +85,7 @@ function RegisterForm ({ onClickComeBack }) {
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(register({ name, email, password }))
+    dispatch(register({ name, email, password, avatar }))
     setName('')
     setEmail('')
     setPassword('')
