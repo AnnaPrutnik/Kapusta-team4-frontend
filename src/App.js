@@ -71,11 +71,6 @@ function App() {
                 element={
                   <PublicRoute component={NotFoundView} redirectTo="/" />
                 }
-                //выбрать вариант
-                // element={<Navigate replace to="/" />}
-                // element={
-                //   <PrivateRoute component={NotFoundView} redirectTo="/login" />
-                // }
               />
             </Routes>
           </Suspense>
