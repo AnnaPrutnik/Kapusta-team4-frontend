@@ -38,7 +38,7 @@ function Finance() {
   }
 
   const handleAddTransactions = transaction => {
-    setTransactions(prev => [...prev, transaction])
+    setTransactions(prev => [transaction, ...prev])
   }
 
   const handleDeleteTransaction = async id => {
