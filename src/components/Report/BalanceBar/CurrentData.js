@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import months from './month.json'
+import months from '../../../lib/monthsList.json'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import s from '../../../styles/component/ReportView/BalanceBar/CurrentData.module.scss'
 
@@ -20,21 +20,6 @@ function CurrentData({ month, setMonth, year, setYear }) {
     const currentMonth = date.getMonth() + 1
     const currentYear = date.getFullYear()
     return [currentMonth, currentYear]
-  }
-
-  const months = {
-    1: 'январь',
-    2: 'февраль',
-    3: 'март',
-    4: 'апрель',
-    5: 'май',
-    6: 'июнь',
-    7: 'июль',
-    8: 'август',
-    9: 'сентябрь',
-    10: 'октябрь',
-    11: 'ноябрь',
-    12: 'декабрь',
   }
 
   const handleIncrement = () => {

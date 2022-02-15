@@ -21,6 +21,7 @@
   border-bottom: 1px solid #e0e5eb;
   @media screen and (min-width: $breakpoint-tablet) {
     flex-basis: calc(100% / 6);
+    height: 140px;
     border: none;
   }
 }
