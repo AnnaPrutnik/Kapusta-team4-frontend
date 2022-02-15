@@ -1,5 +1,5 @@
-@import '../../styles//colors';
-.modalBackground {
+@import '../../styles/shared.scss';
+.background {
   width: 100vw;
   height: 100vh;
   background-color: $bg-modal-color;
@@ -12,7 +12,7 @@
   z-index: 999;
 }
 
-.modalContainer {
+.modal {
   width: 380px;
   height: 194px;
   // padding: 50px;
@@ -20,15 +20,22 @@
   box-shadow: $modal-box-shadow;
   border-radius: 30px;
 }
+.avatar_modal {
+  composes: modal;
+  width: auto;
+  height: auto;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
 
-.closeBtn {
+.close {
   display: block;
   cursor: pointer;
   text-align: right;
   margin: 20px 20px 18px 0;
 }
 
-.closeBtn:hover {
+.close:hover {
   color: $btn-orange-bg-color;
   font-weight: bolder;
   transition: 0.5s linear;
@@ -66,4 +73,59 @@
 }
 .btn:not(:last-child) {
   margin-right: 15px;
+}
+
+.editor {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.sign {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 1.16;
+  text-transform: uppercase;
+}
+
+.input {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 30px;
+  background-color: $bg-input-color;
+  padding: 18px 20px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.centered {
+  display: block;
+  margin-right: auto;
+  margin-right: auto;
+}
+
+.file_input {
+  composes: btn;
+  composes: centered;
+  margin-bottom: 20px;
+  width: auto;
+  height: auto;
+  padding: 15px;
+}
+
+.photo {
+  composes: centered;
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
 }

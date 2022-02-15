@@ -1,5 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { signUpUser, loginUser, logoutUser, currentUser } from '../../services/'
+import { toast } from 'react-toastify'
+import {
+  signUpUser,
+  loginUser,
+  logoutUser,
+  currentUser,
+  setUserName,
+  setUserAvatar,
+} from '../../services/'
 import { setHeaders } from '../../services/'
 
 export const register = createAsyncThunk(
@@ -51,6 +59,32 @@ export const getCurrentUser = createAsyncThunk(
       return data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
+    }
+  },
+)
+
+export const editName = createAsyncThunk(
+  'auth/editName',
+  async (value, { rejectWithValue }) => {
+    try {
+      const { data } = await setUserName(value)
+      toast('Вы успешно изменили имя пользователя!')
+      return data
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  },
+)
+
+export const editAvatar = createAsyncThunk(
+  'auth/editAvatar',
+  async (value, { rejectWithValue }) => {
+    try {
+      const { data } = await setUserAvatar(value)
+      toast('Вы успешно изменили фото профиля!')
+      return data
+    } catch (error) {
+      return rejectWithValue(error.message)
     }
   },
 )

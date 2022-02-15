@@ -45,6 +45,7 @@
 .avatar {
   width: 32px;
   height: 32px;
+  border: none;
   border-radius: 50%;
   margin-right: 12px;
   padding-top: 8px;
@@ -61,6 +62,8 @@
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 1.16px;
+    border: none;
+    background-color: transparent;
     color: $btn-grey-text-color;
   }
 

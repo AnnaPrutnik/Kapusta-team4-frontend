@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import s from '../Form.module.scss'
 import { register } from '../../../redux/auth/auth-operation'
@@ -10,8 +10,15 @@ const RegisterForm = ({ onClickComeBack }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [avatar, setAvatar] = useState('')
 
   const dispatch = useDispatch()
+
+  //добавляет в аватар первую букву имени
+  useEffect(() => {
+    if (name === '') return
+    setAvatar(name.charAt(0))
+  }, [name])
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -28,7 +35,7 @@ const RegisterForm = ({ onClickComeBack }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(register({ name, email, password }))
+    dispatch(register({ name, email, password, avatar }))
     setName('')
     setEmail('')
     setPassword('')

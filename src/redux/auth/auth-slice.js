@@ -5,13 +5,13 @@ import {
   register,
   logIn,
   logOut,
-  balanceSet,
-  balanceGet,
   getCurrentUser,
+  editName,
+  editAvatar,
 } from './auth-operation'
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, avatar: null },
   token: null,
   isLoggedIn: false,
   isFirstLogin: true,
@@ -81,6 +81,26 @@ const authSlice = createSlice({
     [getCurrentUser.rejected](state, { payload }) {
       state.error = payload
       state.isLoggedIn = false
+    },
+    [editName.pending](state, _) {
+      state.error = null
+    },
+    [editName.fulfilled](state, { payload }) {
+      console.log(payload)
+      state.user.name = payload.name
+    },
+    [editName.rejected](state, { payload }) {
+      state.error = payload
+    },
+    [editAvatar.pending](state, _) {
+      state.error = null
+    },
+    [editAvatar.fulfilled](state, { payload }) {
+      console.log(payload)
+      state.user.avatar = payload
+    },
+    [editAvatar.rejected](state, { payload }) {
+      state.error = payload
     },
   },
 })
