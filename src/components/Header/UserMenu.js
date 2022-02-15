@@ -1,9 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { getUsername } from '../../redux/auth'
-import UserLogOut from '../UserLogOut/UserLogOut'
-import s from './Header.module.scss'
+import UserLogOut from '../Auth/UserLogOut'
+import s from '../../styles/component/Header/Header.module.scss'
 
-const UserMenu = () => {
+function UserMenu() {
   const userName = useSelector(getUsername)
   const avatar = () => userName.charAt(0)
 

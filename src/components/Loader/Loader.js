@@ -1,17 +1,19 @@
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
-import s from './Loader.module.scss'
+import s from '../../styles/component/Loader/Loader.module.scss'
 
-const PreLoader = () => (
-  <div className={s.wrap}>
-    <Loader
-      className={s.loader}
-      type="Audio"
-      color="#fb7c2f"
-      height={100}
-      width={100}
-    />
-  </div>
-)
+function PreLoader() {
+  return (
+    <div className={s.wrap}>
+      <Loader
+        className={s.loader}
+        type="Audio"
+        color="#fb7c2f"
+        height={100}
+        width={100}
+      />
+    </div>
+  )
+}
 
 export default PreLoader

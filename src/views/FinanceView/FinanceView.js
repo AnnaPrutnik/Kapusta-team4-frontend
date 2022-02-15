@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import Budget from '../../components/Budget/Budget'
-import Balance from '../../components/Balance/Balance'
-import Summary from '../../components/Summary/Summary'
+import Finance from '../../components/FinanceView/Finance'
 import { getIsLoggedIn } from '../../redux/auth'
 import { getBalance } from '../../redux/balance'
 
@@ -19,7 +17,7 @@ const FinanceView = () => {
       {isLoggedIn && (
         <div className="bg">
           <div className="container">
-            <Budget />
+            <Finance />
           </div>
         </div>
       )}

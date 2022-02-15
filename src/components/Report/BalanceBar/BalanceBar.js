@@ -1,20 +1,14 @@
-import React from 'react'
-import BackHomeBtn from '../BackHomeBtn/BackHomeBtn'
-import CurrentData from '../CurrentData/CurrentData'
-import BalanceInfo from '../../Balance/BalanceInfo/BalanceInfo'
-import s from './BalanceBar.module.scss'
+import BackHomeBtn from './BackHomeBtn'
+import CurrentData from './CurrentData'
+import BalanceInfo from './BalanceInfo'
+import s from '../../../styles/component/ReportView/BalanceBar/BalanceBar.module.scss'
 
-const BalanceBar = ({ month, setMonth, year, setYear }) => {
+function BalanceBar({ setMonth, setYear }) {
   return (
     <div className={s.bar}>
       <BackHomeBtn />
       <div className={s.wrap}>
-        <CurrentData
-          month={month}
-          setMonth={setMonth}
-          year={year}
-          setYear={setYear}
-        />
+        <CurrentData setMonth={setMonth} setYear={setYear} />
         <div className={s.form}>
           <BalanceInfo />
         </div>

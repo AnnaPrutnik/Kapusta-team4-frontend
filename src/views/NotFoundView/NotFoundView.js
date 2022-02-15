@@ -1,5 +1,5 @@
-import s from './NotFoundView.module.scss'
 import background from '../../images/Background/svg/background.svg'
+import s from '../../styles/component/NotFound/NotFoundView.module.scss'
 
 const NotFoundView = () => {
   return (

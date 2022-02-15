@@ -1,0 +1,22 @@
+@import '../../../shared.scss';
+
+.balanceContainer {
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  color: $text-color-primary;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0;
+    padding-left: 31px;
+    border-bottom-left-radius: 0;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    justify-content: end;
+    padding-left: 0;
+  }
+}

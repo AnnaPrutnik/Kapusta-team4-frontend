@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { getIsLoggedIn } from '../../redux/auth/'
-import HomeContent from '../../components/HomeContent/HomeContent'
-import Form from '../../components/Form/Form'
+import HomeContent from '../../components/Home/HomeContent'
+import Auth from '../../components/Auth/Auth'
 import CreatedBy from '../../components/TeamModal/CreatedBy'
 
 const HomeView = () => {
@@ -12,7 +12,7 @@ const HomeView = () => {
       {!isLoggedIn && (
         <div>
           <HomeContent />
-          <Form />
+          <Auth />
           <CreatedBy />
         </div>
       )}
