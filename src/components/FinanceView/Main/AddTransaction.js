@@ -161,11 +161,11 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
               className={s.calc}
             />
           </label>
-          <div className={s.icon}>
+          <span className={s.icon}>
             <svg width="20" height="20">
               <use href={`${sprite}#calculator`}></use>
             </svg>
-          </div>
+          </span>
         </div>
       </div>
       <div className={s.wrap}>

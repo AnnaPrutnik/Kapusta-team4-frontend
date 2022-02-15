@@ -27,8 +27,11 @@ export const getStatsIncomesForMonth = async (month, year) => {
 
 export const getStatsCategoriesForMonth = async (month, year, categoryId) => {
   setToken()
-  const response = await axios.get(`/statistics/categories/${year}-${month}`, {
-    categoryId,
-  })
+  const response = await axios.get(
+    `/statistics/categories?month=${year}-${month}&category=${categoryId}`,
+    {
+      categoryId,
+    },
+  )
   return response.data
 }

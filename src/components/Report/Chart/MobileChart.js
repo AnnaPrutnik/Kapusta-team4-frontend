@@ -27,13 +27,13 @@ function MobileChart({ data, labelsStyle, colors }) {
       />
       <VictoryBar
         data={data}
-        x="name"
-        y="quantity"
-        sortKey="quantity"
+        x="description"
+        y="total"
+        sortKey="total"
         sortOrder="ascending"
         alignment="end"
         barRatio={ratioChart}
-        labels={({ datum }) => `${datum.quantity} грн`}
+        labels={({ datum }) => `${datum.total} грн`}
         style={{
           labels: {
             ...labelsStyle,

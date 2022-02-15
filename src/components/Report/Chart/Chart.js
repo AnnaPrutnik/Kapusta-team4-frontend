@@ -1,7 +1,9 @@
 import { useMediaQuery } from 'react-responsive'
+import { getStatsCategoriesForMonth } from '../../../services/statisticApi/statisticApi'
 import DesktopChart from './DesktopChart'
 import MobileChart from './MobileChart'
 import s from '../../../styles/component/ReportView/Charts/Chart.module.scss'
+import { useEffect, useState } from 'react'
 
 const colors = {
   main: '#FF751D',
@@ -32,33 +34,53 @@ const labelsStyle = {
   fill: colors.font,
 }
 
-function Chart({ data }) {
+function Chart({ id, month, year }) {
+  const [stats, setStats] = useState([])
   const isDesktop = useMediaQuery({ minWidth: 1280 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.99 })
-  const isMobile = useMediaQuery({ maxWidth: 767.99 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.98 })
+  const isMobile = useMediaQuery({ maxWidth: 767.98 })
+
+  console.log(stats)
+
+  useEffect(() => {
+    getStats()
+  }, [id])
+
+  const getStats = async () => {
+    const result = await getStatsCategoriesForMonth(month, year, id)
+    setStats(result.data)
+  }
 
   return (
-    <div className={s.chart}>
-      {isDesktop && (
-        <DesktopChart
-          data={data}
-          options={desktopOptions}
-          labelsStyle={labelsStyle}
-          colors={colors}
-        />
+    <>
+      {stats && (
+        <div className={s.chart}>
+          {isDesktop && (
+            <DesktopChart
+              data={stats}
+              options={desktopOptions}
+              labelsStyle={labelsStyle}
+              colors={colors}
+            />
+          )}
+          {isTablet && (
+            <DesktopChart
+              data={stats}
+              options={tabletOptions}
+              labelsStyle={labelsStyle}
+              colors={colors}
+            />
+          )}
+          {isMobile && (
+            <MobileChart
+              data={stats}
+              labelsStyle={labelsStyle}
+              colors={colors}
+            />
+          )}
+        </div>
       )}
-      {isTablet && (
-        <DesktopChart
-          data={data}
-          options={tabletOptions}
-          labelsStyle={labelsStyle}
-          colors={colors}
-        />
-      )}
-      {isMobile && (
-        <MobileChart data={data} labelsStyle={labelsStyle} colors={colors} />
-      )}
-    </div>
+    </>
   )
 }
 export default Chart
