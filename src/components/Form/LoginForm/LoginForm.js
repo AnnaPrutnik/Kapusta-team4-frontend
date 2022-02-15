@@ -13,6 +13,7 @@ const LoginForm = ({ onClickRegister }) => {
   const [emailError, setEmailError] = useState('это обязательное поле')
   const [passwordError, setPasswordError] = useState('это обязательное поле')
   const [errorSymbol, setErrorSymbol] = useState('*')
+  const [passwordShown, setPasswordShown] = useState(false)
 
   const blurHandler = ({ target: { name } }) => {
     switch (name) {
@@ -60,6 +61,10 @@ const LoginForm = ({ onClickRegister }) => {
     dispatch(logIn({ email, password }))
     setEmail('')
     setPassword('')
+  }
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown)
   }
 
   return (
@@ -114,18 +119,24 @@ const LoginForm = ({ onClickRegister }) => {
             )}
             Пароль:
           </p>
-          <input
-            onBlur={blurHandler}
-            className={s.input}
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChangePassword}
-            placeholder="Пароль"
-            pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{6,}"
-            title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
-            required
-          />
+          <div className={s.password}>
+            <input
+              onBlur={blurHandler}
+              className={s.input}
+              type={passwordShown ? "text" : "password"}
+              name="password"
+              value={password}
+              onChange={handleChangePassword}
+              placeholder="Пароль"
+              pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{6,}"
+              title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
+              required
+            />
+            <a href="#" className={!passwordShown ?
+              s.password_control : s.password_show}
+              onClick={togglePassword}>
+            </a>
+          </div>
           {passwordDirty && passwordError && (
             <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
               {passwordError}{' '}

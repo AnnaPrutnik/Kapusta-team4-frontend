@@ -4,8 +4,6 @@ import { useState } from 'react'
 import s from '../Form.module.scss'
 import { register } from '../../../redux/auth/auth-operation'
 
-//ToDo сделать нотификашку, что после регистрации успешной, юзер может залогиниться
-
 const RegisterForm = ({ onClickComeBack }) => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -17,6 +15,7 @@ const RegisterForm = ({ onClickComeBack }) => {
   const [emailError, setEmailError] = useState('это обязательное поле')
   const [passwordError, setPasswordError] = useState('это обязательное поле')
   const [errorSymbol, setErrorSymbol] = useState('*')
+  const [passwordShown, setPasswordShown] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -86,6 +85,10 @@ const RegisterForm = ({ onClickComeBack }) => {
     setEmail('')
     setPassword('')
     onClickComeBack()
+  }
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown)
   }
 
   return (
@@ -161,18 +164,24 @@ const RegisterForm = ({ onClickComeBack }) => {
                 </span>
             )}
             Пароль:</p>
-          <input
-            onBlur={blurHandler}
-            onChange={handleChangePassword}
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Пароль"
-            className={s.input}
-            pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{6,}"
-            title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
-            required
-          />
+          <div className={s.password}>
+            <input
+              onBlur={blurHandler}
+              onChange={handleChangePassword}
+              type={passwordShown ? "text" : "password"}
+              name="password"
+              value={password}
+              placeholder="Пароль"
+              className={s.input}
+              pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&*]{6,}"
+              title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
+              required
+            />
+            <a href="#" className={!passwordShown ?
+              s.password_control : s.password_show}
+              onClick={togglePassword}>
+            </a>
+          </div>
           {passwordDirty && passwordError && (
             <div style={{ color: '#EB5757', fontSize: 10, marginTop: 4 }}>
               {passwordError}{' '}

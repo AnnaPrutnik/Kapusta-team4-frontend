@@ -145,11 +145,15 @@
 }
 
 .input {
+  width: 253px;
   border-radius: 30px;
   background-color: $bg-input-color;
   padding: 18px 20px;
   font-size: 14px;
   letter-spacing: 0.04em;
+  @media screen and (min-width: 768px) {
+    width: 265px;
+  }
 }
 
 .wrap {
@@ -180,4 +184,30 @@
   color: $btn-orange-text-color;
   filter: drop-shadow(1px 3px 5px $btn-orange-box-shadow);
   transition: 0.5s linear;
+}
+
+.password {
+  position: relative;
+}
+
+.password_control {
+  position: absolute;
+  transform: translate(-7%, -50%);
+  top: 50%;
+  right: 7%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+}
+
+.password_show {
+  position: absolute;
+  transform: translate(-7%, -50%);
+  top: 50%;
+  right: 7%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
 }
