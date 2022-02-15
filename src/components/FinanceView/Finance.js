@@ -5,7 +5,6 @@ import { toast } from 'react-toastify'
 import Balance from './BalanceBar/Balance'
 import AddTransaction from './Main/AddTransaction'
 import InfoTable from './Main/InfoTable'
-import TableMobile from './Main/TableMobile'
 import Calendar from './Main/Calendar'
 import Buttons from './Main/Buttons'
 import MobileForm from './Main/MobileForm'
@@ -98,7 +97,6 @@ function Finance() {
           <div className={s.transaction}>
             <div className={s.wrap}>
               <Calendar changeDate={handleChangeDate} />
-
               {notMobile && (
                 <AddTransaction
                   date={date}
@@ -109,19 +107,11 @@ function Finance() {
               )}
             </div>
             <div className={s.stats}>
-              {notMobile ? (
-                <InfoTable
-                  transactions={convertTransaction.filter(
-                    item => item.isExpense === isExpense,
-                  )}
-                  deleteTransaction={handleDeleteTransaction}
-                />
-              ) : (
-                <TableMobile
-                  transactions={convertTransaction}
-                  deleteTransaction={handleDeleteTransaction}
-                />
-              )}
+              <InfoTable
+                transactions={convertTransaction}
+                deleteTransaction={handleDeleteTransaction}
+                isExpense={isExpense}
+              />
               {isDesktop && <Summary isExpense={isExpense} />}
             </div>
           </div>
