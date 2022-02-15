@@ -40,8 +40,6 @@ function Chart({ id, month, year }) {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.98 })
   const isMobile = useMediaQuery({ maxWidth: 767.98 })
 
-  console.log(stats)
-
   useEffect(() => {
     getStats()
   }, [id])

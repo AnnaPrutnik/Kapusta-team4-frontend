@@ -2,11 +2,6 @@ import sprite from '../../../images/FinanceView/icons.svg'
 import s from '../../../styles/component/FinanceView/Main/TableMobile.module.scss'
 
 function TableMobile({ transactions, deleteTransaction }) {
-  const handleClickDelete = e => {
-    const id = e.currentTarget.dataset.id
-    deleteTransaction(id)
-  }
-
   return (
     <table className={s.table}>
       {transactions.length > 0 && (
@@ -33,7 +28,11 @@ function TableMobile({ transactions, deleteTransaction }) {
               </td>
 
               <td className={s.delete}>
-                <button className={s.btn} onClick={handleClickDelete}>
+                <button
+                  className={s.btn}
+                  onClick={deleteTransaction}
+                  data-id={item._id}
+                >
                   <svg width="18" height="18">
                     <use href={`${sprite}#Delete`}></use>
                   </svg>

@@ -22,15 +22,14 @@ function DesktopChart({ data, options, labelsStyle, colors }) {
         <VictoryAxis
           dependentAxis
           key={category.description}
-          // tickCount={8}
+          tickCount={8}
           style={{
             tickLabels: {
               display: 'none',
             },
             axis: { stroke: 'transparent' },
             grid: {
-              // stroke: colors.stroke,
-              stroke: 'black',
+              stroke: colors.stroke,
               strokeWidth: 0.5,
               // gridColumn: 8,
               // strokeCount: 8,
