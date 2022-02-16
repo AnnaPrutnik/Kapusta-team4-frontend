@@ -9,9 +9,11 @@ const ReportView = () => {
     <>
       {isLoggedIn && (
         <div className="bg">
-          <section className="container">
-            <Report />
-          </section>
+          <div className="wrapper">
+            <section className="container">
+              <Report />
+            </section>
+          </div>
         </div>
       )}
     </>

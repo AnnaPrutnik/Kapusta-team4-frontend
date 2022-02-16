@@ -1,10 +1,9 @@
-import BgIcons from '../Background/BgIcons'
 import title from '../../images/Background/svg/title.svg'
 import s from './Home.module.scss'
 
 function HomeContent() {
   return (
-    <div className={s.bg_main}>
+    <div>
       <div className={s.title_container}>
         <svg className={s.title}>
           <use href={`${title}#icon-title`}></use>
@@ -14,7 +13,6 @@ function HomeContent() {
         </svg>
         <p className={s.home_tag}>Smart Finance</p>
       </div>
-      <BgIcons />
     </div>
   )
 }
