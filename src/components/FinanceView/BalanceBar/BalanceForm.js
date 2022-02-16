@@ -14,9 +14,7 @@ function BalanceForm() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (balance > 0) {
-      setUserBalance(Number(balance).toFixed(2))
-    }
+    setUserBalance(Number(balance).toFixed(2))
   }, [balance])
 
   const handleInputChange = e => {
@@ -30,6 +28,11 @@ function BalanceForm() {
     dispatch(changeIsFirstLogin())
   }
 
+  const inputClasses = [s.input]
+  if (balance < 0) {
+    inputClasses.push(s.negative)
+  }
+
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <label className={s.label} htmlFor="balance">
@@ -38,7 +41,7 @@ function BalanceForm() {
       <div className={s.wrap}>
         <input
           type="text"
-          className={s.input}
+          className={inputClasses.join(' ')}
           placeholder="00.00"
           name="balance"
           id="balance"
