@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import TeamContent from './TeamContent'
 import data from '../../lib/team.json'
-import s from '../../styles/component/TeamModal/TeamModal.module.scss'
+import s from './TeamModal.module.scss'
 
 const modalRoot = document.getElementById('modal-root')
 

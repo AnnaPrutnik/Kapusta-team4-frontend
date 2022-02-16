@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { getUsername } from '../../redux/auth'
-import UserLogOut from '../Auth/UserLogOut'
-import s from '../../styles/component/Header/Header.module.scss'
+import UserLogOut from '../Auth/UserLogOut/UserLogOut'
+import s from './Header.module.scss'
 
 function UserMenu() {
   const userName = useSelector(getUsername)

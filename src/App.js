@@ -1,28 +1,11 @@
-import { useEffect, useState, lazy, Suspense } from 'react'
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import PrivateRoute from './routes/PrivateRoute'
-import PublicRoute from './routes/PublicRoute'
+import { useLocation } from 'react-router-dom'
 import Header from './components/Header/Header'
+import Router from './components/Router/Router'
+import Loader from './components/Loader/Loader'
 import { getCurrentUser } from './redux/auth/auth-operation'
 import { loginByGoogle } from './redux/auth/auth-action'
-import Loader from './components/Loader/Loader'
-
-const HomeView = lazy(() =>
-  import('./views/HomeView/HomeView.js'),
-) /* webpackChunkName: "Home View" */
-
-const FinanceView = lazy(() =>
-  import('./views/FinanceView/FinanceView.js'),
-) /* webpackChunkName: "Functional View" */
-
-const ReportView = lazy(() =>
-  import('./views/ReportView/ReportView.js'),
-) /* webpackChunkName: "Report View" */
-
-const NotFoundView = lazy(() =>
-  import('./views/NotFoundView/NotFoundView.js'),
-) /* webpackChunkName: "NotFound View" */
 
 function App() {
   const [isLoad, setIsLoad] = useState(false)
@@ -53,28 +36,11 @@ function App() {
       {isLoad ? (
         <Loader />
       ) : (
-        <div className="wrapper">
+        <>
+          <div className="grey"></div>
           <Header />
-          <Suspense fallback={<Loader />}>
-            <Routes>
-              <Route path="/" element={<PublicRoute component={HomeView} />} />
-              <Route
-                path="/income"
-                element={<PrivateRoute component={FinanceView} />}
-              />
-              <Route
-                path="/report"
-                element={<PrivateRoute component={ReportView} />}
-              />
-              <Route
-                path="*"
-                element={
-                  <PublicRoute component={NotFoundView} redirectTo="/" />
-                }
-              />
-            </Routes>
-          </Suspense>
-        </div>
+          <Router />
+        </>
       )}
     </div>
   )

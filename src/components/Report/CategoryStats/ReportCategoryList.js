@@ -1,6 +1,6 @@
-import ReportCategoryItem from './ReportCategoryItem'
+import ReportCategoryItem from './CategoryItems/ReportCategoryItem'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
-import s from '../../../styles/component/ReportView/CategoryStats//ReportCategoryList.module.scss'
+import s from './ReportCategoryList.module.scss'
 
 function ReportCategoryList({
   categories,

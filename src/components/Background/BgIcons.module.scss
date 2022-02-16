@@ -1,0 +1,35 @@
+@import '../../styles/shared.scss';
+
+.bottom_icons {
+  display: none;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: block;
+    position: absolute;
+    width: 183px;
+    height: 142px;
+    bottom: 56px;
+    left: 103px;
+    z-index: 5;
+    fill: $logo-picture-color;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    bottom: 20px;
+    left: 230px;
+  }
+}
+
+.mobile_bottom_icons {
+  display: block;
+  position: absolute;
+  width: 83px;
+  height: 89px;
+  bottom: 0px;
+  left: 35px;
+  z-index: -1;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+}

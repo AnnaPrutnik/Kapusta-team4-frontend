@@ -1,13 +1,6 @@
 import axios from 'axios'
 import { setToken } from '../'
 
-//  должно приходить от фронта body с полями:
-// date: string,
-// description: string,
-// category: id as string,
-// amount: string, но внутри значение которое можно привести к числу
-// isExpense: boolean + (true - затраты, false - доходы)
-
 export const addTransaction = async data => {
   setToken()
   const transaction = { ...data }

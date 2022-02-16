@@ -31,15 +31,13 @@ function DesktopChart({ data, options, labelsStyle, colors }) {
             grid: {
               stroke: colors.stroke,
               strokeWidth: 0.5,
-              // gridColumn: 8,
-              // strokeCount: 8,
             },
           }}
         />
       ))}
       <VictoryAxis
         style={{
-          tickLabels: labelFont,
+          tickLabels: { ...labelFont, transform: 'translate(0, -7)' },
           axis: { stroke: colors.stroke },
         }}
         tickCount={8}
@@ -50,11 +48,11 @@ function DesktopChart({ data, options, labelsStyle, colors }) {
         y="total"
         sortKey="total"
         sortOrder="descending"
+        alignment="middle"
         barRatio={ratio}
         labels={({ datum }) => `${datum.total} грн`}
-        alignment="middle"
         style={{
-          labels: labelFont,
+          labels: { ...labelFont, transform: 'translate(0, 7)' },
           data: {
             fill: ({ index }) =>
               (index + 1) % 3 === 1 ? colors.main : colors.secondary,

@@ -1,5 +1,5 @@
 import monthList from '../../../lib/monthsList.json'
-import s from '../../../styles/component/FinanceView/Summary/Summary.module.scss'
+import s from './Summary.module.scss'
 
 function SummaryListItem({ month, value }) {
   return (

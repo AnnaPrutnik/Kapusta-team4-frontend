@@ -14,7 +14,7 @@ function Report() {
   const [isExpense, setIsExpense] = useState(true)
   const [category, setCategories] = useState([])
   const [totalTrans, setTotalTrans] = useState([])
-  const [currentCategory, setCurrentCategory] = useState(null) //сюда надо записать активную категорию
+  const [currentCategory, setCurrentCategory] = useState(null)
 
   useEffect(() => {
     if (isExpense) {
