@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
 import { toast } from 'react-toastify'
+import dayjs from 'dayjs'
 import Balance from './BalanceBar/Balance'
 import AddTransaction from './Main/AddTransaction'
 import InfoTable from './Main/InfoTable'
@@ -16,11 +17,11 @@ import s from '../../styles/component/FinanceView/Finance.module.scss'
 function Finance() {
   const [isExpense, setIsExpense] = useState(true)
   const [transactions, setTransactions] = useState([])
-  const [date, setDate] = useState(new Date().toDateString())
+  const [date, setDate] = useState(dayjs().format())
   const [showForm, setShowForm] = useState(false)
   const notMobile = useMediaQuery({ minWidth: 768 })
   const isDesktop = useMediaQuery({ minWidth: 1280 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.99 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.98 })
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -63,16 +64,7 @@ function Finance() {
   }
 
   const convertTransaction = transactions.map(item => {
-    const fullDate = new Date(item.transactionDate)
-    const date =
-      fullDate.getDate().toString().length === 1
-        ? `0${fullDate.getDate()}`
-        : fullDate.getDate()
-    const month =
-      fullDate.getMonth().toString().length === 1
-        ? `0${fullDate.getMonth() + 1}`
-        : fullDate.getMonth() + 1
-    const convertDate = `${date}.${month}.${fullDate.getFullYear()}`
+    const convertDate = dayjs(item.transactionDate).format('DD.MM.YYYY')
     return { ...item, convertDate }
   })
 
@@ -112,10 +104,14 @@ function Finance() {
                 deleteTransaction={handleDeleteTransaction}
                 isExpense={isExpense}
               />
-              {isDesktop && <Summary isExpense={isExpense} />}
+              {isDesktop && (
+                <Summary isExpense={isExpense} length={transactions.length} />
+              )}
             </div>
           </div>
-          {isTablet && <Summary />}
+          {isTablet && (
+            <Summary isExpense={isExpense} length={transactions.length} />
+          )}
         </>
       )}
     </div>

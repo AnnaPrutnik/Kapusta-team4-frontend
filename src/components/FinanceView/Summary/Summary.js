@@ -6,7 +6,7 @@ import {
 } from '../../../services'
 import s from '../../../styles/component/FinanceView/Summary/Summary.module.scss'
 
-function Summary({ isExpense }) {
+function Summary({ isExpense, length }) {
   const [expenses, setExpenses] = useState({})
   const [incomes, setIncomes] = useState({})
 
@@ -15,8 +15,8 @@ function Summary({ isExpense }) {
       setExpenses(res.data)
     }),
       getIncomesForLastSixMonth().then(res => setIncomes(res.data))
-  }, [])
-  // totalAnount приходит с бека, TODO -  поменять на totalAmount
+  }, [length])
+
   return (
     <div className={s.container}>
       <p className={s.title}> Сводка</p>
