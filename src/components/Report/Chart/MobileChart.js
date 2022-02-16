@@ -1,4 +1,4 @@
-import { VictoryChart, VictoryAxis, VictoryBar } from 'victory'
+import { VictoryChart, VictoryAxis, VictoryBar, VictoryLabel } from 'victory'
 
 function MobileChart({ data, labelsStyle, colors }) {
   const n = data.length
@@ -18,10 +18,12 @@ function MobileChart({ data, labelsStyle, colors }) {
       <VictoryAxis
         style={{
           axis: { stroke: 'transparent' },
+
           tickLabels: {
             ...labelsStyle,
-            fontSize: '15px',
-            transform: 'translate(40,-15)',
+            textAnchor: 'start',
+            fontSize: '17px',
+            transform: 'translate(15,-15)',
           },
         }}
       />
@@ -41,8 +43,12 @@ function MobileChart({ data, labelsStyle, colors }) {
             transform: 'translate(0, 12)',
           },
           data: {
-            fill: ({ index }) =>
-              (index + 1) % 3 === 1 ? colors.main : colors.secondary,
+            fill: ({ data, index }) =>
+              data.length === 1
+                ? colors.main
+                : (index + 3) % 3 === 1
+                ? colors.main
+                : colors.secondary,
           },
         }}
         cornerRadius={{ topLeft: 11, topRight: 11 }}

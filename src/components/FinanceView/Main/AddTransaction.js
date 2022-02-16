@@ -1,75 +1,60 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import { useMediaQuery } from 'react-responsive'
 import { toast } from 'react-toastify'
+import Select from 'react-select'
 import { updateBalance } from '../../../redux/balance'
 import {
   addTransaction,
   getExpenseCategory,
   getIncomeCategory,
 } from '../../../services'
-import { IoIosArrowDown } from 'react-icons/io'
 import sprite from '../../../images/FinanceView/icons.svg'
 import 'react-datepicker/dist/react-datepicker.css'
+import { customStyles } from '../../../lib/styleSelect'
 import s from '../../../styles/component/FinanceView/Main/AddTransaction.module.scss'
 
 function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
-  const [categoryItems, setCategoryItems] = useState([])
+  const [categoryOptions, setCategoryOptions] = useState([])
   const [description, setDescription] = useState('')
-  const [categoryId, setCategoryId] = useState(null)
-  const [category, setCategory] = useState('Категория товара')
-  const [isOpen, setIsOpen] = useState(false)
+  const [selectedOption, setSelectedOption] = useState(null)
   const [amount, setAmount] = useState('')
   const notMobile = useMediaQuery({ minWidth: 768 })
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    window.addEventListener('click', handleCloseSelect)
-    return () => {
-      window.removeEventListener('click', handleCloseSelect)
-    }
-  })
-
-  useEffect(() => {
     if (isExpense === undefined) {
       return
     }
     if (isExpense) {
-      getExpenseCategory().then(res => setCategoryItems(res))
+      getExpenseCategory().then(res => handleChangeOptions(res))
     } else {
-      getIncomeCategory().then(res => setCategoryItems(res))
+      getIncomeCategory().then(res => handleChangeOptions(res))
     }
   }, [isExpense])
 
-  const handleCloseSelect = e => {
-    if (e.target.dataset.prop === 'select') {
-      return
-    }
-    setIsOpen(false)
+  const handleChangeOptions = array => {
+    let options = []
+    array.map(
+      ({ _id, category }) =>
+        (options = [...options, { value: _id, label: category }]),
+    )
+    setCategoryOptions(options)
   }
 
   const handleChangeDescription = e => {
     setDescription(e.target.value)
   }
 
-  const handleToggleSelectList = e => {
-    setIsOpen(true)
-  }
-
   const handleChangeAmount = e => {
     setAmount(e.target.value)
   }
 
-  const handleClickList = e => {
-    setCategory(e.target.textContent)
-    setCategoryId(e.target.id)
-    setIsOpen(false)
-  }
   const handleFormSubmit = async e => {
     e.preventDefault()
 
-    if (!description || !amount || !categoryId) {
+    if (!description || !amount || !selectedOption) {
       toast.error('Все поля должны быть заполнены!', {
         position: toast.POSITION.TOP_LEFT,
       })
@@ -78,12 +63,12 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
     const addedTransaction = {
       date,
       description,
-      categoryId,
+      categoryId: selectedOption.value,
       amount,
     }
     const { data } = await addTransaction(addedTransaction)
     const { newTransaction, newBalance } = data
-    changeTransactions({ ...newTransaction, category })
+    changeTransactions({ ...newTransaction, selectedOption })
     dispatch(updateBalance(newBalance))
     handleResetInputs()
     if (!notMobile) {
@@ -95,7 +80,7 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
   }
 
   const handleResetInputs = () => {
-    setCategory('Категория товара')
+    setSelectedOption('Категория товара')
     setDescription('')
     setAmount('')
   }
@@ -112,7 +97,71 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
             className={s.description}
           />
         </label>
-        <div className={s.select_container} data-prop="select">
+        <div className={s.select}>
+          <Select
+            placeholder={'Категория товара'}
+            onChange={setSelectedOption}
+            options={categoryOptions}
+            styles={customStyles}
+          />
+        </div>
+        <div className={s.sum}>
+          <label>
+            <input
+              type="number"
+              value={amount}
+              placeholder={notMobile ? '0,00' : '0,00 UAH'}
+              onChange={handleChangeAmount}
+              className={s.calc}
+            />
+          </label>
+          <span className={s.icon}>
+            <svg width="20" height="20">
+              <use href={`${sprite}#calculator`}></use>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div className={s.wrap}>
+        <button type="submit" className={s.add}>
+          Ввод
+        </button>
+        <button type="button" onClick={handleResetInputs} className={s.clear}>
+          Очистить
+        </button>
+      </div>
+    </form>
+  )
+}
+
+export default AddTransaction
+
+// const handleCloseSelect = e => {
+//   if (e.target.dataset.prop === 'select') {
+//     return
+//   }
+//   setIsOpen(false)
+// }
+
+// useEffect(() => {
+//   window.addEventListener('click', handleCloseSelect)
+//   return () => {
+//     window.removeEventListener('click', handleCloseSelect)
+//   }
+// })
+
+// const handleToggleSelectList = e => {
+//   setIsOpen(true)
+// }
+
+// const handleClickList = e => {
+//   setCategory(e.target.textContent)
+//   setCategoryId(e.target.id)
+//   setIsOpen(false)
+// }
+
+// {
+/* <div className={s.select_container} data-prop="select">
           <div className={s.dropdown} data-prop="select">
             <p
               className={s.header}
@@ -150,34 +199,7 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
               </ul>
             )}
           </div>
-        </div>
-        <div className={s.sum}>
-          <label>
-            <input
-              type="number"
-              value={amount}
-              placeholder={notMobile ? '0,00' : '0,00 UAH'}
-              onChange={handleChangeAmount}
-              className={s.calc}
-            />
-          </label>
-          <span className={s.icon}>
-            <svg width="20" height="20">
-              <use href={`${sprite}#calculator`}></use>
-            </svg>
-          </span>
-        </div>
-      </div>
-      <div className={s.wrap}>
-        <button type="submit" className={s.add}>
-          Ввод
-        </button>
-        <button type="button" onClick={handleResetInputs} className={s.clear}>
-          Очистить
-        </button>
-      </div>
-    </form>
-  )
-}
+        </div> */
+// }
 
-export default AddTransaction
+// const [isOpen, setIsOpen] = useState(false)
