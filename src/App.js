@@ -53,7 +53,7 @@ function App() {
       {isLoad ? (
         <Loader />
       ) : (
-        <div className="wrapper">
+        <>
           <Header />
           <Suspense fallback={<Loader />}>
             <Routes>
@@ -74,7 +74,7 @@ function App() {
               />
             </Routes>
           </Suspense>
-        </div>
+        </>
       )}
     </div>
   )
