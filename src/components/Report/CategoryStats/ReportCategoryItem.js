@@ -4,10 +4,11 @@ import s from '../../../styles/component/ReportView/CategoryStats/ReportCategory
 
 function ReportCategoryItem({ data: items, onClick }) {
   const [currentCategory, setCurrentCategory] = useState(null)
+  const sortedItems = [...items].sort((a, b) => b.sum - a.sum)
 
   useEffect(() => {
     if (items) {
-      const value = items.length > 0 ? items[0].categoryId._id : null
+      const value = items.length > 0 ? sortedItems[0].categoryId._id : null
       setCurrentCategory(value)
       onClick(value)
     }
@@ -25,7 +26,7 @@ function ReportCategoryItem({ data: items, onClick }) {
         <p className={s.text}>За данный период транзакций нет</p>
       ) : (
         items &&
-        items.map(item => (
+        sortedItems.map(item => (
           <li key={item.categoryId._id} className={s.item}>
             <p className={s.sum}>
               {new Intl.NumberFormat('ru-RU', {
