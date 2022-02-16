@@ -26,6 +26,8 @@
 
 .input {
   display: inline-flex;
+  height: 44px;
+  align-items: center;
   background-color: transparent;
   border: 2px solid $btn-grey-border-color;
   outline: none;
@@ -42,7 +44,7 @@
 .description {
   composes: input;
   width: 100%;
-  padding: 14px 20px 14px 20px;
+  padding: 0 20px 0 20px;
   border-radius: 16px 16px 0 0;
   border-bottom: none;
 
@@ -51,8 +53,6 @@
     border-radius: 16px 0 0 0;
     border: 2px solid $btn-grey-bg-color;
     border-right: none;
-    padding-top: 13px;
-    padding-bottom: 13px;
   }
 
   @media screen and (min-width: $breakpoint-desktop) {
@@ -62,18 +62,18 @@
   }
 }
 
-.select_container {
-  composes: input;
+.select {
   width: 100%;
-  padding: 13px 20px;
-  position: relative;
-  display: block;
+  border: 2px solid $btn-grey-border-color;
   border-radius: 0 0 16px 0;
-  color: $text-color-placeholders;
+  padding-left: 12px;
 
   @media screen and (min-width: $breakpoint-tablet) {
-    border-radius: 0;
     width: 171px;
+    height: 44px;
+    border: 2px solid $btn-grey-bg-color;
+    border-radius: 0;
+    padding-left: 0;
   }
 
   @media screen and (min-width: $breakpoint-desktop) {
@@ -81,37 +81,6 @@
   }
 }
 
-.list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  z-index: 5;
-  background-color: transparent;
-}
-
-.item {
-  padding: 9px 20px 10px 20px;
-  background-color: $bg-white-color;
-  &:hover {
-    background-color: $bg-grey-color;
-    color: $text-color-secondary;
-  }
-}
-
-.arrow {
-  position: absolute;
-  fill: $text-color-placeholders;
-  width: 15px;
-  height: 15px;
-  top: 14px;
-  right: 15px;
-}
-
-.header {
-  font-size: 12px;
-  margin: 0;
-}
 .sum {
   display: flex;
   margin: 30px auto 83px auto;
@@ -123,7 +92,7 @@
 .calc {
   composes: input;
   width: 125px;
-  padding: 13px 15px;
+  padding: 0 15px;
   text-align: end;
   border-radius: 22px 0 0 22px;
   font-weight: 700;

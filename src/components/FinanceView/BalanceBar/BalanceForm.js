@@ -7,10 +7,10 @@ import s from '../../../styles/component/FinanceView/BalanceBar/BalanceForm.modu
 
 function BalanceForm() {
   const [userBalance, setUserBalance] = useState('')
-  const [focus, setFocus] = useState(false)
   const balance = useSelector(getUserBalance)
   const isFirstTime = useSelector(getIsFirstLogin)
 
+  console.log(balance)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -48,8 +48,8 @@ function BalanceForm() {
         />
 
         <span className={s.uah}>UAH</span>
+        {isFirstTime && <BalanceNotifications />}
       </div>
-      {isFirstTime && <BalanceNotifications />}
       <button className={s.btn} type="submit">
         Подтвердить
       </button>

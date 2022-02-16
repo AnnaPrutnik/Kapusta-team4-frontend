@@ -2,22 +2,21 @@
 
 .container {
   position: absolute;
-  top: 80px;
-
+  top: calc(100% + 20px);
+  left: -17px; // right: 50%;
   @media screen and (min-width: $breakpoint-tablet) {
-    top: 60px;
-    left: 90px;
+    top: calc(100% + 20px);
+    left: 0;
   }
 
   @media screen and (min-width: $breakpoint-desktop) {
-    left: 70px;
+    left: 0px;
   }
 }
 
 .notification {
   position: relative;
   z-index: 3;
-display: none;
   padding: 30px 20px;
   width: 282px;
   background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);

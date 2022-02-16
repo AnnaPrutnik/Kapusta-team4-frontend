@@ -70,8 +70,8 @@ function Finance() {
         : fullDate.getDate()
     const month =
       fullDate.getMonth().toString().length === 1
-        ? `0${fullDate.getMonth()}`
-        : fullDate.getMonth()
+        ? `0${fullDate.getMonth() + 1}`
+        : fullDate.getMonth() + 1
     const convertDate = `${date}.${month}.${fullDate.getFullYear()}`
     return { ...item, convertDate }
   })

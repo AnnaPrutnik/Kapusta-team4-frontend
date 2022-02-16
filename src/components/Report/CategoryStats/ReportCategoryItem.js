@@ -1,17 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import sprite from '../../../images/Report/categories.svg'
 import s from '../../../styles/component/ReportView/CategoryStats/ReportCategoryItem.module.scss'
 
 function ReportCategoryItem({ data: items, onClick }) {
+  const [currentCategory, setCurrentCategory] = useState(null)
+
   useEffect(() => {
     if (items) {
       const value = items.length > 0 ? items[0].categoryId._id : null
+      setCurrentCategory(value)
       onClick(value)
     }
   }, [items])
 
   const handleClick = e => {
     const id = e.currentTarget.dataset.id
+    setCurrentCategory(id)
     onClick(id)
   }
 
@@ -23,11 +27,15 @@ function ReportCategoryItem({ data: items, onClick }) {
         items &&
         items.map(item => (
           <li key={item.categoryId._id} className={s.item}>
-            <p className={s.sum}> {new Intl.NumberFormat('ru-RU', {
+            <p className={s.sum}>
+              {new Intl.NumberFormat('ru-RU', {
                 minimumFractionDigits: 2,
-              }).format(item.sum)}</p>
+              }).format(item.sum)}
+            </p>
             <div
-              className={s.thumb}
+              className={
+                item.categoryId._id === currentCategory ? s.active : s.thumb
+              }
               onClick={handleClick}
               data-id={item.categoryId._id}
             >
