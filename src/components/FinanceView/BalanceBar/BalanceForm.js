@@ -10,7 +10,6 @@ function BalanceForm() {
   const balance = useSelector(getUserBalance)
   const isFirstTime = useSelector(getIsFirstLogin)
 
-  console.log(balance)
   const dispatch = useDispatch()
 
   useEffect(() => {

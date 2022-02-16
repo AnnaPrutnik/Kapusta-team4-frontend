@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import dayjs from 'dayjs'
 import DatePicker from 'react-datepicker'
+
 import sprite from '../../../images/FinanceView/icons.svg'
 import s from '../../../styles/component/FinanceView/Main/Calendar.module.scss'
 
@@ -7,8 +9,9 @@ function Calendar({ changeDate }) {
   const [startDate, setStartDate] = useState(new Date())
 
   const handleChangeDate = e => {
+    const date = dayjs(e).format()
     setStartDate(e)
-    changeDate(e)
+    changeDate(date)
   }
 
   return (

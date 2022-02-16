@@ -41,6 +41,7 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
         (options = [...options, { value: _id, label: category }]),
     )
     setCategoryOptions(options)
+    setSelectedOption(null)
   }
 
   const handleChangeDescription = e => {
@@ -100,6 +101,7 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
         <div className={s.select}>
           <Select
             placeholder={'Категория товара'}
+            value={selectedOption}
             onChange={setSelectedOption}
             options={categoryOptions}
             styles={customStyles}

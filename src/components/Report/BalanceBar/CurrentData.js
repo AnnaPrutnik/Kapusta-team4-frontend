@@ -1,26 +1,20 @@
 import { useState, useEffect } from 'react'
+import dayjs from 'dayjs'
 import months from '../../../lib/monthsList.json'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 import s from '../../../styles/component/ReportView/BalanceBar/CurrentData.module.scss'
 
-function CurrentData({ month, setMonth, year, setYear }) {
-  const [currentMonth, setCurrentMonth] = useState(month)
-  const [currentYear, setCurrentYear] = useState(year)
+function CurrentData({ setMonth, setYear }) {
+  const [currentMonth, setCurrentMonth] = useState(null)
+  const [currentYear, setCurrentYear] = useState(null)
 
   useEffect(() => {
-    const date = convertDate()
-    setCurrentMonth(date[0])
-    setMonth(date[0])
-    setCurrentYear(date[1])
-    setYear(date[1])
+    const date = dayjs()
+    setCurrentMonth(date.month() + 1)
+    setMonth(date.month() + 1)
+    setCurrentYear(date.year())
+    setYear(date.year())
   }, [])
-
-  const convertDate = () => {
-    const date = new Date()
-    const currentMonth = date.getMonth() + 1
-    const currentYear = date.getFullYear()
-    return [currentMonth, currentYear]
-  }
 
   const handleIncrement = () => {
     if (currentMonth <= 11) {
