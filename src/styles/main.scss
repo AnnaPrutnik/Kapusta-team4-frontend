@@ -76,14 +76,11 @@ button {
 }
 
 .bg {
-  position: relative;
-  top: 0;
-  margin-left: auto;
-  margin-right: auto;
-
+  margin-top: 0;
+  background-position: top -23px center;
   background-image: url('../images/Background/grey_bg/bg-mobile-1x.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100vw;
 }
 
 @media screen and (min-width: 320px) {
@@ -104,7 +101,7 @@ button {
   }
 
   .bg {
-    background-size: 183px 142px, contain;
+    background-size: 183px 142px, 100vw;
     background-position: bottom 32px right 88px, top 0 center;
     background-image: url('../images/Background/svg/main_two.svg'),
       url('../images/Background/grey_bg/bg-tablet-1x.png');
@@ -121,8 +118,7 @@ button {
     padding-bottom: 79px;
   }
   .bg {
-    max-width: 1280px;
-    background-size: 1280px 232px, contain;
+    background-size: 100vw, 100vw;
     background-position: bottom -20px left 10px, top 0 center;
     background-image: url('../images/Background/svg/main_group.svg'),
       url('../images/Background/grey_bg/bg-desktop-1x.png');
@@ -130,7 +126,6 @@ button {
 }
 
 ::-webkit-scrollbar {
-  /* 1 - скроллбар */
   width: 4px;
   height: 4px;
 
@@ -138,7 +133,6 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  /* 5 - ползунок */
   border-radius: 3px;
   height: 43px;
   background-color: var(--placeholder-text-color);
