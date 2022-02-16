@@ -8,12 +8,3 @@ export default function PublicRoute({ component: Component }) {
 
   return <>{shouldRedirect ? <Navigate to="/income" /> : <Component />}</>
 }
-
-// УДАЛИТЬ ПОСЛЕ ДОБАВЛЕНИЯ БЭКА
-
-// export default function PublicRoute({
-//   component: Component,
-//   restricted = false,
-// }) {
-//   return  <Component />
-// }

@@ -62,17 +62,13 @@ button {
   border: none;
 }
 
-.wrapper {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .container {
   padding-top: 86px;
   padding-left: 19px;
   padding-right: 19px;
   padding-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bg {
@@ -80,23 +76,27 @@ button {
   top: 0;
   margin-left: auto;
   margin-right: auto;
+}
 
-  background-image: url('../images/Background/grey_bg/bg-mobile-1x.png');
-  background-repeat: no-repeat;
-  background-size: contain;
+.grey {
+  position: absolute;
+  background-color: #f5f6fb;
+  top: 0;
+  z-index: -10;
+  width: 100%;
+  height: 342px;
+  border-radius: 0 0 0 120px;
 }
 
 @media screen and (min-width: 320px) {
-  .wrapper {
+  .container {
     width: 320px;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .wrapper {
-    width: 768px;
-  }
   .container {
+    width: 768px;
     padding-top: 96px;
     padding-left: 51px;
     padding-right: 52px;
@@ -104,33 +104,34 @@ button {
   }
 
   .bg {
-    background-size: 183px 142px, contain;
-    background-position: bottom 32px right 88px, top 0 center;
-    background-image: url('../images/Background/svg/main_two.svg'),
-      url('../images/Background/grey_bg/bg-tablet-1x.png');
+    background-size: 183px 142px;
+    background-position: bottom 32px right 88px;
+    background-repeat: no-repeat;
+    background-image: url('../images/Background/svg/main_two.svg');
+  }
+
+  .grey {
+    height: 583px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .wrapper {
-    width: 1280px;
-  }
   .container {
+    width: 1280px;
     padding-left: 110px;
     padding-right: 110px;
     padding-bottom: 79px;
   }
+
   .bg {
-    max-width: 1280px;
-    background-size: 1280px 232px, contain;
-    background-position: bottom -20px left 10px, top 0 center;
-    background-image: url('../images/Background/svg/main_group.svg'),
-      url('../images/Background/grey_bg/bg-desktop-1x.png');
+    background-size: 1280px 232px;
+    background-position: bottom -20px left 10px;
+    background-repeat: repeat-x;
+    background-image: url('../images/Background/svg/main_group.svg');
   }
 }
 
 ::-webkit-scrollbar {
-  /* 1 - скроллбар */
   width: 4px;
   height: 4px;
 
@@ -138,7 +139,6 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  /* 5 - ползунок */
   border-radius: 3px;
   height: 43px;
   background-color: var(--placeholder-text-color);

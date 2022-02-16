@@ -2,27 +2,23 @@
 
 .bg_main {
   margin-top: 0;
-  background-image: url('../../../images/Background/svg/home_mobile_top.svg'),
-    url('../../../images/Background/grey_bg/bg-mobile-1x.png');
-  background-position: top 160px right 0, top 0 center;
+  background-image: url('../../../images/Background/svg/home_mobile_top.svg');
+  background-position: top 160px right 0;
   background-repeat: no-repeat;
-  background-size: 49px 83px, contain;
+  background-size: 49px 83px;
   overflow: hidden;
 
   @media screen and (min-width: $breakpoint-tablet) {
-    max-width: 768px;
-    background-size: 768px 232px, contain;
-    background-position: top 84px left 10px, top 0 center;
-    background-image: url('../../../images/Background/svg/tablet_group.svg'),
-      url('../../../images/Background/grey_bg/bg-tablet-1x.png');
+    background-size: 768px 232px;
+    background-position: top 84px left 10px;
+    background-repeat: repeat-x;
+    background-image: url('../../../images/Background/svg/tablet_group.svg');
   }
 
   @media screen and (min-width: $breakpoint-desktop) {
-    max-width: 1280px;
-    background-size: 1280px 232px, contain;
-    background-position: top 86px left 10px, top 0 center;
-    background-image: url('../../../images/Background/svg/main_group.svg'),
-      url('../../../images/Background/grey_bg/bg-desktop-1x.png');
+    background-size: 1280px 232px;
+    background-position: top 86px left 10px;
+    background-image: url('../../../images/Background/svg/main_group.svg');
   }
 }
 
