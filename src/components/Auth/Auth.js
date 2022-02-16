@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import LoginForm from './LoginForm'
-import RegisterForm from './RegisterForm'
+import LoginForm from './LoginForm/LoginForm'
+import RegisterForm from './RegicterForm/RegisterForm'
 
 function Auth() {
   const [login, setLogin] = useState(true)

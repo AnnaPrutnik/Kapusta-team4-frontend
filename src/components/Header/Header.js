@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navigation from './Navigation'
 import UserMenu from './UserMenu'
 import { getIsLoggedIn } from '../../redux/auth/auth-selectors'
-import s from '../../styles/component/Header/Header.module.scss'
+import s from './Header.module.scss'
 
 function Header() {
   const isLoggedIn = useSelector(getIsLoggedIn)

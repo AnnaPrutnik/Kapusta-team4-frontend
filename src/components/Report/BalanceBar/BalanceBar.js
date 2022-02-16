@@ -1,7 +1,7 @@
-import BackHomeBtn from './BackHomeBtn'
-import CurrentData from './CurrentData'
-import BalanceInfo from './BalanceInfo'
-import s from '../../../styles/component/ReportView/BalanceBar/BalanceBar.module.scss'
+import BackHomeBtn from './BackHomeBtn/BackHomeBtn'
+import CurrentData from './CurrentData/CurrentData'
+import BalanceInfo from './BalanceInfo/BalanceInfo'
+import s from './BalanceBar.module.scss'
 
 function BalanceBar({ setMonth, setYear }) {
   return (

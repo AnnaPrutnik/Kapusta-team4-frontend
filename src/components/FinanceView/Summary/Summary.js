@@ -5,7 +5,7 @@ import {
   getExpensesForLastSixMonth,
   getIncomesForLastSixMonth,
 } from '../../../services'
-import s from '../../../styles/component/FinanceView/Summary/Summary.module.scss'
+import s from './Summary.module.scss'
 
 function Summary({ isExpense, length }) {
   const [expenses, setExpenses] = useState({})

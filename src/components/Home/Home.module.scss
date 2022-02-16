@@ -1,0 +1,94 @@
+@import '../../styles/shared.scss';
+
+.bg_main {
+  margin-top: 0;
+  background-image: url('../../images/Background/svg/home_mobile_top.svg');
+  background-position: top 160px right 0;
+  background-repeat: no-repeat;
+  background-size: 49px 83px;
+  overflow: hidden;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    background-size: 768px 232px;
+    background-position: top 84px left 10px;
+    background-repeat: repeat-x;
+    background-image: url('../../images/Background/svg/tablet_group.svg');
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    background-size: 1280px 232px;
+    background-position: top 86px left 10px;
+    background-image: url('../../images/Background/svg/main_group.svg');
+  }
+}
+
+.title_container {
+  margin-top: 142px;
+  margin-bottom: 650px;
+  margin-left: 50px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin-top: 146px;
+    margin-bottom: 778px;
+    margin-left: 166px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-top: 320px;
+    margin-bottom: 348px;
+    margin-left: 235px;
+  }
+}
+
+.title_mobile {
+  margin: 0;
+  padding: 0 0 4px 0;
+  width: 183px;
+  height: 46px;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+
+.title {
+  display: none;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    display: block;
+    width: 307px;
+    height: 78px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding: 0;
+    width: 376px;
+    height: 120px;
+  }
+}
+
+.home_tag {
+  margin: 0;
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 1.15px;
+  text-transform: uppercase;
+
+  color: $text-color-secondary;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    padding-left: 56px;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 1.19px;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    padding-left: 64px;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 1.19px;
+  }
+}

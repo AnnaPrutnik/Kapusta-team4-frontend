@@ -1,0 +1,34 @@
+@import '../../../../styles/shared.scss';
+.btn {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  align-items: baseline;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: $text-color-primary;
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin: 0;
+  }
+
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-left: 205px;
+  }
+}
+
+.icon {
+  fill: #52555f;
+  width: 14px;
+  height: 14px;
+  margin-left: 15px;
+}

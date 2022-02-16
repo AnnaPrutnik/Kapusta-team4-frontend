@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { getStatsCategoriesForMonth } from '../../../services/statisticApi/statisticApi'
 import DesktopChart from './DesktopChart'
 import MobileChart from './MobileChart'
-import s from '../../../styles/component/ReportView/Charts/Chart.module.scss'
-import { useEffect, useState } from 'react'
+import s from './Chart.module.scss'
 import {
   colors,
   tabletOptions,

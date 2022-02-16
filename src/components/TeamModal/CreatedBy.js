@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FcLike } from 'react-icons/fc'
 import TeamModal from './TeamModal'
-import s from '../../styles/component/TeamModal/TeamModal.module.scss'
+import s from './TeamModal.module.scss'
 
 function CreatedBy() {
   const [showModal, setShowModal] = useState(false)

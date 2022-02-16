@@ -1,6 +1,6 @@
 import Loader from 'react-loader-spinner'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
-import s from '../../styles/component/Loader/Loader.module.scss'
+import s from './Loader.module.scss'
 
 function PreLoader() {
   return (

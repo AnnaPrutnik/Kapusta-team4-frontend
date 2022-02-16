@@ -1,6 +1,6 @@
 import BgIcons from '../Background/BgIcons'
 import title from '../../images/Background/svg/title.svg'
-import s from '../../styles/component/Home/Home.module.scss'
+import s from './Home.module.scss'
 
 function HomeContent() {
   return (

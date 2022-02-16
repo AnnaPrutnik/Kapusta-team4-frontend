@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import s from '../../../styles/component/ReportView/CommonStats/ReportMenu.module.scss'
+import s from './ReportMenu.module.scss'
 
 function ReportMenu({ totalTrans }) {
   const [incomes, setIncomes] = useState(null)
@@ -7,17 +7,28 @@ function ReportMenu({ totalTrans }) {
 
   useEffect(() => {
     if (totalTrans.length === 0) {
-      setIncomes(null)
-      setExpenses(null)
+      handleChangeStats(null, null)
     } else {
-      totalTrans.map(transaction =>
-        transaction.isExpense
-          ? setExpenses(transaction.total)
-          : setIncomes(transaction.total),
-      )
+      if (totalTrans.length === 2) {
+        totalTrans.map(transaction =>
+          transaction.isExpense
+            ? setExpenses(transaction.total)
+            : setIncomes(transaction.total),
+        )
+      } else {
+        if (totalTrans[0].isExpense) {
+          handleChangeStats(totalTrans[0].total, null)
+        } else {
+          handleChangeStats(null, totalTrans[0].total)
+        }
+      }
     }
   }, [totalTrans])
 
+  const handleChangeStats = (expense, income) => {
+    setExpenses(expense)
+    setIncomes(income)
+  }
   return (
     <div className={s.wrap}>
       <div className={s.outcome}>

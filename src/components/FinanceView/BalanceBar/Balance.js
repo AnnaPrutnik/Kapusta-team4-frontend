@@ -1,6 +1,6 @@
-import ReportBtn from './ReportBtn'
-import BalanceForm from './BalanceForm'
-import s from '../../../styles/component/FinanceView/BalanceBar/Balance.module.scss'
+import ReportBtn from './ReportBtn/ReportBtn'
+import BalanceForm from './BalanceForm/BalanceForm'
+import s from './Balance.module.scss'
 
 function Balance() {
   return (
