@@ -35,9 +35,9 @@ function ExitModal({
   }
 
   return createPortal(
-    <div className={s.modalBackground} onClick={handleOverlayClick}>
-      <div className={s.modalContainer}>
-        <span className={s.closeBtn} onClick={onClose}>
+    <div className={s.background} onClick={handleOverlayClick}>
+      <div className={s.modal}>
+        <span className={s.close} onClick={onClose}>
           &#10006;
         </span>
 

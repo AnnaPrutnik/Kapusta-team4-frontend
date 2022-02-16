@@ -13,7 +13,7 @@ function CreatedBy() {
   return (
     <p className={s.tag}>
       Created by
-      <button onClick={toggleModal} className={s.team_btn}>
+      <button onClick={toggleModal} className={s.team_btn} type="button">
         GoIt Team
       </button>
       {showModal && <TeamModal onClose={toggleModal} />}

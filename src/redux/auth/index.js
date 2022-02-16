@@ -2,8 +2,9 @@ export {
   getIsLoggedIn,
   getUsername,
   getUserEmail,
+  getUserAvatar,
   getIsFirstLogin,
   getIsRefreshing,
 } from './auth-selectors'
-export { register, logIn, logOut } from './auth-operation'
+export { register, logIn, logOut, editName, editAvatar } from './auth-operation'
 export { loginByGoogle, changeIsFirstLogin } from './auth-action'

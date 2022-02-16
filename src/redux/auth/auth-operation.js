@@ -1,6 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { toast } from 'react-toastify';
-import { signUpUser, loginUser, logoutUser, currentUser } from '../../services/'
+import { toast } from 'react-toastify'
+import {
+  signUpUser,
+  loginUser,
+  logoutUser,
+  currentUser,
+  setUserName,
+  setUserAvatar,
+} from '../../services/'
 import { setHeaders } from '../../services/'
 
 export const register = createAsyncThunk(
@@ -20,10 +27,12 @@ export const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await loginUser(credentials)
-      toast.success("Поздравляем! Вы успешно вошли в свою учетную запись!")
+      toast.success('Поздравляем! Вы успешно вошли в свою учетную запись!')
       return data
     } catch (error) {
-      toast.error("Ошибка! Проверьте правильность вводимых данных или зарегистрируйтесь для входа в личный кабинет!")
+      toast.error(
+        'Ошибка! Проверьте правильность вводимых данных или зарегистрируйтесь для входа в личный кабинет!',
+      )
       return rejectWithValue(error.message)
     }
   },
@@ -54,6 +63,32 @@ export const getCurrentUser = createAsyncThunk(
       return data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message)
+    }
+  },
+)
+
+export const editName = createAsyncThunk(
+  'auth/editName',
+  async (value, { rejectWithValue }) => {
+    try {
+      const { data } = await setUserName(value)
+      toast('Вы успешно изменили имя пользователя!')
+      return data.updateUser
+    } catch (error) {
+      return rejectWithValue(error.message)
+    }
+  },
+)
+
+export const editAvatar = createAsyncThunk(
+  'auth/editAvatar',
+  async (value, { rejectWithValue }) => {
+    try {
+      const { data } = await setUserAvatar(value)
+      toast('Вы успешно изменили фото профиля!')
+      return data
+    } catch (error) {
+      return rejectWithValue(error.message)
     }
   },
 )

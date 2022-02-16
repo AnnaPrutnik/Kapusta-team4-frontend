@@ -1,16 +1,17 @@
 import { useSelector } from 'react-redux'
 import { getUsername } from '../../redux/auth'
+import Avatar from './Avatar'
+import UserName from './UserName'
 import UserLogOut from '../Auth/UserLogOut'
 import s from '../../styles/component/Header/Header.module.scss'
 
 function UserMenu() {
   const userName = useSelector(getUsername)
-  const avatar = () => userName.charAt(0)
 
   return (
     <div className={s.user_container}>
-      <div className={s.avatar}>{avatar()}</div>
-      <p className={s.name}>{userName}</p>
+      <Avatar userName={userName} />
+      <UserName userName={userName} />
       <UserLogOut />
     </div>
   )

@@ -16,6 +16,8 @@ export {
   getExpenseCategory,
 } from './categoryApi/categoryApi'
 
+export { setUserName, setUserAvatar } from './editUserData/editUserData'
+
 export {
   addTransaction,
   deleteTransaction,
