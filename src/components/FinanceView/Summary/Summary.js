@@ -11,11 +11,24 @@ function Summary({ isExpense, length }) {
   const [expenses, setExpenses] = useState({})
   const [incomes, setIncomes] = useState({})
 
+  const monthSort = items => {
+    const date = new Date()
+    const monthNow = date.getMonth() + 1
+    items.map(el => {
+      if (el.month - monthNow <= 0) {
+        el.monthSort = el.month + 12
+      } else {
+        el.monthSort = el.month
+      }
+    })
+    return items.sort((a, b) => (a.monthSort < b.monthSort ? 1 : -1))
+  }
+
   useEffect(() => {
     getExpensesForLastSixMonth().then(res => {
-      setExpenses(res.data)
+      setExpenses(monthSort(res.data))
     }),
-      getIncomesForLastSixMonth().then(res => setIncomes(res.data))
+      getIncomesForLastSixMonth().then(res => setIncomes(monthSort(res.data)))
   }, [length])
 
   return (

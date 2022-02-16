@@ -32,6 +32,11 @@ function BalanceForm() {
     inputClasses.push(s.negative)
   }
 
+  const spanClasses = [s.uah]
+  if (balance < 0) {
+    spanClasses.push(s.negative)
+  }
+
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <label className={s.label} htmlFor="balance">
@@ -49,7 +54,7 @@ function BalanceForm() {
           size={userBalance.length || 1}
         />
 
-        <span className={s.uah}>UAH</span>
+        <span className={spanClasses.join(' ')}>UAH</span>
         {isFirstTime && <BalanceNotifications />}
       </div>
       <button className={s.btn} type="submit">
