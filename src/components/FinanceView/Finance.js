@@ -17,7 +17,7 @@ import s from './Finance.module.scss'
 function Finance() {
   const [isExpense, setIsExpense] = useState(true)
   const [transactions, setTransactions] = useState([])
-  const [date, setDate] = useState(dayjs().format())
+  const [date, setDate] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const notMobile = useMediaQuery({ minWidth: 768 })
   const isDesktop = useMediaQuery({ minWidth: 1280 })
@@ -25,6 +25,9 @@ function Finance() {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    if (!date) {
+      return
+    }
     getTransactionsForOneDay(date).then(res => {
       setTransactions(res.data)
     })

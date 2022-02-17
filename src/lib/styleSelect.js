@@ -14,13 +14,18 @@ export const customStyles = {
     color: '#C7CCDC',
   }),
   indicatorSeparator: provided => ({
-    ...provided,
+    // ...provided,
     display: 'none',
   }),
   option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isFocused && '#f5f6fb',
     color: state.isFocused ? '#52555F' : '#C7CCDC',
+  }),
+  menuList: (provided, state) => ({
+    ...provided,
+    overflow: 'visible',
+    maxHeight: 'auto',
   }),
   indicatorsContainer: (provided, state) => {
     const styles = state.selectProps.menuIsOpen

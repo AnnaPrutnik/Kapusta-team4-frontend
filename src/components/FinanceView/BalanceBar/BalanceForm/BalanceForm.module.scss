@@ -13,6 +13,10 @@ input::-webkit-inner-spin-button {
   @media screen and (min-width: $breakpoint-tablet) {
     margin-bottom: 0;
   }
+  @media screen and (min-width: $breakpoint-desktop) {
+    margin-left: 335px;
+    margin-right: auto;
+  }
 }
 
 .label {
@@ -52,6 +56,7 @@ input::-webkit-inner-spin-button {
   color: $text-inactive-tab;
   font-weight: 700;
   border-right: none;
+  cursor: text;
 
   @media screen and (min-width: $breakpoint-tablet) {
     border: 2px solid $btn-grey-border-color;
@@ -77,10 +82,9 @@ input::-webkit-inner-spin-button {
     color: $text-inactive-tab;
   }
 
-
   @media screen and (min-width: $breakpoint-tablet) {
     width: fit-content;
-    max-width: 150px;
+    max-width: 80px;
   }
 }
 
@@ -91,6 +95,7 @@ input::-webkit-inner-spin-button {
 .uah {
   composes: input;
   text-align: start;
+  padding: 0;
 }
 
 .btn {

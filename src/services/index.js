@@ -2,7 +2,7 @@ import axios from 'axios'
 
 axios.defaults.baseURL = 'https://goit-fs35-team4-kapusta.herokuapp.com/api'
 
-export { setToken, setHeaders, unsetHeaders } from './token/token'
+export { setHeaders, unsetHeaders } from './token/token'
 export {
   signUpUser,
   loginUser,
@@ -20,7 +20,7 @@ export {
   getTransactionsForOneDay,
 } from './transactionsApi/transactionsApi'
 
-export { getUserBalance, setUserBalance } from './userApi/userApi'
+export { setUserBalance } from './userApi/userApi'
 
 export {
   getExpensesForLastSixMonth,

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getBalance, setBalance } from './balance-operation'
-import { logIn, logOut } from '../auth/auth-operation'
+import {  setBalance } from './balance-operation'
+import { logIn, logOut, getCurrentUser } from '../auth/auth-operation'
 import { updateBalance } from './balance-action'
 
 const initialState = {
@@ -13,6 +13,9 @@ const balanceSlice = createSlice({
   initialState,
   reducer: {},
   extraReducers: {
+    [updateBalance](state, { payload }) {
+      state.value = payload
+    },
     [logIn.pending](state, _) {
       state.error = false
       state.value = null
@@ -35,20 +38,17 @@ const balanceSlice = createSlice({
     [logOut.rejected](state, _) {
       state.error = true
     },
-    [updateBalance](state, { payload }) {
-      state.value = payload
-    },
-    [getBalance.pending](state, _) {
+    [getCurrentUser.pending](state, _) {
       state.error = false
     },
-    [getBalance.fulfilled](state, { payload }) {
-      state.value = payload
+    [getCurrentUser.fulfilled](state, { payload }) {
       state.error = false
+      state.value = payload.balance
     },
-    [getBalance.rejected](state, _) {
+    [getCurrentUser.rejected](state, _) {
       state.error = true
     },
-    [setBalance.pending](state, _) {
+       [setBalance.pending](state, _) {
       state.error = false
     },
     [setBalance.fulfilled](state, { payload }) {
