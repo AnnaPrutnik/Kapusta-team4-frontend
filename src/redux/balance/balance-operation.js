@@ -1,17 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { setUserBalance, getUserBalance } from '../../services/'
-
-export const getBalance = createAsyncThunk(
-  '/balance/getBalance',
-  async (_, { rejectWithValue }) => {
-    try {
-      const { data } = await getUserBalance()
-      return data
-    } catch (error) {
-      return rejectWithValue(error.message)
-    }
-  },
-)
+import { setUserBalance } from '../../services/'
 
 export const setBalance = createAsyncThunk(
   '/balance/setBalance',

@@ -1,6 +1,7 @@
 @import '../../../../styles/shared.scss';
 .btn {
   display: flex;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
@@ -17,12 +18,24 @@
   letter-spacing: 0.04em;
   color: $text-color-primary;
 
-  @media screen and (min-width: $breakpoint-tablet) {
-    margin: 0;
+  &::after {
+    display: block;
+    position: absolute;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    background-color: $btn-orange-bg-color;
+    content: '';
+    transition: width 0.3s ease-out;
   }
 
-  @media screen and (min-width: $breakpoint-desktop) {
-    margin-left: 205px;
+  &:hover::after {
+    width: 100%;
+  }
+
+  @media screen and (min-width: $breakpoint-tablet) {
+    margin: 0;
   }
 }
 
