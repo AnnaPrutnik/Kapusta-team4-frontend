@@ -2,6 +2,7 @@ import { VictoryChart, VictoryAxis, VictoryBar, VictoryLabel } from 'victory'
 
 function MobileChart({ data, labelsStyle, colors }) {
   const n = data.length
+
   const heightChart = n > 2 ? n * 75 : 200
   let ratioChart = n > 5 ? 0.5 : 0.9
 
@@ -46,7 +47,7 @@ function MobileChart({ data, labelsStyle, colors }) {
             fill: ({ data, index }) =>
               data.length === 1
                 ? colors.main
-                : (index + 3) % 3 === 1
+                : (index + 1) % 3 === 1
                 ? colors.main
                 : colors.secondary,
           },

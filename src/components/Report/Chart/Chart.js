@@ -19,7 +19,7 @@ function Chart({ id, month, year }) {
 
   useEffect(() => {
     getStats()
-  }, [id])
+  }, [id, month])
 
   const getStats = async () => {
     const result = await getStatsCategoriesForMonth(month, year, id)
