@@ -44,7 +44,7 @@ function InfoTable({ transactions, deleteTransaction, isExpense }) {
           handleClickLeft={handleClickDelete}
           handleClickRight={handleCloseModal}
           onClose={handleCloseModal}
-          modalTitle={'Вы уверенны?'}
+          modalTitle={'Вы уверены?'}
         />
       )}
     </>
