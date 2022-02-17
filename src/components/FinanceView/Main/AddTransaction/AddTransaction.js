@@ -92,7 +92,7 @@ function AddTransaction({ date, changeTransactions, isExpense, onCloseForm }) {
         <label>
           <input
             type="text"
-            placeholder={'Описане товара'}
+            placeholder={'Описание товара'}
             value={description}
             onChange={handleChangeDescription}
             className={s.description}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getIsFirstLogin, changeIsFirstLogin } from '../../../../redux/auth'
 import { getUserBalance, setBalance } from '../../../../redux/balance'
