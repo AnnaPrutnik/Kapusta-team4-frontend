@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getIsFirstLogin, changeIsFirstLogin } from '../../../../redux/auth'
+import { changeIsFirstLogin, getIsFirstLogin } from '../../../../redux/auth'
 import { getUserBalance, setBalance } from '../../../../redux/balance'
 import BalanceNotifications from '../BalanceNotification/BalanceNotification'
 import s from './BalanceForm.module.scss'
@@ -37,6 +37,7 @@ function BalanceForm() {
     spanClasses.push(s.negative)
   }
 
+
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <label className={s.label} htmlFor="balance">
@@ -44,16 +45,15 @@ function BalanceForm() {
       </label>
       <div className={s.wrap}>
         <input
-          type="text"
+          type='number'
           className={inputClasses.join(' ')}
-          placeholder="00.00"
-          name="balance"
-          id="balance"
-          value={userBalance}
+          placeholder={`${userBalance}`}
+          name='balance'
+          id='balance'
+          value={userBalance === '0.00' ? '' : userBalance}
           onChange={handleInputChange}
           size={userBalance.length || 1}
         />
-
         <span className={spanClasses.join(' ')}>UAH</span>
         {isFirstTime && <BalanceNotifications />}
       </div>
