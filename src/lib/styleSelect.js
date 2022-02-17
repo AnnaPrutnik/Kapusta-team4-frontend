@@ -14,7 +14,6 @@ export const customStyles = {
     color: '#C7CCDC',
   }),
   indicatorSeparator: provided => ({
-    // ...provided,
     display: 'none',
   }),
   option: (provided, state) => ({
