@@ -2,25 +2,50 @@
 
 .bg_main {
   margin-top: 0;
-  background-image: url('../../images/Background/svg/home_mobile_top.svg');
-  background-position: top 160px right 0;
+  background-image: url('../../images/Background/svg/home_mobile_top.svg'),
+    url('../../images/Background/svg/home_mobile.svg');
+  background-position: top 160px right 0, bottom 0 left 35px;
   background-repeat: no-repeat;
-  background-size: 49px 83px;
+  background-size: 49px 83px, 83px 89px;
   overflow: hidden;
 
   @media screen and (min-width: $breakpoint-tablet) {
-    background-size: 768px 232px;
-    background-position: top 84px left 10px;
-    background-repeat: repeat-x;
-    background-image: url('../../images/Background/svg/tablet_group.svg');
+    background-size: 768px 232px, 183px 142px;
+    background-position: top 84px left 10px, bottom 56px left 103px;
+    background-repeat: repeat-x, no-repeat;
+    background-image: url('../../images/Background/svg/tablet_group.svg'),
+      url('../../images/Background/svg/main_two.svg');
   }
 
   @media screen and (min-width: $breakpoint-desktop) {
-    background-size: 1280px 232px;
-    background-position: top 86px left 10px;
-    background-image: url('../../images/Background/svg/main_group.svg');
+    background-size: 1280px 232px, 183px 142px;
+    background-position: top 86px left 10px, bottom 20px left 230px;
+    background-repeat: repeat-x, no-repeat;
+    background-image: url('../../images/Background/svg/main_group.svg'),
+      url('../../images/Background/svg/main_two.svg');
   }
 }
+// .bg_main {
+//   margin-top: 0;
+//   background-image: url('../images/Background/svg/home_mobile_top.svg');
+//   background-position: top 160px right 0;
+//   background-repeat: no-repeat;
+//   background-size: 49px 83px;
+//   overflow: hidden;
+
+//   @media screen and (min-width: $breakpoint-tablet) {
+//     background-size: 768px 232px;
+//     background-position: top 84px left 10px;
+//     background-repeat: repeat-x;
+//     background-image: url('../../images/Background/svg/tablet_group.svg');
+//   }
+
+//   @media screen and (min-width: $breakpoint-desktop) {
+//     background-size: 1280px 232px;
+//     background-position: top 86px left 10px;
+//     background-image: url('../../images/Background/svg/main_group.svg');
+//   }
+// }
 
 .title_container {
   margin-top: 142px;
