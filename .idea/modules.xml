@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Kapusta-team4-frontend.iml" filepath="$PROJECT_DIR$/.idea/Kapusta-team4-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Kapusta-team4-frontend.nosync.iml" filepath="$PROJECT_DIR$/.idea/Kapusta-team4-frontend.nosync.iml" />
     </modules>
   </component>
 </project>

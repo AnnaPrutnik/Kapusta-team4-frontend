@@ -1,5 +1,11 @@
 @import '../../../../styles/shared.scss';
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .form {
   text-align: center;
   margin-bottom: 40px;
@@ -70,6 +76,7 @@
     font-weight: 700;
     color: $text-inactive-tab;
   }
+
 
   @media screen and (min-width: $breakpoint-tablet) {
     width: fit-content;
