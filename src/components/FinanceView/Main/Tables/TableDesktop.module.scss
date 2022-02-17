@@ -2,6 +2,7 @@
 
 .table {
   display: block;
+  border: 2px solid #f5f6fb;
 
   @media screen and (min-width: $breakpoint-desktop) {
     width: 760px;
@@ -57,7 +58,7 @@
   height: 40px;
   padding: 0 26px 0 21px;
   color: $text-color-secondary;
-  border: 2px solid $btn-grey-bg-color;
+  border-bottom: 2px solid $btn-grey-bg-color;
   border-top: none;
 }
 .date {
