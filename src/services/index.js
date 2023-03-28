@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://goit-fs35-team4-kapusta.herokuapp.com/api'
+axios.defaults.baseURL = 'https://kapusta-app-backend.onrender.com/api'
 
 export { setHeaders, unsetHeaders } from './token/token'
 export {
