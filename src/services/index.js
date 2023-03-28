@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { SERVER_URL } from '../lib/hostURL'
 
-axios.defaults.baseURL = 'https://kapusta-app-backend.onrender.com/api'
+axios.defaults.baseURL = SERVER_URL
 
 export { setHeaders, unsetHeaders } from './token/token'
 export {

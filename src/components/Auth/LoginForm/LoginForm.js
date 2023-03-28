@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { logIn } from '../../../redux/auth/auth-operation'
+import { SERVER_URL } from '../../../lib/hostURL'
 
 import s from '../Auth.module.scss'
 
@@ -72,10 +73,7 @@ function LoginForm({ onClickRegister }) {
       <p className={s.text_align}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a
-        href="https://goit-fs35-team4-kapusta.herokuapp.com/api/auth/google"
-        className={s.google}
-      >
+      <a href={`${SERVER_URL}/auth/google`} className={s.google}>
         Google
       </a>
       <p className={s.text}>
