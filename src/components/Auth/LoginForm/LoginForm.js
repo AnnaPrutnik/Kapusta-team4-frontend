@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { logIn } from '../../../redux/auth/auth-operation'
-import { SERVER_URL } from '../../../lib/hostURL'
-
+import { getGoogleUrl } from '../../../utils/getGoogleUrl'
+import { useLocation } from 'react-router-dom'
 import s from '../Auth.module.scss'
 
 function LoginForm({ onClickRegister }) {
+  const location = useLocation()
+  let from = location.state || '/'
+
   const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -73,7 +76,7 @@ function LoginForm({ onClickRegister }) {
       <p className={s.text_align}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a href={`${SERVER_URL}/auth/google`} className={s.google}>
+      <a href={getGoogleUrl(from)} className={s.google}>
         Google
       </a>
       <p className={s.text}>
