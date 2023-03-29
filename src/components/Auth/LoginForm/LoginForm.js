@@ -31,8 +31,6 @@ function LoginForm({ onClickRegister }) {
         return
     }
   }
-  console.log('server url', process.env.REACT_APP_SERVER_URL)
-  console.log('server redirect', process.env.REACT_APP_GOOGLE_OAUTH_REDIRECT)
 
   const handleChangeEmail = ({ target: { value } }) => {
     setEmail(value)

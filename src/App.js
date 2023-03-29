@@ -31,7 +31,6 @@ function App() {
     setIsLoad(false)
   }, [])
 
-  console.log(process.env.REACT_APP_SERVER_URL)
   return (
     <div className="App">
       {isLoad ? (
