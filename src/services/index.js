@@ -1,7 +1,8 @@
 import axios from 'axios'
-import { SERVER_URL } from '../lib/hostURL'
 
-axios.defaults.baseURL = SERVER_URL
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL
+
+
 
 export { setHeaders, unsetHeaders } from './token/token'
 export {
